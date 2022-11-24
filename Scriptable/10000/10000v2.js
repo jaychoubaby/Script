@@ -7,7 +7,7 @@
  * @author back
  */
 
-const getImage = async(url) => {
+const getImage = async (url) => {
     const request = new Request(url);
     const image = await request.loadImage();
     return image
@@ -37,6 +37,7 @@ const useCache = () => {
 
     const readJSON = (filePath) => JSON.parse(readString(filePath));
 
+
     return {
         cacheDirectory,
         writeString,
@@ -62,7 +63,7 @@ const BACK_URL = 'https://e.189.cn/store/wap/partner/stylehead/189Bill.do';
 const cache = useCache();
 
 
-const readCache = async() => {
+const readCache = async () => {
     console.log('读取缓存')
     try {
         const backJson = cache.readJSON('10000.json');
@@ -78,25 +79,27 @@ const readCache = async() => {
         }
 
         base64str = cache.readString('base64str');
-        console.log(`base64str:${base64str}`)
     } catch (e) {
         console.log(`读取缓存失败:${e}`);
     }
 };
 
-const writeCache = async() => {
+const writeCache = async () => {
     console.log('刷新缓存')
     try {
-        // 从缓存获取cookie
         clientCookie = await getBoxJsCookie();
         if (!clientCookie) {
-            // 获取boxjs缓存
+            // 获取缓存cookie
             clientCookie = cache.readString('cookie');
+            console.log(`获取缓存cookie: ${clientCookie}`)
+        } else {
+            if (cache.readString('cookie') != clientCookie) {
+                cache.writeString('cookie', clientCookie);
+            }
         }
         if (!clientCookie) {
             throw '无法获取cookie';
         }
-        console.log(`clientCookie:${clientCookie}`)
 
         // 查询数据
         await getData();
@@ -112,27 +115,25 @@ const writeCache = async() => {
             voice: voice,
             time: time
         }
-        cache.writeJSON('10000.json', JSON.stringify(backJson));
+        cache.writeJSON('10000.json', backJson);
 
         // 背景图
         base64str = cache.readString('base64str');
-        console.log(`获取缓存图片base64:${base64str}`);
         if (!base64str) {
             const image = await getImage(IMAGE_URL);
             const obase64str = Data.fromPNG(image).toBase64String();
             const uri = await getSmallBg(`data:image/png;base64,${obase64str}`);
             base64str = uri.replace(/^data:image\/\w+;base64,/, '');
-            console.log(`写入缓存图片base64:${base64str}`);
             cache.writeString('base64str', base64str);
         }
-        return json
+        return true;
     } catch (e) {
         console.log(`写入缓存失败:${e}`);
     }
 };
 
 
-const getBoxJsCookie = async() => {
+const getBoxJsCookie = async () => {
     try {
         // 获取boxjs缓存
         const url = API_URL;
@@ -145,13 +146,11 @@ const getBoxJsCookie = async() => {
 }
 
 
-const getFee = async() => {
+const getFee = async () => {
     try {
         const feeUrl = new Request(API_FEE_URL);
         feeUrl.headers = { "Cookie": clientCookie };
-        console.log(JSON.stringify(feeUrl))
         const feeInfo = await feeUrl.loadJSON();
-        console.log(JSON.stringify(feeInfo))
         if (feeInfo.result == 0) {
             return feeInfo;
         } else {
@@ -162,7 +161,7 @@ const getFee = async() => {
     }
 }
 
-const getFlow = async() => {
+const getFlow = async () => {
     try {
         const flowUrl = new Request(API_FLOW_URL);
         flowUrl.headers = { "Cookie": clientCookie };
@@ -177,7 +176,7 @@ const getFlow = async() => {
     }
 }
 
-const getData = async() => {
+const getData = async () => {
     const feeInfo = await getFee();
     const flowInfo = await getFlow();
 
@@ -201,7 +200,7 @@ const getData = async() => {
     voice = voice + "分钟";
 }
 
-const getSmallBg = async(url) => {
+const getSmallBg = async (url) => {
     const webview = new WebView();
     const js =
         `const canvas = document.createElement('canvas');
@@ -229,7 +228,7 @@ const getSmallBg = async(url) => {
 };
 
 
-const render = async(data) => {
+const render = async (data) => {
     const widget = new ListWidget();
     widget.backgroundColor = Color.dynamic(new Color('#fff'), new Color('#242426'));
     if (config.widgetFamily === 'small') {
@@ -270,7 +269,7 @@ const render = async(data) => {
     return widget
 };
 
-const main = async() => {
+const main = async () => {
 
     // 获取数据并写入缓存
     if (!await writeCache()) {

@@ -34,6 +34,7 @@ const useCache = () => {
 
     const readJSON = (filePath) => JSON.parse(readString(filePath));
 
+
     return {
         cacheDirectory,
         writeString,
@@ -66,14 +67,12 @@ const readCache = async () => {
             fee = backInfo.fee;
             flow = backInfo.flow;
             voice = backInfo.voice;
-            point = backInfo.point;
             time = backInfo.time;
         } else {
             console.log('10010.json缓存不存在')
         }
 
         base64str = cache.readString('base64str');
-        console.log(`base64str:${base64str}`)
     } catch (e) {
         console.log(`读取缓存失败:${e}`);
     }
@@ -82,28 +81,22 @@ const readCache = async () => {
 const writeCache = async () => {
     console.log('刷新缓存')
     try {
-        // 获取boxjs缓存
-        const url = API_URL;
-        const request = new Request(url);
-        const json = await request.loadJSON();
-        clientCookie = json.val;
+        clientCookie = await getBoxJsCookie();
+        if (!clientCookie) {
+            // 获取缓存cookie
+            clientCookie = cache.readString('cookie');
+            console.log(`获取缓存cookie: ${clientCookie}`)
+        } else {
+            if (cache.readString('cookie') != clientCookie) {
+                cache.writeString('cookie', clientCookie);
+            }
+        }
+        if (!clientCookie) {
+            throw '无法获取cookie';
+        }
 
-        const backInfo = await getData();
-        console.log(`backInfo:${backInfo}`)
-        backInfo.data.dataList.forEach((item) => {
-            if (item.type === 'fee') {
-                fee = item.number + item.unit;
-            }
-            if (item.type === 'flow') {
-                flow = item.number + item.unit;
-            }
-            if (item.type === 'voice') {
-                voice = item.number + item.unit;
-            }
-            if (item.type === 'point') {
-                point = item.number + item.unit;
-            }
-        });
+        // 查询数据
+        await getData();
 
         const dfm = new DateFormatter();
         dfm.dateFormat = 'HH:mm';
@@ -114,28 +107,37 @@ const writeCache = async () => {
             fee: fee,
             flow: flow,
             voice: voice,
-            point: point,
             time: time
         }
-        cache.writeJSON('10010.json', JSON.stringify(backJson));
+        cache.writeJSON('10010.json', backJson);
 
         // 背景图
         base64str = cache.readString('base64str');
-        console.log(`获取缓存图片base64:${base64str}`);
         if (!base64str) {
             const image = await getImage(IMAGE_URL);
             const obase64str = Data.fromPNG(image).toBase64String();
             const uri = await getSmallBg(`data:image/png;base64,${obase64str}`);
             base64str = uri.replace(/^data:image\/\w+;base64,/, '');
-            console.log(`写入缓存图片base64:${base64str}`);
             cache.writeString('base64str', base64str);
         }
-        return json
+        return true;
     } catch (e) {
         console.log(`写入缓存失败:${e}`);
     }
 };
 
+
+const getBoxJsCookie = async () => {
+    try {
+        // 获取boxjs缓存
+        const url = API_URL;
+        const request = new Request(url);
+        const json = await request.loadJSON();
+        return json.val;
+    } catch (e) {
+        console.log(`获取boxjs cookie失败:${e}`);
+    }
+}
 
 const login = async () => {
     const url = 'https://m.client.10010.com/dailylottery/static/textdl/userLogin?version=iphone_c@8.0200&desmobile=';
@@ -163,7 +165,20 @@ const getData = async () => {
         const userInfo = await req.loadJSON();
 
         if (userInfo.code === 'Y') {
-            return userInfo;
+            userInfo.data.dataList.forEach((item) => {
+                if (item.type === 'fee') {
+                    fee = item.number + item.unit;
+                }
+                if (item.type === 'flow') {
+                    flow = item.number + item.unit;
+                }
+                if (item.type === 'voice') {
+                    voice = item.number + item.unit;
+                }
+                if (item.type === 'point') {
+                    point = item.number + item.unit;
+                }
+            });
         } else {
             throw 'cookie错误/服务器维护';
         }
