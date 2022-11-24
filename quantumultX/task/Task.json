@@ -1,0 +1,18 @@
+{
+    "name": "back",
+    "description": "back task",
+    "task": [
+        "0 0 0/2 * * ? https://raw.githubusercontent.com/xream/scripts/main/surge/modules/10010v3/10010.js, tag=联通余量",
+        "0 0/20 * * * ? https://raw.githubusercontent.com/QGCliveDavis/Module/main/Telecom/Tele_Cellular.js, tag=电信余量",
+        "0 1 9 * * * https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/wanbianios/wanbianios.js, tag=玩遍ios",
+        "0 2 9 * * * https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/10010/10010.js, tag=10010",
+        "0 3 9 * * * https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/tuhu/tuhu.js, tag=途虎",
+        "0 4 9 * * * https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/ithome/ithome.js, tag=ithome-签到",
+        "0 5 9 * * * https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/sfexpress/sfexpress.js, tag=顺丰签到",
+        "0 6 9 * * * https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/hdl/hdl.js, tag=海底捞签到",
+        "0 7 9 * * * https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/ctf/ctf.js, tag=周大福",
+        "0 8 9 * * * https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/ggtd/ggtd.js, tag=光谷天地",
+        "0 9 9 * * * https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/blsd/blsd.js, tag=保利时代",
+        "0 10 9 * * * https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/sjc/sjc.js, tag=世界城"
+    ]
+}
