@@ -16,6 +16,7 @@ setTimeout(() => {
     ids = ids.split(",");
     try {
       for await (const ID of ids) {
+        console.log("尝试：" + ID);
         await autoPost(ID);
       }
     } catch (error) {
@@ -28,12 +29,15 @@ setTimeout(() => {
 
 function autoPost(ID) {
   let Key = $prefs.valueForKey("key");
+  console.log("Key：" + Key);
   let testurl = "https://testflight.apple.com/v3/accounts/" + Key + "/ru/";
+  console.log("testurl" + testurl);
   let header = {
     "X-Session-Id": `${$prefs.valueForKey("session_id")}`,
     "X-Session-Digest": `${$prefs.valueForKey("session_digest")}`,
     "X-Request-Id": `${$prefs.valueForKey("request_id")}`,
   };
+  console.log("header" + JSON.stringify(header));
   return new Promise(function (resolve) {
     $task.fetch({ url: testurl + ID, method: "GET", headers: header }).then(
       (resp) => {
