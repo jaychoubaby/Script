@@ -74,3 +74,8 @@ function autoPost(ID) {
     );
   });
 }
+
+setTimeout(() => {
+  console.log("脚本超时 5 秒退出。");
+  $done();
+}, 5000)
