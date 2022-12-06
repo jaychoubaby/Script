@@ -8,7 +8,7 @@ setTimeout(() => {
 }, 5000)
 
 !(async () => {
-  ids = $prefs.valueForKey("23LA2tmX,elwvzipQ,HNprKXI9");
+  ids = "23LA2tmX,elwvzipQ";
   if (ids == "") {
     $notify("所有TF已加入完毕", "请手动关闭", "");
     $done();
