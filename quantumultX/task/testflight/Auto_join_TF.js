@@ -2,8 +2,13 @@
 // */1 * * * * * https://raw.githubusercontent.com/chouchoui/QuanX/master/Scripts/testflight/Auto_join_TF.js, tag=TestFlight自动加入, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/testflight.png, enabled=true
 //*********************************
 
+setTimeout(() => {
+  console.log("脚本超时 5 秒退出。");
+  $done();
+}, 5000)
+
 !(async () => {
-  ids = $prefs.valueForKey("23LA2tmX,elwvzipQ");
+  ids = $prefs.valueForKey("23LA2tmX,elwvzipQ,HNprKXI9");
   if (ids == "") {
     $notify("所有TF已加入完毕", "请手动关闭", "");
     $done();
@@ -75,7 +80,4 @@ function autoPost(ID) {
   });
 }
 
-setTimeout(() => {
-  console.log("脚本超时 5 秒退出。");
-  $done();
-}, 5000)
+
