@@ -8,7 +8,7 @@ setTimeout(() => {
 }, 5000)
 
 !(async () => {
-  ids = "23LA2tmX,elwvzipQ";
+  ids = "23LA2tmX,elwvzipQ,iSTXkF4K";
   if (ids == "") {
     $notify("所有TF已加入完毕", "请手动关闭", "");
     $done();
