@@ -8,6 +8,9 @@ setTimeout(() => {
 }, 5000)
 
 !(async () => {
+  // loon 23LA2tmX
+  // stash elwvzipQ
+  // 微信键盘 iSTXkF4K
   ids = "23LA2tmX,elwvzipQ,iSTXkF4K";
   if (ids == "") {
     $notify("所有TF已加入完毕", "请手动关闭", "");
