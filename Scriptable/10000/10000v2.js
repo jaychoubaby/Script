@@ -15,7 +15,7 @@ const getImage = async (url) => {
 
 const useCache = () => {
     const fm = FileManager.local();
-    const cacheDirectory = fm.joinPath(fm.cacheDirectory(), `${Script.name()}.Scriptable`);
+    const cacheDirectory = fm.joinPath(fm.documentsDirectory(), `${Script.name()}.Scriptable`);
 
     const writeString = (filePath, content) => {
         const safePath = fm.joinPath(cacheDirectory, filePath).replace(/\/+$/, '');
