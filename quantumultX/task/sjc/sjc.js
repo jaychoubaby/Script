@@ -18,7 +18,19 @@ function sign() {
     back.log(JSON.stringify(h))
 
     const url = { url: `https://m.mallcoo.cn/api/user/User/CheckinV2`, headers: h }
-    url.body = `{"MallID":10010,"Header":{"Token":"V_eJCAgePk-YEEqmPR0BbgFtZfvT4wDk,15019","systemInfo":{"model":"iPhone 12 Pro<iPhone13,3>","SDKVersion":"2.27.0","system":"iOS 16.0","version":"8.0.29","miniVersion":"DZ.2.5.56.1.SJC.9"}}}`;
+    url.body = `{
+  "MallID" : 10010,
+  "Header" : {
+    "Token" : "weUhomJWJUaMbTT8SKb0xA8ug8I9rmfU,15019",
+    "systemInfo" : {
+      "miniVersion" : "DZ.2.5.58.1.SJC.10",
+      "system" : "iOS 16.2",
+      "model" : "iPhone 12 Pro<iPhone13,3>",
+      "SDKVersion" : "2.30.0",
+      "version" : "8.0.32"
+    }
+  }
+}`;
     back.post(url, (error, response, data) => {
         back.log(`${cookieName}, data: ${data}`)
         const title = `${cookieName}`
