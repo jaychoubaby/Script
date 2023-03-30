@@ -21,13 +21,13 @@ function sign() {
     url.body = `{
   "MallID" : 10010,
   "Header" : {
-    "Token" : "weUhomJWJUaMbTT8SKb0xA8ug8I9rmfU,15019",
+    "Token" : "FpMPlx8KV0KbZAHQL0Q9FwikLJ2K_g9k,15019",
     "systemInfo" : {
       "miniVersion" : "DZ.2.5.58.1.SJC.10",
-      "system" : "iOS 16.2",
+      "system" : "iOS 16.4",
       "model" : "iPhone 12 Pro<iPhone13,3>",
       "SDKVersion" : "2.30.0",
-      "version" : "8.0.32"
+      "version" : "8.0.34"
     }
   }
 }`;
