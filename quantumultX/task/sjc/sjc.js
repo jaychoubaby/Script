@@ -18,19 +18,7 @@ function sign() {
     back.log(JSON.stringify(h))
 
     const url = { url: `https://m.mallcoo.cn/api/user/User/CheckinV2`, headers: h }
-    url.body = `{
-  "MallID" : 10010,
-  "Header" : {
-    "Token" : "FpMPlx8KV0KbZAHQL0Q9FwikLJ2K_g9k,15019",
-    "systemInfo" : {
-      "miniVersion" : "DZ.2.5.58.1.SJC.10",
-      "system" : "iOS 16.4",
-      "model" : "iPhone 12 Pro<iPhone13,3>",
-      "SDKVersion" : "2.30.0",
-      "version" : "8.0.34"
-    }
-  }
-}`;
+    url.body = `{"MallID":10010,"Header":{"Token":"yXSO4fvFEkO3jUYtZQ18zQ4hsYkIbaf0,15019","systemInfo":{"model":"iPhone 12 Pro<iPhone13,3>","SDKVersion":"2.32.0","system":"iOS 16.4","version":"8.0.37","miniVersion":"DZ.2.5.58.1.SJC.10"}}}`;
     back.post(url, (error, response, data) => {
         back.log(`${cookieName}, data: ${data}`)
         const title = `${cookieName}`
