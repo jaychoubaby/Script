@@ -3,7 +3,8 @@
 //*********************************
 
 !(async () => {
-  ids = $prefs.valueForKey("APP_ID");
+  //ids = $prefs.valueForKey("APP_ID");
+  ids = "CcuVfzon";
   if (ids == "") {
     $notify("所有TF已加入完毕", "请手动关闭", "");
     $done();
