@@ -34,8 +34,7 @@ if (reg1.test($request.url)) {
 } else if (reg2.test($request.url)) {
   let appId = $prefs.valueForKey("APP_ID");
   if (!appId) {
-    //https://testflight.apple.com/join/CcuVfzon
-    appId = "CcuVfzon";
+    appId = "";
   }
   let arr = appId.split(",");
   const id = reg2.exec($request.url)[1];
