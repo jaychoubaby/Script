@@ -2,16 +2,8 @@
 // */1 * * * * * https://raw.githubusercontent.com/chouchoui/QuanX/master/Scripts/testflight/Auto_join_TF.js, tag=TestFlight自动加入, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/testflight.png, enabled=true
 //*********************************
 
-setTimeout(() => {
-  console.log("脚本超时 5 秒退出。");
-  $done();
-}, 5000)
-
 !(async () => {
-  // loon 23LA2tmX
-  // stash elwvzipQ
-  // forXray CcuVfzon
-  ids = "CcVfzon";
+  ids = $prefs.valueForKey("APP_ID");
   if (ids == "") {
     $notify("所有TF已加入完毕", "请手动关闭", "");
     $done();
@@ -19,7 +11,6 @@ setTimeout(() => {
     ids = ids.split(",");
     try {
       for await (const ID of ids) {
-        console.log("尝试：" + ID);
         await autoPost(ID);
       }
     } catch (error) {
@@ -32,15 +23,12 @@ setTimeout(() => {
 
 function autoPost(ID) {
   let Key = $prefs.valueForKey("key");
-  console.log("Key：" + Key);
   let testurl = "https://testflight.apple.com/v3/accounts/" + Key + "/ru/";
-  console.log("testurl" + testurl);
   let header = {
     "X-Session-Id": `${$prefs.valueForKey("session_id")}`,
     "X-Session-Digest": `${$prefs.valueForKey("session_digest")}`,
     "X-Request-Id": `${$prefs.valueForKey("request_id")}`,
   };
-  console.log("header" + JSON.stringify(header));
   return new Promise(function (resolve) {
     $task.fetch({ url: testurl + ID, method: "GET", headers: header }).then(
       (resp) => {
@@ -86,5 +74,3 @@ function autoPost(ID) {
     );
   });
 }
-
-
