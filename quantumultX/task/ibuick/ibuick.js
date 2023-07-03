@@ -24,14 +24,16 @@ const getCommentPageData = `{"data":"EEXknsrMM78hPFGhhVw6MlaifRs4PPGtpthpfz\/Efk
 
 sign()
 
-let detail = ''
+
 let subTitle = ''
+let detail = ''
 
 function sign() {
     setTimeout(getContentDetail, 3000);
     setTimeout(readContent, 3000);
     setTimeout(addComment, 3000);
     setTimeout(getCommentPage, 3000);
+    back.done();
 }
 
 function getContentDetail() {
@@ -44,12 +46,11 @@ function getContentDetail() {
             const title = `${cookieName}`
             const result = JSON.parse(data)
             if (result.resultCode == "0000") {
-                subTitle = `getContentDetail结果: 🎉成功` + `\n`
+                subTitle = `getContentDetail🎉成功` + `\n`
             } else {
                 subTitle = `getContentDetail结果: ⚠️${result.message}`
             }
             back.msg(title, subTitle, detail)
-            back.done()
         } catch (error) {
             back.log(error)
             back.done()
@@ -72,7 +73,6 @@ function readContent() {
                 subTitle = `getContentDetail结果: ⚠️${result.message}`
             }
             back.msg(title, subTitle, detail)
-            back.done()
         } catch (error) {
             back.log(error)
             back.done()
@@ -95,7 +95,6 @@ function addComment() {
                 subTitle = `addComment结果: ⚠️${result.message}`
             }
             back.msg(title, subTitle, detail)
-            back.done()
         } catch (error) {
             back.log(error)
             back.done()
@@ -118,7 +117,6 @@ function getCommentPage() {
                 subTitle = `addComment结果: ⚠️${result.message}`
             }
             back.msg(title, subTitle, detail)
-            back.done()
         } catch (error) {
             back.log(error)
             back.done()
