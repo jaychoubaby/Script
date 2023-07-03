@@ -82,8 +82,8 @@ function readContent() {
 
 function addComment() {
     let h = JSON.parse(signheaderVal)
-    const url = { url: getCommentPageUrl, headers: h }
-    url.body = getCommentPageData;
+    const url = { url: addCommentUrl, headers: h }
+    url.body = addCommentData;
     back.post(url, (error, response, data) => {
         try {
             back.log(`${cookieName}, data: ${data}`)
@@ -105,8 +105,8 @@ function addComment() {
 
 function getCommentPage() {
     let h = JSON.parse(signheaderVal)
-    const url = { url: `https://app.sgmlink.com:443/service/ibuick/rest/api/private/bbs/addComment`, headers: h }
-    url.body = addCommentData;
+    const url = { url: getCommentPageUrl, headers: h }
+    url.body = getCommentPageData;
     back.post(url, (error, response, data) => {
         try {
             back.log(`${cookieName}, data: ${data}`)
