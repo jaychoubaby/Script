@@ -6,7 +6,7 @@ const back = init()
 /**
  * [rewrite_local]
  * #ibuick获取Cookie
- * ^https?:\/\/app\.sgmlink\.com\:443\/service\/ibuick\/rest\/api\/private\/userInfo url script-request-header ibuick.Cookie.js
+ * ^https?:\/\/app\.sgmlink\.com\:443\/service\/ibuick\/rest\/api\/private\/userInfo\/getUserNewInfoCount url script-request-header ibuick.Cookie.js
  * [MITM]
  * app.sgmlink.com
  */
