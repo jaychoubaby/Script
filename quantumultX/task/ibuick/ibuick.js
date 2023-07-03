@@ -38,7 +38,7 @@ let detail = ''
 
 
 function getContentDetail() {
-    let h = JSON.parse(signheaderVal)
+    // let h = JSON.parse(signheaderVal)
     // const url = { url: getContentDetailUrl, headers: h }
     // url.body = getContentDetailData;
     // back.post(url, (error, response, data) => {
@@ -59,7 +59,7 @@ function getContentDetail() {
     // })
 
     return new Promise((resolve, reject) => {
-        const url = { url: getContentDetailUrl, h }
+        const url = { url: getContentDetailUrl, headers: JSON.parse(signheaderVal) }
         url.body = getContentDetailData;
         back.post(url, (error, response, data) => {
             try {
