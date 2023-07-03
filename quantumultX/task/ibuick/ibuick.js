@@ -21,40 +21,56 @@ const addCommentData = `{"data":"Rf\/Mvqc0XJdZnGqd4rjyPN6wRAEz8Z9fIxEkkhAEbCl1lx
 const getCommentPageUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/bbs/getCommentPage';
 const getCommentPageData = `{"data":"EEXknsrMM78hPFGhhVw6MlaifRs4PPGtpthpfz\/Efk7kJ7vTaRVBmeCGRa6Yy7hImt1EkvK5S09\/cygPeqXRn+UaSjSkXJ7Gdto9AUhkvPJUgBUco+UuikAay5wFp+SxF4YF2Sra6qDxZVqBkY248DNeEVLSlrjsfgcZDqE3TSE="}`;
 
-
-sign()
+const signinfo = {}
+    ; (sign() = async () => {
+        back.log(`🔔 ${cookieName}`)
+        await getContentDetail()
+        await readContent()
+        await addComment()
+        await getCommentPage()
+    })()
+        .catch((e) => back.log(`❌ ${cookieName} 签到失败: ${e}`))
+        .finally(() => back.done())
 
 
 let subTitle = ''
 let detail = ''
 
-function sign() {
-    setTimeout(getContentDetail, 3000);
-    setTimeout(readContent, 3000);
-    setTimeout(addComment, 3000);
-    setTimeout(getCommentPage, 3000);
-    back.done();
-}
 
 function getContentDetail() {
     let h = JSON.parse(signheaderVal)
-    const url = { url: getContentDetailUrl, headers: h }
-    url.body = getContentDetailData;
-    back.post(url, (error, response, data) => {
-        try {
-            back.log(`${cookieName}, data: ${data}`)
-            const title = `${cookieName}`
-            const result = JSON.parse(data)
-            if (result.resultCode == "0000") {
-                subTitle = `getContentDetail🎉成功` + `\n`
-            } else {
-                subTitle = `getContentDetail结果: ⚠️${result.message}`
+    // const url = { url: getContentDetailUrl, headers: h }
+    // url.body = getContentDetailData;
+    // back.post(url, (error, response, data) => {
+    //     try {
+    //         back.log(`${cookieName}, data: ${data}`)
+    //         const title = `${cookieName}`
+    //         const result = JSON.parse(data)
+    //         if (result.resultCode == "0000") {
+    //             subTitle = `getContentDetail🎉成功` + `\n`
+    //         } else {
+    //             subTitle = `getContentDetail结果: ⚠️${result.message}`
+    //         }
+    //         back.msg(title, subTitle, detail)
+    //     } catch (error) {
+    //         back.log(error)
+    //         back.done()
+    //     }
+    // })
+
+    return new Promise((resolve, reject) => {
+        const url = { url: getContentDetailUrl, h }
+        url.body = getContentDetailData;
+        chavy.post(url, (error, response, data) => {
+            try {
+                resolve()
+            } catch (e) {
+                back.msg(cookieName, `getContentDetail结果: 失败`, `说明: ${e}`)
+                back.log(`❌ ${cookieName} getContentDetail - 失败: ${e}`)
+                back.log(`❌ ${cookieName} getContentDetail - response: ${JSON.stringify(response)}`)
+                resolve()
             }
-            back.msg(title, subTitle, detail)
-        } catch (error) {
-            back.log(error)
-            back.done()
-        }
+        })
     })
 }
 
