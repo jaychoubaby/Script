@@ -35,6 +35,7 @@ const queryVehicleAuthStatusData = `{"data":"cOVVqvieA5FUCyefjpEEFxaKXn2qC1HGEX8
 const getTicketUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/userInfo/getTicket?data=cOVVqvieA5FUCyefjpEEFxaKXn2qC1HGEX8hKqtR6D/sOlU16gYwCG%2B0u7YLN7pwnsINKyT3DjBw1hdVB0WFYkfYf/DZ4rA%2BaxgbP43kfRlD2PFDUvgnDgYRwOXv6PbUtBHQM0y86Iq%2BSE4H8zy2i5/exRCCXvdSZjRxl/0UTtE%3D';
 
 
+let msg = '';
 
 ; (sign = async () => {
     back.log(`🔔 ${cookieName}`)
@@ -49,7 +50,7 @@ const getTicketUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/privat
     await create()
     await queryVehicleAuthStatus()
     await getTicket()
-    back.msg(cookieName, "签到成功")
+    back.msg(cookieName, "签到成功", msg)
 })()
     .catch((e) => back.log(`❌ ${cookieName} 签到失败: ${e}`))
     .finally(() => back.done())
@@ -63,6 +64,7 @@ function getContentDetail() {
         back.post(url, (error, response, data) => {
             try {
                 back.log(`getContentDetail:` + JSON.parse(data).message)
+                msg = msg + `getContentDetail:` + JSON.parse(data).message + `\n`;
                 resolve()
             } catch (e) {
                 back.msg(cookieName, `getContentDetail结果: 失败`, `说明: ${e}`)
@@ -81,6 +83,7 @@ function readContent() {
         back.post(url, (error, response, data) => {
             try {
                 back.log(`readContent:` + JSON.parse(data).message)
+                msg = msg + `readContent:` + JSON.parse(data).message + `\n`;
                 resolve()
             } catch (e) {
                 back.msg(cookieName, `readContent结果: 失败`, `说明: ${e}`)
@@ -99,6 +102,7 @@ function addComment() {
         back.post(url, (error, response, data) => {
             try {
                 back.log(`addComment:` + JSON.parse(data).message)
+                msg = msg + `addComment:` + JSON.parse(data).message + `\n`;
                 resolve()
             } catch (e) {
                 back.msg(cookieName, `addComment: 失败`, `说明: ${e}`)
@@ -117,6 +121,7 @@ function getCommentPage() {
         back.post(url, (error, response, data) => {
             try {
                 back.log(`getCommentPage:` + JSON.parse(data).message)
+                msg = msg + `getCommentPage:` + JSON.parse(data).message + `\n`;
                 resolve()
             } catch (e) {
                 back.msg(cookieName, `getCommentPage: 失败`, `说明: ${e}`)
@@ -135,6 +140,7 @@ function updateTaskStatusV3() {
         back.post(url, (error, response, data) => {
             try {
                 back.log(`updateTaskStatusV3:` + JSON.parse(data).message)
+                msg = msg + `updateTaskStatusV3:` + JSON.parse(data).message + `\n`;
                 resolve()
             } catch (e) {
                 back.msg(cookieName, `updateTaskStatusV3: 失败`, `说明: ${e}`)
@@ -153,6 +159,7 @@ function getAgreementsV2() {
         back.post(url, (error, response, data) => {
             try {
                 back.log(`getAgreementsV2:` + JSON.parse(data).message)
+                msg = msg + `getAgreementsV2:` + JSON.parse(data).message + `\n`;
                 resolve()
             } catch (e) {
                 back.msg(cookieName, `getAgreementsV2: 失败`, `说明: ${e}`)
@@ -171,6 +178,7 @@ function submitToday() {
         back.post(url, (error, response, data) => {
             try {
                 back.log(`submitToday:` + JSON.parse(data).message)
+                msg = msg + `submitToday:` + JSON.parse(data).message + `\n`;
                 resolve()
             } catch (e) {
                 back.msg(cookieName, `submitToday: 失败`, `说明: ${e}`)
@@ -189,6 +197,7 @@ function queryToday() {
         back.post(url, (error, response, data) => {
             try {
                 back.log(`queryToday:` + JSON.parse(data).message)
+                msg = msg + `queryToday:` + JSON.parse(data).message + `\n`;
                 resolve()
             } catch (e) {
                 back.msg(cookieName, `queryToday: 失败`, `说明: ${e}`)
@@ -207,6 +216,7 @@ function create() {
         back.post(url, (error, response, data) => {
             try {
                 back.log(`create:` + JSON.parse(data).message)
+                msg = msg + `create:` + JSON.parse(data).message + `\n`;
                 resolve()
             } catch (e) {
                 back.msg(cookieName, `create: 失败`, `说明: ${e}`)
@@ -225,6 +235,7 @@ function queryVehicleAuthStatus() {
         back.post(url, (error, response, data) => {
             try {
                 back.log(`queryVehicleAuthStatus:` + JSON.parse(data).message)
+                msg = msg + `queryVehicleAuthStatus:` + JSON.parse(data).message + `\n`;
                 resolve()
             } catch (e) {
                 back.msg(cookieName, `queryVehicleAuthStatus: 失败`, `说明: ${e}`)
@@ -243,6 +254,7 @@ function getTicket() {
         back.post(url, (error, response, data) => {
             try {
                 back.log(`getTicket:` + JSON.parse(data).message)
+                msg = msg + `getTicket:` + JSON.parse(data).message + `\n`;
                 resolve()
             } catch (e) {
                 back.msg(cookieName, `getTicket: 失败`, `说明: ${e}`)
