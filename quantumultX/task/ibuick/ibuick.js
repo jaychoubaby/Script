@@ -22,12 +22,12 @@ const getCommentPageUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/p
 const getCommentPageData = `{"data":"EEXknsrMM78hPFGhhVw6MlaifRs4PPGtpthpfz\/Efk7kJ7vTaRVBmeCGRa6Yy7hImt1EkvK5S09\/cygPeqXRn+UaSjSkXJ7Gdto9AUhkvPJUgBUco+UuikAay5wFp+SxF4YF2Sra6qDxZVqBkY248DNeEVLSlrjsfgcZDqE3TSE="}`;
 
 
-init()
+sign()
 
 let detail = ''
 let subTitle = ''
 
-function init() {
+function sign() {
     setTimeout(getContentDetail, 3000);
     setTimeout(readContent, 3000);
     setTimeout(addComment, 3000);
