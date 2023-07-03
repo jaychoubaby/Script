@@ -61,7 +61,7 @@ function getContentDetail() {
     return new Promise((resolve, reject) => {
         const url = { url: getContentDetailUrl, h }
         url.body = getContentDetailData;
-        chavy.post(url, (error, response, data) => {
+        back.post(url, (error, response, data) => {
             try {
                 resolve()
             } catch (e) {
