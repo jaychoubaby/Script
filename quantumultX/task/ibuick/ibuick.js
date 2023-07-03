@@ -32,13 +32,12 @@ const createUrl = "https://app.sgmlink.com:443/service/ibuick/rest/api/private/q
 const createData = `{"data":"HPr4Wi08yuhB4VofyKbaK+eOjgeGqxho82ANqasLiGJJIHwtlOX+iNLJ6ox8hsYN0ovXXnNx7kSqgxMz2B\/hw9XAHDTJduCAPUbdtKzydFvcXhesWg1PHrTWFwty4tPV7r33\/5qjOjn92WFk5us1EGprKloo7RFur3swdlGcGcwKN1l5DB+ddfksnWZJMbuVsCAbifS8geeXilqp2CYoAdG9G9T8+0JH4abjKo6XVRco\/BHPsELdj1IhBygiN0vLVrjSm3baFjIGuvPUV33mJQcp0WwXVG+sIQp8nYmoCisnRKbyrnNGIQ2at8VKL+ZFl5Xz27vVCgSebqk5A0p8uYzJCQui\/QBrN+K\/PgR\/t8MmEk35ABYiogRISnn8eXhCfmGiBgj5y1LoJ\/X875FINJg9YW90EPRDYQIbRTwHbvrQZ8so6qf4H25jmx8tkjRQG2pr7TXyBfoWQXdFKYWG2WMy6hV0E2vAmtf+zlS2CzBsh3CDFvtrx5k6uI8yB57DKCPbJcom\/\/LTJymxJNGMJFg4RYcYXwqPFIsDolkKLJTdGWXMbgkwJYJUmrFGk1e3GSlZ6nwBGrTuKSa5n0FZuCqxmwyAzdbg7lB65oHzx3Ui9\/LJe2Jsv9CJJRo+P7IRc5GStm554olo7PzEsFNzskJgUPLO5ILthFgYB+bYzhBhnqah5UpD8voW5pbsBxKsqJkYp4nuvswGt43N7UPS6cKbVAy\/+nSaV1oBkXa5\/vYhHCIX0YPcgiULPDBkFDYCGDp22uuIyArk13J2CIXxQFGoAwdM8JjLqGwniQqHmxJ5ylDNgN4hCsTSeArkjWMex2erpA\/GKURcF6j4BLC8aIMpuewYrR052A91YB\/8a0pFnQ9UTPXKRk8X\/WrLKgmYQ4lCrQhb89yG9Cb3F3xjWEMYXbd+BwmFeumxnMg5lTdM1ccJndoAGV8f\/5LuTcm4D9+nUyeCKzb\/VGawOfKfr5b7i5uHtDUeOy8wncmMIdTcv\/kk4Aquj2CQP1SNZ7OY"}`;
 const queryVehicleAuthStatusUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/common/queryVehicleAuthStatus';
 const queryVehicleAuthStatusData = `{"data":"cOVVqvieA5FUCyefjpEEFxaKXn2qC1HGEX8hKqtR6D\/sOlU16gYwCG+0u7YLN7pwnsINKyT3DjBw1hdVB0WFYkfYf\/DZ4rA+axgbP43kfRlD2PFDUvgnDgYRwOXv6PbUtBHQM0y86Iq+SE4H8zy2i5\/exRCCXvdSZjRxl\/0UTtE="}`;
-const getTicketUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/userInfo/getTicket?data=cOVVqvieA5FUCyefjpEEFxaKXn2qC1HGEX8hKqtR6D/sOlU16gYwCG%2B0u7YLN7pwnsINKyT3DjBw1hdVB0WFYkfYf/DZ4rA%2BaxgbP43kfRlD2PFDUvgnDgYRwOXv6PbUtBHQM0y86Iq%2BSE4H8zy2i5/exRCCXvdSZjRxl/0UTtE%3D';
 
 
-let msg = '';
 
 ; (sign = async () => {
     back.log(`🔔 ${cookieName}`)
+    let msg = '';
     await getContentDetail()
     await readContent()
     await addComment()
@@ -49,7 +48,6 @@ let msg = '';
     await queryToday()
     await create()
     await queryVehicleAuthStatus()
-    await getTicket()
     back.msg(cookieName, "签到成功", msg)
 })()
     .catch((e) => back.log(`❌ ${cookieName} 签到失败: ${e}`))
@@ -247,24 +245,7 @@ function queryVehicleAuthStatus() {
     })
 }
 
-function getTicket() {
-    return new Promise((resolve, reject) => {
-        const url = { url: getTicketUrl, headers: JSON.parse(signheaderVal) }
-        url.body = getTicketData;
-        back.post(url, (error, response, data) => {
-            try {
-                back.log(`getTicket:` + JSON.parse(data).message)
-                msg = msg + `getTicket:` + JSON.parse(data).message + `\n`;
-                resolve()
-            } catch (e) {
-                back.msg(cookieName, `getTicket: 失败`, `说明: ${e}`)
-                back.log(`❌ ${cookieName} getTicket - 失败: ${e}`)
-                back.log(`❌ ${cookieName} getTicket - response: ${JSON.stringify(response)}`)
-                resolve()
-            }
-        })
-    })
-}
+
 
 
 
