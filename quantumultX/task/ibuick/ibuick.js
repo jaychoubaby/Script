@@ -28,42 +28,20 @@ const getCommentPageData = `{"data":"EEXknsrMM78hPFGhhVw6MlaifRs4PPGtpthpfz\/Efk
     await readContent()
     await addComment()
     await getCommentPage()
+    back.msg(cookieName, "签到成功")
 })()
     .catch((e) => back.log(`❌ ${cookieName} 签到失败: ${e}`))
     .finally(() => back.done())
 
 
-let subTitle = ''
-let detail = ''
-
 
 function getContentDetail() {
-    // let h = JSON.parse(signheaderVal)
-    // const url = { url: getContentDetailUrl, headers: h }
-    // url.body = getContentDetailData;
-    // back.post(url, (error, response, data) => {
-    //     try {
-    //         back.log(`${cookieName}, data: ${data}`)
-    //         const title = `${cookieName}`
-    //         const result = JSON.parse(data)
-    //         if (result.resultCode == "0000") {
-    //             subTitle = `getContentDetail🎉成功` + `\n`
-    //         } else {
-    //             subTitle = `getContentDetail结果: ⚠️${result.message}`
-    //         }
-    //         back.msg(title, subTitle, detail)
-    //     } catch (error) {
-    //         back.log(error)
-    //         back.done()
-    //     }
-    // })
-
     return new Promise((resolve, reject) => {
         const url = { url: getContentDetailUrl, headers: JSON.parse(signheaderVal) }
         url.body = getContentDetailData;
         back.post(url, (error, response, data) => {
             try {
-                back.log(`getContentDetail:` +  data)
+                back.log(`getContentDetail:` + JSON.parse(data).message)
                 resolve()
             } catch (e) {
                 back.msg(cookieName, `getContentDetail结果: 失败`, `说明: ${e}`)
@@ -76,68 +54,56 @@ function getContentDetail() {
 }
 
 function readContent() {
-    let h = JSON.parse(signheaderVal)
-    const url = { url: readContentUrl, headers: h }
-    url.body = readContentData;
-    back.post(url, (error, response, data) => {
-        try {
-            back.log(`${cookieName}, data: ${data}`)
-            const title = `${cookieName}`
-            const result = JSON.parse(data)
-            if (result.resultCode == "0000") {
-                subTitle = `getContentDetail结果: 🎉成功` + `\n`
-            } else {
-                subTitle = `getContentDetail结果: ⚠️${result.message}`
+    return new Promise((resolve, reject) => {
+        const url = { url: readContentUrl, headers: JSON.parse(signheaderVal) }
+        url.body = readContentData;
+        back.post(url, (error, response, data) => {
+            try {
+                back.log(`readContent:` + JSON.parse(data).message)
+                resolve()
+            } catch (e) {
+                back.msg(cookieName, `readContent结果: 失败`, `说明: ${e}`)
+                back.log(`❌ ${cookieName} readContent - 失败: ${e}`)
+                back.log(`❌ ${cookieName} readContent - response: ${JSON.stringify(response)}`)
+                resolve()
             }
-            back.msg(title, subTitle, detail)
-        } catch (error) {
-            back.log(error)
-            back.done()
-        }
+        })
     })
 }
 
 function addComment() {
-    let h = JSON.parse(signheaderVal)
-    const url = { url: addCommentUrl, headers: h }
-    url.body = addCommentData;
-    back.post(url, (error, response, data) => {
-        try {
-            back.log(`${cookieName}, data: ${data}`)
-            const title = `${cookieName}`
-            const result = JSON.parse(data)
-            if (result.resultCode == "0000") {
-                subTitle = `addComment结果: 🎉评论成功` + `\n`
-            } else {
-                subTitle = `addComment结果: ⚠️${result.message}`
+    return new Promise((resolve, reject) => {
+        const url = { url: addCommentUrl, headers: JSON.parse(signheaderVal) }
+        url.body = addCommentData;
+        back.post(url, (error, response, data) => {
+            try {
+                back.log(`addComment:` + JSON.parse(data).message)
+                resolve()
+            } catch (e) {
+                back.msg(cookieName, `addComment: 失败`, `说明: ${e}`)
+                back.log(`❌ ${cookieName} addComment - 失败: ${e}`)
+                back.log(`❌ ${cookieName} addComment - response: ${JSON.stringify(response)}`)
+                resolve()
             }
-            back.msg(title, subTitle, detail)
-        } catch (error) {
-            back.log(error)
-            back.done()
-        }
+        })
     })
 }
 
 function getCommentPage() {
-    let h = JSON.parse(signheaderVal)
-    const url = { url: getCommentPageUrl, headers: h }
-    url.body = getCommentPageData;
-    back.post(url, (error, response, data) => {
-        try {
-            back.log(`${cookieName}, data: ${data}`)
-            const title = `${cookieName}`
-            const result = JSON.parse(data)
-            if (result.resultCode == "0000") {
-                subTitle = `addComment结果: 🎉评论成功` + `\n`
-            } else {
-                subTitle = `addComment结果: ⚠️${result.message}`
+    return new Promise((resolve, reject) => {
+        const url = { url: getCommentPageUrl, headers: JSON.parse(signheaderVal) }
+        url.body = getCommentPageData;
+        back.post(url, (error, response, data) => {
+            try {
+                back.log(`getCommentPage:` + JSON.parse(data).message)
+                resolve()
+            } catch (e) {
+                back.msg(cookieName, `getCommentPage: 失败`, `说明: ${e}`)
+                back.log(`❌ ${cookieName} getCommentPage - 失败: ${e}`)
+                back.log(`❌ ${cookieName} getCommentPage - response: ${JSON.stringify(response)}`)
+                resolve()
             }
-            back.msg(title, subTitle, detail)
-        } catch (error) {
-            back.log(error)
-            back.done()
-        }
+        })
     })
 }
 
