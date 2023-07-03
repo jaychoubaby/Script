@@ -63,7 +63,7 @@ function getContentDetail() {
         url.body = getContentDetailData;
         back.post(url, (error, response, data) => {
             try {
-                back.log(`getContentDetail:`, data)
+                back.log(`getContentDetail:` +  data)
                 resolve()
             } catch (e) {
                 back.msg(cookieName, `getContentDetail结果: 失败`, `说明: ${e}`)
