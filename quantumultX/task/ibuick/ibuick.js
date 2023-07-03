@@ -21,16 +21,16 @@ const addCommentData = `{"data":"Rf\/Mvqc0XJdZnGqd4rjyPN6wRAEz8Z9fIxEkkhAEbCl1lx
 const getCommentPageUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/bbs/getCommentPage';
 const getCommentPageData = `{"data":"EEXknsrMM78hPFGhhVw6MlaifRs4PPGtpthpfz\/Efk7kJ7vTaRVBmeCGRa6Yy7hImt1EkvK5S09\/cygPeqXRn+UaSjSkXJ7Gdto9AUhkvPJUgBUco+UuikAay5wFp+SxF4YF2Sra6qDxZVqBkY248DNeEVLSlrjsfgcZDqE3TSE="}`;
 
-const signinfo = {}
-    ; (sign() = async () => {
-        back.log(`🔔 ${cookieName}`)
-        await getContentDetail()
-        await readContent()
-        await addComment()
-        await getCommentPage()
-    })()
-        .catch((e) => back.log(`❌ ${cookieName} 签到失败: ${e}`))
-        .finally(() => back.done())
+
+; (sign = async () => {
+    back.log(`🔔 ${cookieName}`)
+    await getContentDetail()
+    await readContent()
+    await addComment()
+    await getCommentPage()
+})()
+    .catch((e) => back.log(`❌ ${cookieName} 签到失败: ${e}`))
+    .finally(() => back.done())
 
 
 let subTitle = ''
