@@ -11,43 +11,83 @@ const signheaderVal = back.getdata(signheaderKey)
  * 0 10 9 * * * https://raw.githubusercontent.com/jaychoubaby/Script/main/qxjs/ibuick/ibuick.js, tag=ibuick任务, enabled=true
  */
 
-// url list
-const getContentDetailUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/bbs/getContentDetail';
-const getContentDetailData = `{"data":"Ws8bq9+pXiUsSCJ3WslAaqWE9awdZGAHnDYXit19YuZJpWD8u9DpV\/OE83tIMMkYwZXjE\/LBL1eZDXgO6fLzZvR8MCYKJ+Qi17Co5cXyoCeXAxigFPNxA3kTs7wbrV3BXBjgbaf9\/t4v0iwhynOTekku7qSoRiz8aSMXC7rIYok="}`;
+// task list
+
+// updateTaskStatusV3
+const updateTaskStatusV3Url = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/userTask/updateTaskStatusV3';
+
+// 发布一条动态
+const addContentV2Url = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/bbs/addContentV2';
+const addContentV2Data = `{"data":"JDjWV9lNV0TSu23fxRcHRdXC4B1d3PD9jc8BPFh0Tf18d1I3scAzLMPKzLbOOeCx\/g+pXG13EVc0+tS4BMZ7RjoKOWMjLaT8c6hkhO4TphAVcGNwS8sHDWIgEWL2Pqft6JdhKE+51tUPPnzptM4JfoqR5T+G9eiTcBpMuknm6G6KCV\/f70ssXhbl+cseRzxqEaOapjSpdS3pZRnY0\/2foClk0KXeqjxBdT2SkmA9YN6EII1MhvutXeHTGISFPVmA\/JN1+gxQ3bWhDzN0fZAS5\/ZrC4cuSz39r\/AZgjuV+wXqOPjnlIMSq750EgUilTYeJvsU4OJ1jNMtfMxQRrCxnhWGU4bRutTDQ0bC8T\/ryZyluU0NgTgjQPx5MrJGf0AAQWn+wnGvEoFYGJgXqX5+I8z6SjYtqjIeZh6KpKQYyOe\/07TudLlRZDf66qDwHtGApufHbMqFD2HrSU4+yYXNJymKwgR\/y2OgWWfRKvlDGaBw06yPfHE+SChwD\/DGwtIR"}`;
+
+// 获取用户任务列表V3
+const getUserTaskListV3Url = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/userTask/getUserTaskListV3?data=cOVVqvieA5FUCyefjpEEFxaKXn2qC1HGEX8hKqtR6D/sOlU16gYwCG%2B0u7YLN7pwnsINKyT3DjBw1hdVB0WFYkfYf/DZ4rA%2BaxgbP43kfRlD2PFDUvgnDgYRwOXv6PbUtBHQM0y86Iq%2BSE4H8zy2i5/exRCCXvdSZjRxl/0UTtE%3D';
+
+// 阅读一篇官方贴
 const readContentUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/bbs/readContent';
-const readContentData = `{"data":"Ws8bq9+pXiUsSCJ3WslAaqWE9awdZGAHnDYXit19YuZJpWD8u9DpV\/OE83tIMMkYwZXjE\/LBL1eZDXgO6fLzZvR8MCYKJ+Qi17Co5cXyoCeXAxigFPNxA3kTs7wbrV3BXBjgbaf9\/t4v0iwhynOTekku7qSoRiz8aSMXC7rIYok="}`;
+const readContentData = `{"data":"ib00J4kZBfP\/WJGSXMCl1eE65nBi78pmty2EqvJIc\/RSTdXlN+YJO8pzUZp3E4VSn+Wk5tqjwW3\/JDx2WnQpSgADMhzwlpsM4k8zdRNVBNgp9qIzLCKzpCAMGBE3QJPkY7YT+3vcQKChCiNN6I8np2fx0hTefxtlIcLt8g29gIQ="}`;
+const readContentUpdateTaskStatusV3Data = `{"data":"OR+8JKAJEvUBqW1xkZvbitGYGRbsf\/\/8D5RmaOdIcowE4jlYmr1SfTD2iXIQrvbpfGs8CtoMlLLWQHioQQ494\/\/7alqFVR9W0DRR+EeieI1kDxpYQnGuDdeoXlrtgaPH6mCCYTpROB5xmgXliELet0iMGoD0ByWBlbckWE1xDVU="}`;
+
+// 浏览此刻页面
+const readContentData_ck = `{"data":"lLL4++njitOGWh6+JLoHoUwn\/GoZPIquwZvqX7OhkKvLByAV02DRpLKWY8crCHE4wRtMKOKOaOG23W5PH3JGweW2V6J8IcbLl77udZfd+jD5+IFw0lLHAQclwwS6ShRKbVwor1PmJBPAJ4lJstG4zDQN1J4tu+Zh2fQz2\/+4BeY="}`;
+
+// 发布一次提问
+const qaQuestionCreateUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/qa/question/create';
+const qaQuestionCreateData = `{"data":"WlKYhvxlUUTRgbVYkwUMDFYnVqiFTrMQjTWNWP5XVg1MK0K2Z0fxiDuO0ayLqB\/EosCvG0geoCHA3SkMtjj65TFJJYgNcS7xOiJEwB63qdqi0auLmq6A7xU1XWDOI8Nc7EYVW+ZqEG3aK8ssjyPlMg+CmDLrm0CtDNXjjcmkFo53GLzwVB4dfp8hSWZbAusT9fK+hw5tG2agrX97eHMymqbW542LbdQEdxIxcoF6KAKS0z0f\/DOhcZk7RROHcoRV2gm6e7qRF5ohPxRg9nm3JTZj3fjrW16JSEdI9dxGNopv\/0yoKI68eegjuDX5Bqzv3LrD\/fj6b9ttEwNfUtOI7A=="}`;
+
+// 使用用车手账
+const billItemAddUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/bill/item/add';
+const billItemAddData = `{"data":"Gufl28SNZs9XpC1kIQv+pNH59+uJb+EcQPOCWAJxdLDKiyjP\/ioKy+q3K1eavxH\/HOr\/+xoyCKOL4p3yCn5Hm7f9czzLlCWtAIYY8AZhOXu9TUrvmUjriiYIY1pYlS+SjJmNkbw9OVEygUNeyA1pe39ldPdLk2vHurf1d\/DYfFSekgV48E62inEaXt3\/atLn9cu5s+IU6sUyJEWggKhodTjp3NfXQF2+8NefadsrVLobrZ1EFsgQCDbCO+pYpfL6fEDZyfkQH7k5pSXjKL1\/qnVOQ4qyNb8gK3Ph0LGoth0sh30szQOxiW8UiNZMYlc5edcbEcQbBaTRbw4ga5nAUg=="}`;
+
+//发布一次回答
+const qaAnswerCreateUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/qa/answer/create';
+const qaAnswerCreateData = `{"data":"OKcZYThO43tizDlwZ6Dn80IeD7APAeJHM3hB9uviFwbwqUy1A+OV8GjWt8uk1Xod2pnyMNheFfV4+8qAesRkRANUs+sj70Rl9C4wl5mt9M3cKNb+NYm+tQSSAIDNt5CGu5RpnzVP\/OrCQutspfA948EvQ03d6OxEbCtfhkJ8C+5M9DYGdg+3xM1enUreMU2WTZ8CzdB1eMtTLm1CoDXUCXGHXDMmiKl2QYDdNiUrkCxrFNjsSsbx0nS0eyIRgEQkW4WeZz+vlsMAKff9wxf2MKyyOKGwdLS7i\/2d7A\/iJivYLjbNqn1hAWQMoWYaR+6\/4L\/IWtZtyokhpPJCDPlZ6X4oTRNQe0htsq0VJB3Tl19JqHa8qcnlNuAvgSsKVVK4ZayfLl08hWEJw9g7dfkFsPXhpdamIwO02Bl4xPTIRcalsp+EV613aRc6JC\/YP0y0y+pmChUusBZPFATOtUtlgIlTxF\/Zyvb6oq2EgUPbPswcyrdvjzM5t\/5Arkl5z95IajS5g0Tekig2ERRF19Ijw+I5JPLg5NGGvkOAvEPmYmkvKLBGUDP4GBvdetCxMTJI4frkvWiyPwyu1cIEvUA2lST9nszsCUl2yLwPRj1CbWSUWhfjr\/34mFVCAxUCkYKFbSvkl12h3SPRssQ2GZ8vBpHkSfLoiJQgBjwKmEcyqJMTT8rMOovC9hYOB6MoucN7DPFEAjz2yW7vENUZowTzgmTtvIP1BE7X6T0tly2bQ0Rg5dquj3\/kadqtmrsr7tMwpduAwhWB+FRAhL01OqxGmM08RvrV\/bEVjuOofstFz3taCHtByAkpNYnF5eXwRQ2ddDTzjAz7ZdT6qLTjE3YsGCFkJjyZDlOCNs9WaLICwXjW10ZD3yd2TUCFbFK7LwlUmKMtC3yvTm86DjRi+LnuHpYPq2LIhk\/3+o7keZFXiLSnJvI3foYqMaL31yebc+QeentevdrcMh2KnGMQUshamNhpvDWWEDCXe+0tNFOu\/exq824QsQc+bvjeIQVm3lgCa4LnzmY2P+t0XISESctpCQieIOZhnrFYCaG94Q4yVxAHgI3wa5vsAZU0oN1T07jOkrGt57RNYDGxZI+ffn6MhMkfQ7+VLNfLjzLnQnDqKB7e9Ahu8nhB+yN9WCUSjCIC5hrTkGb\/P\/kvHjZcXDR827idNn4CMGYuHrjp1AVw5f0="}`;
+
+// 在线看车
+const pdcSubmitUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/pdc/submit';
+const pdcSubmitData = `{"data":"QD02J7OzKf2LvteClx+q9sH9XXhdpzxZtW4sxsctG1dCVGDP\/UUvimrbn1kRTaoKUG\/Rw0\/5SEHiB+dFcLKc\/mtaHuImkevPlxjTHGc+O7bWWK6QgMS5bOZ4GniX7tE07D9Y5J8Nh1KMOXuW+NI4IhRf9heC2DcGmQSpcTT08Rw\/L9vKMaVkZ3QQGoddH9VrsTtaDZKuw8yUMshCzbKlpYR5Jb3BCwTJGtdFDZJDJieAN205goxjHTdKQMvfr24HLzScwMBR7MkaIk\/AuC2uPhdjRBYqkOceWamCy9qjBF4M38f+9CB+\/s2aS\/t\/Sn7H9GvH3vmGgfnav+AqD0gbJA=="}`;
+const getTicketUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/userInfo/getTicket?data=cOVVqvieA5FUCyefjpEEFxaKXn2qC1HGEX8hKqtR6D/sOlU16gYwCG%2B0u7YLN7pwnsINKyT3DjBw1hdVB0WFYkfYf/DZ4rA%2BaxgbP43kfRlD2PFDUvgnDgYRwOXv6PbUtBHQM0y86Iq%2BSE4H8zy2i5/exRCCXvdSZjRxl/0UTtE%3D'
+const pdcSubmitUpdateTaskStatusV3Data = `{"data":"nB2mtIZI4viubupyhomoK\/F8onK7y3dWD911FwORzJWvXNS1kIMOnX+R\/g6aikXTuuEkjo4gBiZabIutA\/3pmhY2Pp\/WBmBCMzif4It67rKBQZEYCnNzB5JAYnTRo68R+LtKkobJJpdX2sk9eQnN7FlIAGZxKUv9dlnDku7P2JI="}`;
+
+// 添加评论
 const addCommentUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/bbs/addComment';
 const addCommentData = `{"data":"Rf\/Mvqc0XJdZnGqd4rjyPN6wRAEz8Z9fIxEkkhAEbCl1lxJpaynQxFT+y5ks2Vm4CZmcFF3Y3ys24u9KW+cN1KmIhaJULwNj8y9Zc+ySMjDbWUFEDsdWSDBV50JyDf9W1zlmFkanQGMujnIFET+ea0uvRJ5BMkZauQ5xUu8AC0A="}`;
-const getCommentPageUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/bbs/getCommentPage';
-const getCommentPageData = `{"data":"EEXknsrMM78hPFGhhVw6MlaifRs4PPGtpthpfz\/Efk7kJ7vTaRVBmeCGRa6Yy7hImt1EkvK5S09\/cygPeqXRn+UaSjSkXJ7Gdto9AUhkvPJUgBUco+UuikAay5wFp+SxF4YF2Sra6qDxZVqBkY248DNeEVLSlrjsfgcZDqE3TSE="}`;
-const updateTaskStatusV3Url = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/userTask/updateTaskStatusV3';
-const updateTaskStatusV3Data = `{"data":"C9qHDAjAlVgXBf1KOk1qP3F02c\/x9XN7Rps\/9o1ueFrOXwP5EjC7GvdtHN7CD2J+N2kkkjCkTJrwzGiTIr8ZZ7QMTr+iru8fplxVT+XOyusSxRTyaqcWhurh+gI\/2zZWcEufe15AZycUtInqIck4GoBfar7Bzuy7MSVzTGd72Us="}`;
-const getAgreementsV2Url = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/common/getAgreementsV2';
-const getAgreementsV2Data = `{"data":"FRkOtvqLUyvmwaU2jHPYLjrfFKz6ZhZqCH5IEdq33SjONGjHDcMCSndgJS9ED1CLnI4mpgiiSejV23aOpYo6e9TCZ++gByopPfYn577LnfGI0bvcoNtzfUjfpQpH52Dw29OJGZ8qYxwc64iN2aMPcvalOYGwVvsXDw0WKY5uiA8="}`;
-const submitTodayUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/microSurvey/submitToday';
-const submitTodayData = `{"data":"JFd\/dUuEBJ4rTvEEgoRIETB9y2F6mDbcAb8D3DuDnUTChcql6l4pH+nNS53LDXU0dulRy1K2aJm3tws0fFOeS1siCQVNM8\/9fLuu722DUTERmRtzMO+HFAlBS8JOo+4AjYp5b4Zdep0YvL9SlwAA555\/HjpKdq2ekXtSA7tZmbeH2AFsfcsIw6rkVIlLRs2C4DyEoi+Cel0s0qZcvm13qQ82KPDoktePCkRhJ67ZdZdtyx6NuWYkFpuyTPLobE+SKyYdG5g6HwpHCO4uEooy7HC4pNaACIzEqDzj9DUmhpWl\/6I6NgUVhgMyPDQv+SGZHApAhBnZtatmyVEXPJEIKw=="}`;
-const queryTodayUrl = "https://app.sgmlink.com:443/service/ibuick/rest/api/private/microSurvey/queryToday";
-const queryTodayData = `{"data":"cOVVqvieA5FUCyefjpEEFxaKXn2qC1HGEX8hKqtR6D\/sOlU16gYwCG+0u7YLN7pwnsINKyT3DjBw1hdVB0WFYkfYf\/DZ4rA+axgbP43kfRlD2PFDUvgnDgYRwOXv6PbUtBHQM0y86Iq+SE4H8zy2i5\/exRCCXvdSZjRxl\/0UTtE="}`;
-const createUrl = "https://app.sgmlink.com:443/service/ibuick/rest/api/private/qa/answer/create";
-const createData = `{"data":"HPr4Wi08yuhB4VofyKbaK+eOjgeGqxho82ANqasLiGJJIHwtlOX+iNLJ6ox8hsYN0ovXXnNx7kSqgxMz2B\/hw9XAHDTJduCAPUbdtKzydFvcXhesWg1PHrTWFwty4tPV7r33\/5qjOjn92WFk5us1EGprKloo7RFur3swdlGcGcwKN1l5DB+ddfksnWZJMbuVsCAbifS8geeXilqp2CYoAdG9G9T8+0JH4abjKo6XVRco\/BHPsELdj1IhBygiN0vLVrjSm3baFjIGuvPUV33mJQcp0WwXVG+sIQp8nYmoCisnRKbyrnNGIQ2at8VKL+ZFl5Xz27vVCgSebqk5A0p8uYzJCQui\/QBrN+K\/PgR\/t8MmEk35ABYiogRISnn8eXhCfmGiBgj5y1LoJ\/X875FINJg9YW90EPRDYQIbRTwHbvrQZ8so6qf4H25jmx8tkjRQG2pr7TXyBfoWQXdFKYWG2WMy6hV0E2vAmtf+zlS2CzBsh3CDFvtrx5k6uI8yB57DKCPbJcom\/\/LTJymxJNGMJFg4RYcYXwqPFIsDolkKLJTdGWXMbgkwJYJUmrFGk1e3GSlZ6nwBGrTuKSa5n0FZuCqxmwyAzdbg7lB65oHzx3Ui9\/LJe2Jsv9CJJRo+P7IRc5GStm554olo7PzEsFNzskJgUPLO5ILthFgYB+bYzhBhnqah5UpD8voW5pbsBxKsqJkYp4nuvswGt43N7UPS6cKbVAy\/+nSaV1oBkXa5\/vYhHCIX0YPcgiULPDBkFDYCGDp22uuIyArk13J2CIXxQFGoAwdM8JjLqGwniQqHmxJ5ylDNgN4hCsTSeArkjWMex2erpA\/GKURcF6j4BLC8aIMpuewYrR052A91YB\/8a0pFnQ9UTPXKRk8X\/WrLKgmYQ4lCrQhb89yG9Cb3F3xjWEMYXbd+BwmFeumxnMg5lTdM1ccJndoAGV8f\/5LuTcm4D9+nUyeCKzb\/VGawOfKfr5b7i5uHtDUeOy8wncmMIdTcv\/kk4Aquj2CQP1SNZ7OY"}`;
-const queryVehicleAuthStatusUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/common/queryVehicleAuthStatus';
-const queryVehicleAuthStatusData = `{"data":"cOVVqvieA5FUCyefjpEEFxaKXn2qC1HGEX8hKqtR6D\/sOlU16gYwCG+0u7YLN7pwnsINKyT3DjBw1hdVB0WFYkfYf\/DZ4rA+axgbP43kfRlD2PFDUvgnDgYRwOXv6PbUtBHQM0y86Iq+SE4H8zy2i5\/exRCCXvdSZjRxl\/0UTtE="}`;
 
 
-
+let msg = '';
 ; (sign = async () => {
     back.log(`🔔 ${cookieName}`)
-    let msg = '';
-    await getContentDetail()
-    await readContent()
+
+    // 发布一条动态
+    await addContentV2()
+    // 获取用户任务列表V3
+    await getUserTaskListV3()
+
+    // 阅读一篇官方贴
+    await readContent(readContentData)
+    await updateTaskStatusV3(readContentUpdateTaskStatusV3Data)
+
+    // 浏览此刻页面
+    await readContent(readContentData)
+    await updateTaskStatusV3(readContentData_ck)
+
+    // 发布一次提问
+    await qaQuestionCreate()
+
+    // 使用用车手账
+    await billItemAdd()
+
+    // 发布一次回答
+    await qaAnswerCreate()
+
+    // 在线看车
+    await pdcSubmit()
+    await getTicket()
+    await updateTaskStatusV3(readContentUpdateTaskStatusV3Data)
+
+    // 添加评论
     await addComment()
-    await getCommentPage()
-    await updateTaskStatusV3()
-    await getAgreementsV2()
-    await submitToday()
-    await queryToday()
-    await create()
-    await queryVehicleAuthStatus()
+
     back.msg(cookieName, "签到成功", msg)
 })()
     .catch((e) => back.log(`❌ ${cookieName} 签到失败: ${e}`))
@@ -55,93 +95,87 @@ const queryVehicleAuthStatusData = `{"data":"cOVVqvieA5FUCyefjpEEFxaKXn2qC1HGEX8
 
 
 
-function getContentDetail() {
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * 发布一条动态
+ * @returns 
+ */
+function addContentV2() {
     return new Promise((resolve, reject) => {
-        const url = { url: getContentDetailUrl, headers: JSON.parse(signheaderVal) }
-        url.body = getContentDetailData;
+        const url = { url: addContentV2Url, headers: JSON.parse(signheaderVal) }
+        url.body = addContentV2Data;
         back.post(url, (error, response, data) => {
             try {
-                back.log(`getContentDetail:` + JSON.parse(data).message)
-                msg = msg + `getContentDetail:` + JSON.parse(data).message + `\n`;
+                back.log(`发布一条动态:` + JSON.parse(data).message)
+                msg = msg + `发布一条动态:` + JSON.parse(data).message + `\n`;
                 resolve()
             } catch (e) {
-                back.msg(cookieName, `getContentDetail结果: 失败`, `说明: ${e}`)
-                back.log(`❌ ${cookieName} getContentDetail - 失败: ${e}`)
-                back.log(`❌ ${cookieName} getContentDetail - response: ${JSON.stringify(response)}`)
+                back.log(`❌ ${cookieName} 发布一条动态 - 失败: ${e}`)
+                back.log(`❌ ${cookieName} 发布一条动态 - response: ${JSON.stringify(response)}`)
                 resolve()
             }
         })
     })
 }
 
-function readContent() {
+/**
+ * 获取用户任务列表V3
+ * @returns 
+ */
+function getUserTaskListV3() {
+    return new Promise((resolve, reject) => {
+        const url = { url: getUserTaskListV3Url, headers: JSON.parse(signheaderVal) }
+        back.post(url, (error, response, data) => {
+            try {
+                back.log(`获取用户任务列表V3:` + JSON.parse(data).message)
+                msg = msg + `获取用户任务列表V3:` + JSON.parse(data).message + `\n`;
+                resolve()
+            } catch (e) {
+                back.log(`❌ ${cookieName} 获取用户任务列表V3 - 失败: ${e}`)
+                back.log(`❌ ${cookieName} 获取用户任务列表V3 - response: ${JSON.stringify(response)}`)
+                resolve()
+            }
+        })
+    })
+}
+
+/**
+ * 阅读一篇官方贴
+ * @returns 
+ */
+function readContent(data) {
     return new Promise((resolve, reject) => {
         const url = { url: readContentUrl, headers: JSON.parse(signheaderVal) }
-        url.body = readContentData;
+        url.body = data;
         back.post(url, (error, response, data) => {
             try {
-                back.log(`readContent:` + JSON.parse(data).message)
-                msg = msg + `readContent:` + JSON.parse(data).message + `\n`;
+                back.log(`阅读一篇官方贴:` + JSON.parse(data).message)
+                msg = msg + `阅读一篇官方贴:` + JSON.parse(data).message + `\n`;
                 resolve()
             } catch (e) {
-                back.msg(cookieName, `readContent结果: 失败`, `说明: ${e}`)
-                back.log(`❌ ${cookieName} readContent - 失败: ${e}`)
-                back.log(`❌ ${cookieName} readContent - response: ${JSON.stringify(response)}`)
+                back.log(`❌ ${cookieName} 阅读一篇官方贴 - 失败: ${e}`)
+                back.log(`❌ ${cookieName} 阅读一篇官方贴 - response: ${JSON.stringify(response)}`)
                 resolve()
             }
         })
     })
 }
 
-function addComment() {
-    return new Promise((resolve, reject) => {
-        const url = { url: addCommentUrl, headers: JSON.parse(signheaderVal) }
-        url.body = addCommentData;
-        back.post(url, (error, response, data) => {
-            try {
-                back.log(`addComment:` + JSON.parse(data).message)
-                msg = msg + `addComment:` + JSON.parse(data).message + `\n`;
-                resolve()
-            } catch (e) {
-                back.msg(cookieName, `addComment: 失败`, `说明: ${e}`)
-                back.log(`❌ ${cookieName} addComment - 失败: ${e}`)
-                back.log(`❌ ${cookieName} addComment - response: ${JSON.stringify(response)}`)
-                resolve()
-            }
-        })
-    })
-}
-
-function getCommentPage() {
-    return new Promise((resolve, reject) => {
-        const url = { url: getCommentPageUrl, headers: JSON.parse(signheaderVal) }
-        url.body = getCommentPageData;
-        back.post(url, (error, response, data) => {
-            try {
-                back.log(`getCommentPage:` + JSON.parse(data).message)
-                msg = msg + `getCommentPage:` + JSON.parse(data).message + `\n`;
-                resolve()
-            } catch (e) {
-                back.msg(cookieName, `getCommentPage: 失败`, `说明: ${e}`)
-                back.log(`❌ ${cookieName} getCommentPage - 失败: ${e}`)
-                back.log(`❌ ${cookieName} getCommentPage - response: ${JSON.stringify(response)}`)
-                resolve()
-            }
-        })
-    })
-}
-
-function updateTaskStatusV3() {
+/**
+ * updateTaskStatusV3
+ * @returns 
+ */
+function updateTaskStatusV3(data) {
     return new Promise((resolve, reject) => {
         const url = { url: updateTaskStatusV3Url, headers: JSON.parse(signheaderVal) }
-        url.body = updateTaskStatusV3Data;
+        url.body = data;
         back.post(url, (error, response, data) => {
             try {
                 back.log(`updateTaskStatusV3:` + JSON.parse(data).message)
                 msg = msg + `updateTaskStatusV3:` + JSON.parse(data).message + `\n`;
                 resolve()
             } catch (e) {
-                back.msg(cookieName, `updateTaskStatusV3: 失败`, `说明: ${e}`)
                 back.log(`❌ ${cookieName} updateTaskStatusV3 - 失败: ${e}`)
                 back.log(`❌ ${cookieName} updateTaskStatusV3 - response: ${JSON.stringify(response)}`)
                 resolve()
@@ -150,100 +184,143 @@ function updateTaskStatusV3() {
     })
 }
 
-function getAgreementsV2() {
+/**
+ * 发布一次提问
+ * @returns 
+ */
+function qaQuestionCreate() {
     return new Promise((resolve, reject) => {
-        const url = { url: getAgreementsV2Url, headers: JSON.parse(signheaderVal) }
-        url.body = getAgreementsV2Data;
+        const url = { url: qaQuestionCreateUrl, headers: JSON.parse(signheaderVal) }
+        url.body = qaQuestionCreateData;
         back.post(url, (error, response, data) => {
             try {
-                back.log(`getAgreementsV2:` + JSON.parse(data).message)
-                msg = msg + `getAgreementsV2:` + JSON.parse(data).message + `\n`;
+                back.log(`发布一次提问:` + JSON.parse(data).message)
+                msg = msg + `发布一次提问:` + JSON.parse(data).message + `\n`;
                 resolve()
             } catch (e) {
-                back.msg(cookieName, `getAgreementsV2: 失败`, `说明: ${e}`)
-                back.log(`❌ ${cookieName} getAgreementsV2 - 失败: ${e}`)
-                back.log(`❌ ${cookieName} getAgreementsV2 - response: ${JSON.stringify(response)}`)
+                back.log(`❌ ${cookieName} 发布一次提问 - 失败: ${e}`)
+                back.log(`❌ ${cookieName} 发布一次提问 - response: ${JSON.stringify(response)}`)
                 resolve()
             }
         })
     })
 }
 
-function submitToday() {
+/**
+ * 使用用车手账
+ * @returns 
+ */
+function billItemAdd() {
     return new Promise((resolve, reject) => {
-        const url = { url: submitTodayUrl, headers: JSON.parse(signheaderVal) }
-        url.body = submitTodayData;
+        const url = { url: billItemAddUrl, headers: JSON.parse(signheaderVal) }
+        url.body = billItemAddData;
         back.post(url, (error, response, data) => {
             try {
-                back.log(`submitToday:` + JSON.parse(data).message)
-                msg = msg + `submitToday:` + JSON.parse(data).message + `\n`;
+                back.log(`使用用车手账:` + JSON.parse(data).message)
+                msg = msg + `使用用车手账:` + JSON.parse(data).message + `\n`;
                 resolve()
             } catch (e) {
-                back.msg(cookieName, `submitToday: 失败`, `说明: ${e}`)
-                back.log(`❌ ${cookieName} submitToday - 失败: ${e}`)
-                back.log(`❌ ${cookieName} submitToday - response: ${JSON.stringify(response)}`)
+                back.log(`❌ ${cookieName} 使用用车手账 - 失败: ${e}`)
+                back.log(`❌ ${cookieName} 使用用车手账 - response: ${JSON.stringify(response)}`)
                 resolve()
             }
         })
     })
 }
 
-function queryToday() {
+
+/**
+ * 发布一次回答
+ * @returns 
+ */
+function qaAnswerCreate() {
     return new Promise((resolve, reject) => {
-        const url = { url: queryTodayUrl, headers: JSON.parse(signheaderVal) }
-        url.body = queryTodayData;
+        const url = { url: qaAnswerCreateUrl, headers: JSON.parse(signheaderVal) }
+        url.body = qaAnswerCreateData;
         back.post(url, (error, response, data) => {
             try {
-                back.log(`queryToday:` + JSON.parse(data).message)
-                msg = msg + `queryToday:` + JSON.parse(data).message + `\n`;
+                back.log(`发布一次回答:` + JSON.parse(data).message)
+                msg = msg + `发布一次回答:` + JSON.parse(data).message + `\n`;
                 resolve()
             } catch (e) {
-                back.msg(cookieName, `queryToday: 失败`, `说明: ${e}`)
-                back.log(`❌ ${cookieName} queryToday - 失败: ${e}`)
-                back.log(`❌ ${cookieName} queryToday - response: ${JSON.stringify(response)}`)
+                back.log(`❌ ${cookieName} 发布一次回答 - 失败: ${e}`)
+                back.log(`❌ ${cookieName} 发布一次回答 - response: ${JSON.stringify(response)}`)
                 resolve()
             }
         })
     })
 }
 
-function create() {
+ /**
+ * 在线看车
+ * @returns 
+ */
+function pdcSubmit() {
     return new Promise((resolve, reject) => {
-        const url = { url: createUrl, headers: JSON.parse(signheaderVal) }
-        url.body = createData;
+        const url = { url: pdcSubmitUrl, headers: JSON.parse(signheaderVal) }
+        url.body = pdcSubmitData;
         back.post(url, (error, response, data) => {
             try {
-                back.log(`create:` + JSON.parse(data).message)
-                msg = msg + `create:` + JSON.parse(data).message + `\n`;
+                back.log(`在线看车:` + JSON.parse(data).message)
+                msg = msg + `在线看车:` + JSON.parse(data).message + `\n`;
                 resolve()
             } catch (e) {
-                back.msg(cookieName, `create: 失败`, `说明: ${e}`)
-                back.log(`❌ ${cookieName} create - 失败: ${e}`)
-                back.log(`❌ ${cookieName} create - response: ${JSON.stringify(response)}`)
+                back.log(`❌ ${cookieName} 在线看车 - 失败: ${e}`)
+                back.log(`❌ ${cookieName} 在线看车 - response: ${JSON.stringify(response)}`)
                 resolve()
             }
         })
     })
 }
 
-function queryVehicleAuthStatus() {
+
+ /**
+ * getTicket
+ * @returns 
+ */
+ function getTicket() {
     return new Promise((resolve, reject) => {
-        const url = { url: queryVehicleAuthStatusUrl, headers: JSON.parse(signheaderVal) }
-        url.body = queryVehicleAuthStatusData;
+        const url = { url: getTicketUrl, headers: JSON.parse(signheaderVal) }
         back.post(url, (error, response, data) => {
             try {
-                back.log(`queryVehicleAuthStatus:` + JSON.parse(data).message)
-                msg = msg + `queryVehicleAuthStatus:` + JSON.parse(data).message + `\n`;
+                back.log(`getTicket:` + JSON.parse(data).message)
+                msg = msg + `getTicket:` + JSON.parse(data).message + `\n`;
                 resolve()
             } catch (e) {
-                back.msg(cookieName, `queryVehicleAuthStatus: 失败`, `说明: ${e}`)
-                back.log(`❌ ${cookieName} queryVehicleAuthStatus - 失败: ${e}`)
-                back.log(`❌ ${cookieName} queryVehicleAuthStatus - response: ${JSON.stringify(response)}`)
+                back.log(`❌ ${cookieName} getTicket - 失败: ${e}`)
+                back.log(`❌ ${cookieName} getTicket - response: ${JSON.stringify(response)}`)
                 resolve()
             }
         })
     })
 }
+
+
+/**
+ * 添加评论
+ * @returns 
+ */
+function addComment() {
+    return new Promise((resolve, reject) => {
+        const url = { url: addCommentUrl, headers: JSON.parse(signheaderVal) }
+        url.body = addCommentData;
+        back.post(url, (error, response, data) => {
+            try {
+                back.log(`添加评论:` + JSON.parse(data).message)
+                msg = msg + `添加评论:` + JSON.parse(data).message + `\n`;
+                resolve()
+            } catch (e) {
+                back.log(`❌ ${cookieName} 添加评论 - 失败: ${e}`)
+                back.log(`❌ ${cookieName} 添加评论 - response: ${JSON.stringify(response)}`)
+                resolve()
+            }
+        })
+    })
+}
+
+
+
+
 
 
 
