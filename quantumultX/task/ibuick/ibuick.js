@@ -29,7 +29,14 @@ const readContentData = `{"data":"ib00J4kZBfP\/WJGSXMCl1eE65nBi78pmty2EqvJIc\/RS
 const readContentUpdateTaskStatusV3Data = `{"data":"OR+8JKAJEvUBqW1xkZvbitGYGRbsf\/\/8D5RmaOdIcowE4jlYmr1SfTD2iXIQrvbpfGs8CtoMlLLWQHioQQ494\/\/7alqFVR9W0DRR+EeieI1kDxpYQnGuDdeoXlrtgaPH6mCCYTpROB5xmgXliELet0iMGoD0ByWBlbckWE1xDVU="}`;
 
 // 浏览此刻页面
-const readContentData_ck = `{"data":"lLL4++njitOGWh6+JLoHoUwn\/GoZPIquwZvqX7OhkKvLByAV02DRpLKWY8crCHE4wRtMKOKOaOG23W5PH3JGweW2V6J8IcbLl77udZfd+jD5+IFw0lLHAQclwwS6ShRKbVwor1PmJBPAJ4lJstG4zDQN1J4tu+Zh2fQz2\/+4BeY="}`;
+const getContentPageV2Url = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/bbs/getContentPageV2';
+const getContentPageV2Data = `{"data":"pyCJnoeXIqE3UFrvMHK+Sei2baf4J3ZTvx7EFRux4RRFS\/SGH0cIyicOiNKaLpdAe0\/wRBbtKLKvtioOCbDdA61ds5gjs0IkqWYjcQxqDA4="}`;
+const getContentPageV2UpdateTaskStatusV3Data = `{"data":"lJgex2y\/ufpqjPNDpePiRtv3cSYTLTmjoCGW3xGLX\/KTfexwHNtDmlz+3VRRyucTB5pRaOjo2OzXeOnGjza2g32zX6yga+FaTFXOwFf5eiufSnxYQeKfuYqC4QDPBMfJsRNslNdwJMGSiGNlyMzRCuoNpwEWvDsJECoRaWmCdEg="}`;
+const getContentDetailUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/bbs/getContentDetail';
+const getContentDetailData = `{"data":"lLL4++njitOGWh6+JLoHoUwn\/GoZPIquwZvqX7OhkKvLByAV02DRpLKWY8crCHE4wRtMKOKOaOG23W5PH3JGweW2V6J8IcbLl77udZfd+jD5+IFw0lLHAQclwwS6ShRKbVwor1PmJBPAJ4lJstG4zDQN1J4tu+Zh2fQz2\/+4BeY="}`;
+const getCommentPageUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/bbs/getCommentPage';
+const getCommentPageData = `{"data":"P5gh0jFgvpAqpI6sOoM\/azNesGjB+fVYwoin\/7Quf2wwgtLKpHw8wlP3xJoe0tJbaLCNaYT1FSYS\/cLCpgbhpZAC4KtIvVVir5Vhm2PdJX8HBEGlVfAYQqwJgRHrnflwzxp9v+gXcGSXZ8\/wpFuqXfWhAA2GMN8ufu6W2P\/Pem4="}`;
+const readContentDataCk = `{"data":"lLL4++njitOGWh6+JLoHoUwn\/GoZPIquwZvqX7OhkKvLByAV02DRpLKWY8crCHE4wRtMKOKOaOG23W5PH3JGweW2V6J8IcbLl77udZfd+jD5+IFw0lLHAQclwwS6ShRKbVwor1PmJBPAJ4lJstG4zDQN1J4tu+Zh2fQz2\/+4BeY="}`;
 
 // 发布一次提问
 const qaQuestionCreateUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/qa/question/create';
@@ -50,11 +57,13 @@ const getTicketUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/privat
 const pdcSubmitUpdateTaskStatusV3Data = `{"data":"nB2mtIZI4viubupyhomoK\/F8onK7y3dWD911FwORzJWvXNS1kIMOnX+R\/g6aikXTuuEkjo4gBiZabIutA\/3pmhY2Pp\/WBmBCMzif4It67rKBQZEYCnNzB5JAYnTRo68R+LtKkobJJpdX2sk9eQnN7FlIAGZxKUv9dlnDku7P2JI="}`;
 
 // 添加评论
+const getAgreementsV2Url = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/common/getAgreementsV2';
+const getAgreementsV2Data = `{"data":"FRkOtvqLUyvmwaU2jHPYLjrfFKz6ZhZqCH5IEdq33SjONGjHDcMCSndgJS9ED1CLnI4mpgiiSejV23aOpYo6e9TCZ++gByopPfYn577LnfGI0bvcoNtzfUjfpQpH52Dw29OJGZ8qYxwc64iN2aMPcvalOYGwVvsXDw0WKY5uiA8="}`;
 const addCommentUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/bbs/addComment';
-const addCommentData = `{"data":"Rf\/Mvqc0XJdZnGqd4rjyPN6wRAEz8Z9fIxEkkhAEbCl1lxJpaynQxFT+y5ks2Vm4CZmcFF3Y3ys24u9KW+cN1KmIhaJULwNj8y9Zc+ySMjDbWUFEDsdWSDBV50JyDf9W1zlmFkanQGMujnIFET+ea0uvRJ5BMkZauQ5xUu8AC0A="}`;
+const addCommentData = `{"data":"i5ifqY79EL9E7\/+K0dwRIKqfdXCWs\/ZAYKr66DItqTYT7HKpkTBIrP3PxiHNl5cl9VHz+NCavtPpWi0ak7Ab\/Rh2RKoXlEeJb87nByo+8+ZzCDloU+EdVCSCDFC9G5we1mMvSygRqYIW9wLr7k1FZ6t8P4HfIY7b01wD1Ps5j4s="}`;
 
 
-let msg = '';
+var msg = '';
 ; (sign = async () => {
     back.log(`🔔 ${cookieName}`)
 
@@ -64,12 +73,15 @@ let msg = '';
     await getUserTaskListV3()
 
     // 阅读一篇官方贴
-    await readContent(readContentData)
+    await readContent()
     await updateTaskStatusV3(readContentUpdateTaskStatusV3Data)
 
     // 浏览此刻页面
-    await readContent(readContentData)
-    await updateTaskStatusV3(readContentData_ck)
+    await getContentPageV2()
+    await updateTaskStatusV3(getContentPageV2UpdateTaskStatusV3Data)
+    await getContentDetai()
+    await getCommentPage()
+    await readContentCK()
 
     // 发布一次提问
     await qaQuestionCreate()
@@ -86,6 +98,7 @@ let msg = '';
     await updateTaskStatusV3(readContentUpdateTaskStatusV3Data)
 
     // 添加评论
+    await getAgreementsV2()
     await addComment()
 
     back.msg(cookieName, "签到成功", msg)
@@ -126,7 +139,7 @@ function addContentV2() {
 function getUserTaskListV3() {
     return new Promise((resolve, reject) => {
         const url = { url: getUserTaskListV3Url, headers: JSON.parse(signheaderVal) }
-        back.post(url, (error, response, data) => {
+        back.get(url, (error, response, data) => {
             try {
                 back.log(`获取用户任务列表V3:` + JSON.parse(data).message)
                 msg = msg + `获取用户任务列表V3:` + JSON.parse(data).message + `\n`;
@@ -144,10 +157,10 @@ function getUserTaskListV3() {
  * 阅读一篇官方贴
  * @returns 
  */
-function readContent(data) {
+function readContent() {
     return new Promise((resolve, reject) => {
         const url = { url: readContentUrl, headers: JSON.parse(signheaderVal) }
-        url.body = data;
+        url.body = readContentData;
         back.post(url, (error, response, data) => {
             try {
                 back.log(`阅读一篇官方贴:` + JSON.parse(data).message)
@@ -156,6 +169,97 @@ function readContent(data) {
             } catch (e) {
                 back.log(`❌ ${cookieName} 阅读一篇官方贴 - 失败: ${e}`)
                 back.log(`❌ ${cookieName} 阅读一篇官方贴 - response: ${JSON.stringify(response)}`)
+                resolve()
+            }
+        })
+    })
+}
+
+
+ /**
+  * 浏览此刻页面
+  * @returns 
+  */
+ function getContentPageV2() {
+    return new Promise((resolve, reject) => {
+        const url = { url: getContentPageV2Url, headers: JSON.parse(signheaderVal) }
+        url.body = getContentPageV2Data;
+        back.post(url, (error, response, data) => {
+            try {
+                back.log(`浏览此刻页面-getContentPageV2:` + JSON.parse(data).message)
+                msg = msg + `浏览此刻页面-getContentPageV2:` + JSON.parse(data).message + `\n`;
+                resolve()
+            } catch (e) {
+                back.log(`❌ ${cookieName} 浏览此刻页面-getContentPageV2 - 失败: ${e}`)
+                back.log(`❌ ${cookieName} 浏览此刻页面-getContentPageV2 - response: ${JSON.stringify(response)}`)
+                resolve()
+            }
+        })
+    })
+}
+
+
+/**
+  * 浏览此刻页面
+  * @returns 
+  */
+function getContentDetai() {
+    return new Promise((resolve, reject) => {
+        const url = { url: getContentDetailUrl, headers: JSON.parse(signheaderVal) }
+        url.body = getContentDetailData;
+        back.post(url, (error, response, data) => {
+            try {
+                back.log(`浏览此刻页面-getContentDetai:` + JSON.parse(data).message)
+                msg = msg + `浏览此刻页面-getContentDetai:` + JSON.parse(data).message + `\n`;
+                resolve()
+            } catch (e) {
+                back.log(`❌ ${cookieName} 浏览此刻页面-getContentDetai - 失败: ${e}`)
+                back.log(`❌ ${cookieName} 浏览此刻页面-getContentDetai - response: ${JSON.stringify(response)}`)
+                resolve()
+            }
+        })
+    })
+}
+
+
+/**
+  * 浏览此刻页面
+  * @returns 
+  */
+function getCommentPage() {
+    return new Promise((resolve, reject) => {
+        const url = { url: getCommentPageUrl, headers: JSON.parse(signheaderVal) }
+        url.body = getCommentPageData;
+        back.post(url, (error, response, data) => {
+            try {
+                back.log(`浏览此刻页面-getCommentPage:` + JSON.parse(data).message)
+                msg = msg + `浏览此刻页面-getCommentPage:` + JSON.parse(data).message + `\n`;
+                resolve()
+            } catch (e) {
+                back.log(`❌ ${cookieName} 浏览此刻页面-getCommentPage - 失败: ${e}`)
+                back.log(`❌ ${cookieName} 浏览此刻页面-getCommentPage - response: ${JSON.stringify(response)}`)
+                resolve()
+            }
+        })
+    })
+}
+
+/**
+ * 浏览此刻页面
+ * @returns 
+ */
+function readContentCK() {
+    return new Promise((resolve, reject) => {
+        const url = { url: readContentUrl, headers: JSON.parse(signheaderVal) }
+        url.body = readContentDataCk;
+        back.post(url, (error, response, data) => {
+            try {
+                back.log(`浏览此刻页面:` + JSON.parse(data).message)
+                msg = msg + `浏览此刻页面:` + JSON.parse(data).message + `\n`;
+                resolve()
+            } catch (e) {
+                back.log(`❌ ${cookieName} 浏览此刻页面 - 失败: ${e}`)
+                back.log(`❌ ${cookieName} 浏览此刻页面 - response: ${JSON.stringify(response)}`)
                 resolve()
             }
         })
@@ -281,7 +385,7 @@ function pdcSubmit() {
  function getTicket() {
     return new Promise((resolve, reject) => {
         const url = { url: getTicketUrl, headers: JSON.parse(signheaderVal) }
-        back.post(url, (error, response, data) => {
+        back.get(url, (error, response, data) => {
             try {
                 back.log(`getTicket:` + JSON.parse(data).message)
                 msg = msg + `getTicket:` + JSON.parse(data).message + `\n`;
@@ -294,6 +398,31 @@ function pdcSubmit() {
         })
     })
 }
+
+
+
+/**
+ * 添加评论
+ * @returns 
+ */
+function getAgreementsV2() {
+    return new Promise((resolve, reject) => {
+        const url = { url: getAgreementsV2Url, headers: JSON.parse(signheaderVal) }
+        url.body = getAgreementsV2Data;
+        back.post(url, (error, response, data) => {
+            try {
+                back.log(`添加评论-getAgreementsV2:` + JSON.parse(data).message)
+                msg = msg + `添加评论-getAgreementsV2:` + JSON.parse(data).message + `\n`;
+                resolve()
+            } catch (e) {
+                back.log(`❌ ${cookieName} 添加评论-getAgreementsV2 - 失败: ${e}`)
+                back.log(`❌ ${cookieName} 添加评论-getAgreementsV2 - response: ${JSON.stringify(response)}`)
+                resolve()
+            }
+        })
+    })
+}
+
 
 
 /**
