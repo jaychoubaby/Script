@@ -354,7 +354,7 @@ function qaAnswerCreate() {
         }else{
             url.body = qaAnswerCreateData[0];
         }
-        back.log(`发布一次回答: boyd` + url.body)
+        back.log(`发布一次回答: body` + url.body)
         back.post(url, (error, response, data) => {
             try {
                 back.log(`发布一次回答:` + JSON.parse(data).message)
