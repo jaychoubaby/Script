@@ -48,13 +48,13 @@ const billItemAddData = `{"data":"Gufl28SNZs9XpC1kIQv+pNH59+uJb+EcQPOCWAJxdLDKiy
 
 //发布一次回答
 const qaAnswerCreateUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/qa/answer/create';
-const qaAnswerCreateData = `{"data":"OKcZYThO43tizDlwZ6Dn80IeD7APAeJHM3hB9uviFwbwqUy1A+OV8GjWt8uk1Xod2pnyMNheFfV4+8qAesRkRANUs+sj70Rl9C4wl5mt9M3cKNb+NYm+tQSSAIDNt5CGu5RpnzVP\/OrCQutspfA948EvQ03d6OxEbCtfhkJ8C+5M9DYGdg+3xM1enUreMU2WTZ8CzdB1eMtTLm1CoDXUCXGHXDMmiKl2QYDdNiUrkCxrFNjsSsbx0nS0eyIRgEQkW4WeZz+vlsMAKff9wxf2MKyyOKGwdLS7i\/2d7A\/iJivYLjbNqn1hAWQMoWYaR+6\/4L\/IWtZtyokhpPJCDPlZ6X4oTRNQe0htsq0VJB3Tl19JqHa8qcnlNuAvgSsKVVK4ZayfLl08hWEJw9g7dfkFsPXhpdamIwO02Bl4xPTIRcalsp+EV613aRc6JC\/YP0y0y+pmChUusBZPFATOtUtlgIlTxF\/Zyvb6oq2EgUPbPswcyrdvjzM5t\/5Arkl5z95IajS5g0Tekig2ERRF19Ijw+I5JPLg5NGGvkOAvEPmYmkvKLBGUDP4GBvdetCxMTJI4frkvWiyPwyu1cIEvUA2lST9nszsCUl2yLwPRj1CbWSUWhfjr\/34mFVCAxUCkYKFbSvkl12h3SPRssQ2GZ8vBpHkSfLoiJQgBjwKmEcyqJMTT8rMOovC9hYOB6MoucN7DPFEAjz2yW7vENUZowTzgmTtvIP1BE7X6T0tly2bQ0Rg5dquj3\/kadqtmrsr7tMwpduAwhWB+FRAhL01OqxGmM08RvrV\/bEVjuOofstFz3taCHtByAkpNYnF5eXwRQ2ddDTzjAz7ZdT6qLTjE3YsGCFkJjyZDlOCNs9WaLICwXjW10ZD3yd2TUCFbFK7LwlUmKMtC3yvTm86DjRi+LnuHpYPq2LIhk\/3+o7keZFXiLSnJvI3foYqMaL31yebc+QeentevdrcMh2KnGMQUshamNhpvDWWEDCXe+0tNFOu\/exq824QsQc+bvjeIQVm3lgCa4LnzmY2P+t0XISESctpCQieIOZhnrFYCaG94Q4yVxAHgI3wa5vsAZU0oN1T07jOkrGt57RNYDGxZI+ffn6MhMkfQ7+VLNfLjzLnQnDqKB7e9Ahu8nhB+yN9WCUSjCIC5hrTkGb\/P\/kvHjZcXDR827idNn4CMGYuHrjp1AVw5f0="}`;
+const qaAnswerCreateData = `[{"data":"OKcZYThO43tizDlwZ6Dn80IeD7APAeJHM3hB9uviFwbwqUy1A+OV8GjWt8uk1Xod2pnyMNheFfV4+8qAesRkRANUs+sj70Rl9C4wl5mt9M3cKNb+NYm+tQSSAIDNt5CGu5RpnzVP\/OrCQutspfA948EvQ03d6OxEbCtfhkJ8C+5M9DYGdg+3xM1enUreMU2WTZ8CzdB1eMtTLm1CoDXUCXGHXDMmiKl2QYDdNiUrkCxrFNjsSsbx0nS0eyIRgEQkW4WeZz+vlsMAKff9wxf2MKyyOKGwdLS7i\/2d7A\/iJivYLjbNqn1hAWQMoWYaR+6\/4L\/IWtZtyokhpPJCDPlZ6X4oTRNQe0htsq0VJB3Tl19JqHa8qcnlNuAvgSsKVVK4ZayfLl08hWEJw9g7dfkFsPXhpdamIwO02Bl4xPTIRcalsp+EV613aRc6JC\/YP0y0y+pmChUusBZPFATOtUtlgIlTxF\/Zyvb6oq2EgUPbPswcyrdvjzM5t\/5Arkl5z95IajS5g0Tekig2ERRF19Ijw+I5JPLg5NGGvkOAvEPmYmkvKLBGUDP4GBvdetCxMTJI4frkvWiyPwyu1cIEvUA2lST9nszsCUl2yLwPRj1CbWSUWhfjr\/34mFVCAxUCkYKFbSvkl12h3SPRssQ2GZ8vBpHkSfLoiJQgBjwKmEcyqJMTT8rMOovC9hYOB6MoucN7DPFEAjz2yW7vENUZowTzgmTtvIP1BE7X6T0tly2bQ0Rg5dquj3\/kadqtmrsr7tMwpduAwhWB+FRAhL01OqxGmM08RvrV\/bEVjuOofstFz3taCHtByAkpNYnF5eXwRQ2ddDTzjAz7ZdT6qLTjE3YsGCFkJjyZDlOCNs9WaLICwXjW10ZD3yd2TUCFbFK7LwlUmKMtC3yvTm86DjRi+LnuHpYPq2LIhk\/3+o7keZFXiLSnJvI3foYqMaL31yebc+QeentevdrcMh2KnGMQUshamNhpvDWWEDCXe+0tNFOu\/exq824QsQc+bvjeIQVm3lgCa4LnzmY2P+t0XISESctpCQieIOZhnrFYCaG94Q4yVxAHgI3wa5vsAZU0oN1T07jOkrGt57RNYDGxZI+ffn6MhMkfQ7+VLNfLjzLnQnDqKB7e9Ahu8nhB+yN9WCUSjCIC5hrTkGb\/P\/kvHjZcXDR827idNn4CMGYuHrjp1AVw5f0="},{"data":"mtqzQ4J19Kdwy2LI6XinwuYWT7NT4TrGGYbvqJP69igDbNj\/VpXtI2cSQLxGAF02JdYWin3HE96j7UWUbO+w2EEE7dK7ctsnbb9OyBihTzC1Q2ygpmDKQX41x6xgTP++44tJNUUCUc+SmDM1Jkc7ppm+yV64Vdp31s\/LDj09VG9WBW47asabpF2UaKU\/T4\/sK1gqo3KppvcsX\/vPyPyC0+MpFtHVVR1QbwkT9MTGWZawIDg1V0FcuTXeAFyuCY0lVXglYnZ2uWgq4kI1yCOJSnMYImqX3vUf9RbwDw1QHJ+Zb05bB5u2vwP1CVPx9r7qftZqYa+\/E6oohTGLtheI0pTxUamFGqrrQQ+GcE4Ju+PkYGdUbBPCndGBSrihP4EcS498z3DhgATqEgxIrxCw28UwU7JyMcS\/90Vt4cBR+FFPy2HXxNKVASuFdsFHHrsy4Eqs4e\/6+Qk9MGficE5i\/HOgo09GYYg+mWj1iUj4XDT94s3Bb4eGxRUbOjeX4uNDIOdLAGz0rbTtM1he1VRfW02zO5fSVwV3jJQ1dm\/mP+NAzCW6uXtStQ1Kf\/b0\/TMbls15I27m9RWBZC+IEVkkwKL9nsGof6bWh5acqSztOcBeQA9\/hMZ2+tZN1lOiPOViWgSgLF+wMlAEYQTTyrLtfP2coBwNSBCrQGOsjO31xvuLzQ9Z9LywXbfj1LCgseXyZ7yjS9FhYz9fK3kRBl4ric9zw+Uhc3eY0\/YakwYuYNIGL+pmWCKXizUH+hNxE1TqSaQMOb\/US1t5Q7i3SreMQquLD0iEgDAP5HnNfbzrx947n85TI1bYKVkaHkb5G1pUesPBBlQcFufE6UBa20usYwnzQXFGiptEUObkdj8FeGp5hLTt+7erA0thR1TRg8aqV4HzVFWbq2nVYYHZOOWTuGllEMW+JO9PSxIhbjOiIuCP9PPJlZHjKQPagtz3546Bht8lye1119uzf8cjyYApMSgQNn5F\/iooZJepDFNjO0OMCpX3sf2GeS+Ws0scc4kndutdpxYxSqpgpcvUXUDfS1fLPZqPyHuatWkhxM6wrKTyDZljoauiaEKoAuFVe2dq5ewjxhGnEbbPd6Yx+FgjYQfagF3myugqxjBx1R0Bbsbw1b\/A\/0naw383BFFXRpn8JKtltQZicWeKiVIZE7s4wLBkKkuAQhTBZTnq2xo2ds8="}]`;
 
 // 在线看车
 const pdcSubmitUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/pdc/submit';
 const pdcSubmitData = `{"data":"QD02J7OzKf2LvteClx+q9sH9XXhdpzxZtW4sxsctG1dCVGDP\/UUvimrbn1kRTaoKUG\/Rw0\/5SEHiB+dFcLKc\/mtaHuImkevPlxjTHGc+O7bWWK6QgMS5bOZ4GniX7tE07D9Y5J8Nh1KMOXuW+NI4IhRf9heC2DcGmQSpcTT08Rw\/L9vKMaVkZ3QQGoddH9VrsTtaDZKuw8yUMshCzbKlpYR5Jb3BCwTJGtdFDZJDJieAN205goxjHTdKQMvfr24HLzScwMBR7MkaIk\/AuC2uPhdjRBYqkOceWamCy9qjBF4M38f+9CB+\/s2aS\/t\/Sn7H9GvH3vmGgfnav+AqD0gbJA=="}`;
 const getTicketUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/userInfo/getTicket?data=cOVVqvieA5FUCyefjpEEFxaKXn2qC1HGEX8hKqtR6D/sOlU16gYwCG%2B0u7YLN7pwnsINKyT3DjBw1hdVB0WFYkfYf/DZ4rA%2BaxgbP43kfRlD2PFDUvgnDgYRwOXv6PbUtBHQM0y86Iq%2BSE4H8zy2i5/exRCCXvdSZjRxl/0UTtE%3D'
-const pdcSubmitUpdateTaskStatusV3Data = `{"data":"nB2mtIZI4viubupyhomoK\/F8onK7y3dWD911FwORzJWvXNS1kIMOnX+R\/g6aikXTuuEkjo4gBiZabIutA\/3pmhY2Pp\/WBmBCMzif4It67rKBQZEYCnNzB5JAYnTRo68R+LtKkobJJpdX2sk9eQnN7FlIAGZxKUv9dlnDku7P2JI="}`;
+const zxkcUpdateTaskStatusV3Data = `{"data":"nB2mtIZI4viubupyhomoK\/F8onK7y3dWD911FwORzJWvXNS1kIMOnX+R\/g6aikXTuuEkjo4gBiZabIutA\/3pmhY2Pp\/WBmBCMzif4It67rKBQZEYCnNzB5JAYnTRo68R+LtKkobJJpdX2sk9eQnN7FlIAGZxKUv9dlnDku7P2JI="}`;
 
 // 添加评论
 const getContentDetailDataPl = `{"data":"ib00J4kZBfP\/WJGSXMCl1eE65nBi78pmty2EqvJIc\/RSTdXlN+YJO8pzUZp3E4VSn+Wk5tqjwW3\/JDx2WnQpSgADMhzwlpsM4k8zdRNVBNgp9qIzLCKzpCAMGBE3QJPkY7YT+3vcQKChCiNN6I8np2fx0hTefxtlIcLt8g29gIQ="}`;
@@ -93,11 +93,9 @@ var msg = '';
     await qaAnswerCreate()
 
     // 在线看车
-    await pdcSubmit()
+    await updateTaskStatusV3(zxkcUpdateTaskStatusV3Data,'在线看车')
     await getTicket()
-    await updateTaskStatusV3(readContentUpdateTaskStatusV3Data,'在线看车')
 
-    
     // 阅读一篇官方贴
     await getContentDetai(getContentDetailDataPl)
     await getCommentPage(getCommentPageDataPl)
@@ -349,7 +347,14 @@ function billItemAdd() {
 function qaAnswerCreate() {
     return new Promise((resolve, reject) => {
         const url = { url: qaAnswerCreateUrl, headers: JSON.parse(signheaderVal) }
-        url.body = qaAnswerCreateData;
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        if(dd % 2 == 0){
+            url.body = qaAnswerCreateData[1];
+        }else{
+            url.body = qaAnswerCreateData[0];
+        }
+        back.log(`发布一次回答: boyd` + url.body)
         back.post(url, (error, response, data) => {
             try {
                 back.log(`发布一次回答:` + JSON.parse(data).message)
