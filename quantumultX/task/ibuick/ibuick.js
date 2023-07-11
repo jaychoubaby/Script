@@ -64,6 +64,9 @@ const getAgreementsV2Data = `{"data":"FRkOtvqLUyvmwaU2jHPYLjrfFKz6ZhZqCH5IEdq33S
 const addCommentUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/bbs/addComment';
 const addCommentData = `{"data":"Aok3vbzXJJFiwiX8CGhBWssB2Vt1482cm116NvE9w7C0n1lV45tABW5q1Nw9KNmoUaIoo4rvhyUGz2M6ETemn2BV6BRCn55bsrw8F7OlYjgWvTwsBTWuEykd4PjBnvWpBWTCHLod\/gKVic76U2QPz+3pt4xt07QGO4UIEZ8Z6ZdwNmHa1LNADqmFeZcEnhCKkD8adZFZPk3nBCLlTxg+LetwRJM\/xQ9MzYdkRhQl1rbhLBEbJ0kUPsQ6HA9nmVetD9HJcnwQ\/r9heD86fswxh+EkZDYDo50+tb+Mc6uWFNuZQ71DBT2fn5OYfg9AnSafd9przyLW+\/xeantz0YLd8w=="}`;
 
+// 浏览会员商城
+const llhyscUpdateTaskStatusV3Data = `{"data":"O9Hud+5xuvC4TeL3zIC4ZdY5RC4NuGhiFjmo7IzK\/zPaEe41hXzTelIkip1uH+2hSTw1wHW+14j2FxITg4WoytgkP3GcRfcWcZEUtIwHX+O0U45qcnRGMnEdzSKJThTV2t2RF1X99owPINJ2XJLv37cUbb\/LYhkdWCSSkYa4XH8="}`;
+
 var msg = '';
 ; (sign = async () => {
     back.log(`🔔 ${cookieName}`)
@@ -75,7 +78,7 @@ var msg = '';
 
     // 浏览此刻页面
     await getContentPageV2()
-    await updateTaskStatusV3(getContentPageV2UpdateTaskStatusV3Data)
+    await updateTaskStatusV3(getContentPageV2UpdateTaskStatusV3Data,'浏览此刻页面')
     await getContentDetai(getContentDetailData)
     await getCommentPage(getCommentPageData)
     await readContentCK()
@@ -92,16 +95,20 @@ var msg = '';
     // 在线看车
     await pdcSubmit()
     await getTicket()
-    await updateTaskStatusV3(readContentUpdateTaskStatusV3Data)
+    await updateTaskStatusV3(readContentUpdateTaskStatusV3Data,'在线看车')
 
     
     // 阅读一篇官方贴
     await getContentDetai(getContentDetailDataPl)
     await getCommentPage(getCommentPageDataPl)
     await readContent()
-    await updateTaskStatusV3(readContentUpdateTaskStatusV3Data)
+    await updateTaskStatusV3(readContentUpdateTaskStatusV3Data,'阅读一篇官方贴')
+
     // 添加评论
     await addComment()
+
+    // 浏览会员商城
+    await updateTaskStatusV3(llhyscUpdateTaskStatusV3Data,'浏览会员商城')
 
     back.msg(cookieName, "签到成功", msg)
 })()
@@ -272,18 +279,18 @@ function readContentCK() {
  * updateTaskStatusV3
  * @returns 
  */
-function updateTaskStatusV3(data) {
+function updateTaskStatusV3(data,task) {
     return new Promise((resolve, reject) => {
         const url = { url: updateTaskStatusV3Url, headers: JSON.parse(signheaderVal) }
         url.body = data;
         back.post(url, (error, response, data) => {
             try {
-                back.log(`updateTaskStatusV3:` + JSON.parse(data).message)
-                msg = msg + `updateTaskStatusV3:` + JSON.parse(data).message + `\n`;
+                back.log(task + `updateTaskStatusV3:` + JSON.parse(data).message)
+                msg = msg + task + `updateTaskStatusV3:` + JSON.parse(data).message + `\n`;
                 resolve()
             } catch (e) {
-                back.log(`❌ ${cookieName} updateTaskStatusV3 - 失败: ${e}`)
-                back.log(`❌ ${cookieName} updateTaskStatusV3 - response: ${JSON.stringify(response)}`)
+                back.log(`❌ ${cookieName} ${task} - updateTaskStatusV3 - 失败: ${e}`)
+                back.log(`❌ ${cookieName} ${task} - updateTaskStatusV3 - response: ${JSON.stringify(response)}`)
                 resolve()
             }
         })
