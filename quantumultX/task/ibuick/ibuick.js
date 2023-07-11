@@ -60,8 +60,8 @@ const pdcSubmitUpdateTaskStatusV3Data = `{"data":"nB2mtIZI4viubupyhomoK\/F8onK7y
 const getAgreementsV2Url = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/common/getAgreementsV2';
 const getAgreementsV2Data = `{"data":"FRkOtvqLUyvmwaU2jHPYLjrfFKz6ZhZqCH5IEdq33SjONGjHDcMCSndgJS9ED1CLnI4mpgiiSejV23aOpYo6e9TCZ++gByopPfYn577LnfGI0bvcoNtzfUjfpQpH52Dw29OJGZ8qYxwc64iN2aMPcvalOYGwVvsXDw0WKY5uiA8="}`;
 const addCommentUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/bbs/addComment';
-const addCommentData = `{"data":"i5ifqY79EL9E7\/+K0dwRIKqfdXCWs\/ZAYKr66DItqTYT7HKpkTBIrP3PxiHNl5cl9VHz+NCavtPpWi0ak7Ab\/Rh2RKoXlEeJb87nByo+8+ZzCDloU+EdVCSCDFC9G5we1mMvSygRqYIW9wLr7k1FZ6t8P4HfIY7b01wD1Ps5j4s="}`;
-
+const addCommentData = `{"data":"Rf\/Mvqc0XJdZnGqd4rjyPN6wRAEz8Z9fIxEkkhAEbCl1lxJpaynQxFT+y5ks2Vm4CZmcFF3Y3ys24u9KW+cN1KmIhaJULwNj8y9Zc+ySMjDbWUFEDsdWSDBV50JyDf9W1zlmFkanQGMujnIFET+ea0uvRJ5BMkZauQ5xUu8AC0A="}`;
+const addCommentUpdateTaskStatusV3Data = `{"data":"C9qHDAjAlVgXBf1KOk1qP3F02c\/x9XN7Rps\/9o1ueFrOXwP5EjC7GvdtHN7CD2J+N2kkkjCkTJrwzGiTIr8ZZ7QMTr+iru8fplxVT+XOyusSxRTyaqcWhurh+gI\/2zZWcEufe15AZycUtInqIck4GoBfar7Bzuy7MSVzTGd72Us="}`;
 
 var msg = '';
 ; (sign = async () => {
@@ -99,6 +99,7 @@ var msg = '';
 
     // 添加评论
     await getAgreementsV2()
+    await updateTaskStatusV3(addCommentUpdateTaskStatusV3Data)
     await addComment()
 
     back.msg(cookieName, "签到成功", msg)
