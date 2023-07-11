@@ -57,11 +57,12 @@ const getTicketUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/privat
 const pdcSubmitUpdateTaskStatusV3Data = `{"data":"nB2mtIZI4viubupyhomoK\/F8onK7y3dWD911FwORzJWvXNS1kIMOnX+R\/g6aikXTuuEkjo4gBiZabIutA\/3pmhY2Pp\/WBmBCMzif4It67rKBQZEYCnNzB5JAYnTRo68R+LtKkobJJpdX2sk9eQnN7FlIAGZxKUv9dlnDku7P2JI="}`;
 
 // 添加评论
+const getContentDetailDataPl = `{"data":"ib00J4kZBfP\/WJGSXMCl1eE65nBi78pmty2EqvJIc\/RSTdXlN+YJO8pzUZp3E4VSn+Wk5tqjwW3\/JDx2WnQpSgADMhzwlpsM4k8zdRNVBNgp9qIzLCKzpCAMGBE3QJPkY7YT+3vcQKChCiNN6I8np2fx0hTefxtlIcLt8g29gIQ="}`;
+const getCommentPageDataPl = `{"data":"QVxvAy8NqOlKcD8iaqfBjc4Iag4fE0GVE1\/q5jEM8jbzL0PWOuIGKxEQqPaRC\/1rM+NPXb2NACgnEHz67egejYnIe1mR7w8R3G7QHyxPAlFJbI6NOVm3iOB7o6\/qhVI117S2\/+XuNUwX7StwJeQVRpaGCklCczEC+Zn2eR3s6Co="}`;
 const getAgreementsV2Url = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/common/getAgreementsV2';
 const getAgreementsV2Data = `{"data":"FRkOtvqLUyvmwaU2jHPYLjrfFKz6ZhZqCH5IEdq33SjONGjHDcMCSndgJS9ED1CLnI4mpgiiSejV23aOpYo6e9TCZ++gByopPfYn577LnfGI0bvcoNtzfUjfpQpH52Dw29OJGZ8qYxwc64iN2aMPcvalOYGwVvsXDw0WKY5uiA8="}`;
 const addCommentUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/bbs/addComment';
-const addCommentData = `{"data":"Rf\/Mvqc0XJdZnGqd4rjyPN6wRAEz8Z9fIxEkkhAEbCl1lxJpaynQxFT+y5ks2Vm4CZmcFF3Y3ys24u9KW+cN1KmIhaJULwNj8y9Zc+ySMjDbWUFEDsdWSDBV50JyDf9W1zlmFkanQGMujnIFET+ea0uvRJ5BMkZauQ5xUu8AC0A="}`;
-const addCommentUpdateTaskStatusV3Data = `{"data":"C9qHDAjAlVgXBf1KOk1qP3F02c\/x9XN7Rps\/9o1ueFrOXwP5EjC7GvdtHN7CD2J+N2kkkjCkTJrwzGiTIr8ZZ7QMTr+iru8fplxVT+XOyusSxRTyaqcWhurh+gI\/2zZWcEufe15AZycUtInqIck4GoBfar7Bzuy7MSVzTGd72Us="}`;
+const addCommentData = `{"data":"Aok3vbzXJJFiwiX8CGhBWssB2Vt1482cm116NvE9w7C0n1lV45tABW5q1Nw9KNmoUaIoo4rvhyUGz2M6ETemn2BV6BRCn55bsrw8F7OlYjgWvTwsBTWuEykd4PjBnvWpBWTCHLod\/gKVic76U2QPz+3pt4xt07QGO4UIEZ8Z6ZdwNmHa1LNADqmFeZcEnhCKkD8adZFZPk3nBCLlTxg+LetwRJM\/xQ9MzYdkRhQl1rbhLBEbJ0kUPsQ6HA9nmVetD9HJcnwQ\/r9heD86fswxh+EkZDYDo50+tb+Mc6uWFNuZQ71DBT2fn5OYfg9AnSafd9przyLW+\/xeantz0YLd8w=="}`;
 
 var msg = '';
 ; (sign = async () => {
@@ -72,15 +73,11 @@ var msg = '';
     // 获取用户任务列表V3
     await getUserTaskListV3()
 
-    // 阅读一篇官方贴
-    await readContent()
-    await updateTaskStatusV3(readContentUpdateTaskStatusV3Data)
-
     // 浏览此刻页面
     await getContentPageV2()
     await updateTaskStatusV3(getContentPageV2UpdateTaskStatusV3Data)
-    await getContentDetai()
-    await getCommentPage()
+    await getContentDetai(getContentDetailData)
+    await getCommentPage(getCommentPageData)
     await readContentCK()
 
     // 发布一次提问
@@ -97,9 +94,13 @@ var msg = '';
     await getTicket()
     await updateTaskStatusV3(readContentUpdateTaskStatusV3Data)
 
+    
+    // 阅读一篇官方贴
+    await getContentDetai(getContentDetailDataPl)
+    await getCommentPage(getCommentPageDataPl)
+    await readContent()
+    await updateTaskStatusV3(readContentUpdateTaskStatusV3Data)
     // 添加评论
-    await getAgreementsV2()
-    await updateTaskStatusV3(addCommentUpdateTaskStatusV3Data)
     await addComment()
 
     back.msg(cookieName, "签到成功", msg)
@@ -204,10 +205,10 @@ function readContent() {
   * 浏览此刻页面
   * @returns 
   */
-function getContentDetai() {
+function getContentDetai(data) {
     return new Promise((resolve, reject) => {
         const url = { url: getContentDetailUrl, headers: JSON.parse(signheaderVal) }
-        url.body = getContentDetailData;
+        url.body = data;
         back.post(url, (error, response, data) => {
             try {
                 back.log(`浏览此刻页面-getContentDetai:` + JSON.parse(data).message)
@@ -227,10 +228,10 @@ function getContentDetai() {
   * 浏览此刻页面
   * @returns 
   */
-function getCommentPage() {
+function getCommentPage(data) {
     return new Promise((resolve, reject) => {
         const url = { url: getCommentPageUrl, headers: JSON.parse(signheaderVal) }
-        url.body = getCommentPageData;
+        url.body = data;
         back.post(url, (error, response, data) => {
             try {
                 back.log(`浏览此刻页面-getCommentPage:` + JSON.parse(data).message)
