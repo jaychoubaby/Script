@@ -68,6 +68,11 @@ const addCommentData = `{"data":"Aok3vbzXJJFiwiX8CGhBWssB2Vt1482cm116NvE9w7C0n1l
 // 浏览会员商城
 const llhyscUpdateTaskStatusV3Data = `{"data":"O9Hud+5xuvC4TeL3zIC4ZdY5RC4NuGhiFjmo7IzK\/zPaEe41hXzTelIkip1uH+2hSTw1wHW+14j2FxITg4WoytgkP3GcRfcWcZEUtIwHX+O0U45qcnRGMnEdzSKJThTV2t2RF1X99owPINJ2XJLv37cUbb\/LYhkdWCSSkYa4XH8="}`;
 
+// 分享一篇官方贴
+const fxypgftUpdateTaskStatusV3Data = `{"data":"C9qHDAjAlVgXBf1KOk1qP3F02c\/x9XN7Rps\/9o1ueFrOXwP5EjC7GvdtHN7CD2J+N2kkkjCkTJrwzGiTIr8ZZ7QMTr+iru8fplxVT+XOyusSxRTyaqcWhurh+gI\/2zZWcEufe15AZycUtInqIck4GoBfar7Bzuy7MSVzTGd72Us="}`;
+
+// 浏览同城页面
+const lltcymUpdateTaskStatusV3Data = `{"data":"Rs\/a2v4SPBfnI0i\/ZyUw\/r34oORtMFkSgkGeeo5FVIOnJzdf3bH7KG3Dy\/94JEap4povkJ1naj3zg\/qeONOymyCdQagAWqFbwkEUcVhnq2t3Ncsfn2wUinCn\/+8bY4Ek0V7qeY95AJSqSF3cURKuluehgJV+xd6q7FJrDNzRbH0="}`;
 var msg = '';
 ; (sign = async () => {
     back.log(`🔔 ${cookieName}`)
@@ -108,6 +113,12 @@ var msg = '';
 
     // 浏览会员商城
     await updateTaskStatusV3(llhyscUpdateTaskStatusV3Data,'浏览会员商城')
+
+    // 分享一篇官方贴
+    await updateTaskStatusV3(fxypgftUpdateTaskStatusV3Data,'分享一篇官方贴')
+
+    // 浏览同城页面
+    await updateTaskStatusV3(lltcymUpdateTaskStatusV3Data,'浏览同城页面')
 
     back.msg(cookieName, "签到成功", msg)
 })()
