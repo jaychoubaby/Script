@@ -79,8 +79,45 @@ var msg = '';
 
     // 发布一条动态
     await addContentV2()
+
+    setTimeout(() => {
+        console.log('等待3秒');
+    }, 3000);
+
+    // 发布一次提问
+    await qaQuestionCreate()
+
+    setTimeout(() => {
+        console.log('等待3秒');
+    }, 3000);
+
+    // 发布一次回答
+    await qaAnswerCreate()
+
+    setTimeout(() => {
+        console.log('等待3秒');
+    }, 3000);
+
+    // 使用用车手账
+    await billItemAdd()
+
+    setTimeout(() => {
+        console.log('等待3秒');
+    }, 3000);
+
+    // 添加评论
+    await addComment()
+
+    setTimeout(() => {
+        console.log('等待3秒');
+    }, 3000);
+
     // 获取用户任务列表V3
     await getUserTaskListV3()
+
+    setTimeout(() => {
+        console.log('等待3秒');
+    }, 3000);
 
     // 浏览此刻页面
     await getContentPageV2()
@@ -89,18 +126,17 @@ var msg = '';
     await getCommentPage(getCommentPageData)
     await readContentCK()
 
-    // 发布一次提问
-    await qaQuestionCreate()
-
-    // 使用用车手账
-    await billItemAdd()
-
-    // 发布一次回答
-    await qaAnswerCreate()
+    setTimeout(() => {
+        console.log('等待3秒');
+    }, 3000);
 
     // 在线看车
     await updateTaskStatusV3(zxkcUpdateTaskStatusV3Data,'在线看车')
     await getTicket()
+
+    setTimeout(() => {
+        console.log('等待3秒');
+    }, 3000);
 
     // 阅读一篇官方贴
     await getContentDetai(getContentDetailDataPl)
@@ -108,17 +144,30 @@ var msg = '';
     await readContent()
     await updateTaskStatusV3(readContentUpdateTaskStatusV3Data,'阅读一篇官方贴')
 
-    // 添加评论
-    await addComment()
+    setTimeout(() => {
+        console.log('等待3秒');
+    }, 3000);
 
     // 浏览会员商城
     await updateTaskStatusV3(llhyscUpdateTaskStatusV3Data,'浏览会员商城')
 
+    setTimeout(() => {
+        console.log('等待3秒');
+    }, 3000);
+
     // 分享一篇官方贴
     await updateTaskStatusV3(fxypgftUpdateTaskStatusV3Data,'分享一篇官方贴')
 
+    setTimeout(() => {
+        console.log('等待3秒');
+    }, 3000);
+
     // 浏览同城页面
     await updateTaskStatusV3(lltcymUpdateTaskStatusV3Data,'浏览同城页面')
+
+    setTimeout(() => {
+        console.log('等待3秒');
+    }, 3000);
 
     back.msg(cookieName, "签到成功", msg)
 })()
