@@ -12,7 +12,7 @@ const signheaderVal = back.getdata(signheaderKey)
  */
 
 
-memberInfo()  //签到
+sign()  //签到
 
 
 let detail = ''
@@ -26,26 +26,50 @@ function sign() {
   h[key] = value;
   back.log(JSON.stringify(h))
 
-  const url = { url: `https://superapp-public.kiwa-tech.com/activity/wxapp/signin/signin`, headers: h }
-  url.body = `{"signinSource":"MiniApp"}`;
+  const url = { url: `https://gpt-api-2.it007996.top/chatapi/marketing/signin`, headers: h }
+  url.body = `{}`;
 
   back.post(url, (error, response, data) => {
     try{
-      back.log(`${cookieName}, data: ${data}`)
-      const title = `${cookieName}`
-      const result = JSON.parse(data)
-      if (result.success) {
+      const rData = JSON.parse(data)
+      if (rData.code == 200) {
         subTitle = `签到结果: 🎉签到成功` +`\n`
       } else {
-        subTitle = `签到结果: ⚠️${result.msg}`
+        subTitle = `签到结果: ⚠️${rData.message}`
       } 
       // 查询
+      signinpage();
       memberInfo()
     }catch(error){
       back.log(error)
       back.done()
     }
   })
+}
+
+function signinpage(){
+    let today = new Date();
+    let yyyy = today.getFullYear();
+    let mm = String(today.getMonth() + 1).padStart(2, '0');
+    const url = { url: `https://gpt-api-2.it007996.top/chatapi/marketing/signinpage?StartTime=${yyyy}-${mm}`, headers: JSON.parse(signheaderVal) }
+    back.get(url, (error, response, data) => {
+        const rData = JSON.parse(data)
+        if (rData.code == 200) {
+            let array = rData.result;
+            let count = 0;
+            for (let i = 0; i < array.length; i++) {
+                if (array[i].isSignIn) {
+                    count++;
+                }
+            }
+            detail += `${mm}已签到天数:${count}`+`\n`
+        } else {
+          detail = `🎉查询签到天数结果: ${rData.message}`
+        } 
+        back.msg(title, subTitle, detail)
+        back.done()
+      })
+
 }
 
 function memberInfo() {
@@ -59,7 +83,7 @@ function memberInfo() {
       detail += `绘画总量:${rData.result.wallets[0].totalValue}`+`\n`
       detail += `绘画剩余:${rData.result.wallets[0].availableValue}`+`\n`
     } else {
-      detail = `🎉查询结果: ${rData.type}`
+      detail = `🎉查询结果: ${rData.message}`
     } 
     back.msg(title, subTitle, detail)
     back.done()
