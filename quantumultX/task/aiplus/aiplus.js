@@ -38,7 +38,6 @@ function sign() {
         subTitle = `签到结果: ⚠️${rData.message}`
       } 
       // 查询
-      signinpage();
       memberInfo()
     }catch(error){
       back.log(error)
@@ -66,8 +65,6 @@ function signinpage(){
         } else {
           detail = `🎉查询签到天数结果: ${rData.message}`
         } 
-        back.msg(title, subTitle, detail)
-        back.done()
       })
 
 }
@@ -85,6 +82,8 @@ function memberInfo() {
     } else {
       detail = `🎉查询结果: ${rData.message}`
     } 
+    // 签到天数
+    signinpage();
     back.msg(title, subTitle, detail)
     back.done()
   })
