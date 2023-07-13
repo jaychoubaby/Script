@@ -19,16 +19,8 @@ let detail = ''
 let subTitle = ''
 
 function sign() {
-
-  let h = JSON.parse(signheaderVal)
-  var key = "Content-Type";
-  var value = "application/json"
-  h[key] = value;
-  back.log(JSON.stringify(h))
-
-  const url = { url: `https://gpt-api-2.it007996.top/chatapi/marketing/signin`, headers: h }
+  const url = { url: `https://gpt-api-2.it007996.top/chatapi/marketing/signin`, headers:  JSON.parse(signheaderVal)}
   url.body = `{}`;
-
   back.post(url, (error, response, data) => {
     try{
       const rData = JSON.parse(data)
@@ -62,6 +54,8 @@ function signinpage(){
                 }
             }
             detail += `${mm}已签到天数:${count}`+`\n`
+            back.msg(title, subTitle, detail)
+            back.done()
         } else {
           detail = `🎉查询签到天数结果: ${rData.message}`
         } 
@@ -84,8 +78,6 @@ function memberInfo() {
     } 
     // 签到天数
     signinpage();
-    back.msg(title, subTitle, detail)
-    back.done()
   })
 }
 
