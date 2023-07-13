@@ -54,8 +54,6 @@ function signinpage(){
                 }
             }
             detail += `${mm}已签到天数:${count}`+`\n`
-            back.msg(title, subTitle, detail)
-            back.done()
         } else {
           detail = `🎉查询签到天数结果: ${rData.message}`
         } 
@@ -77,7 +75,9 @@ function memberInfo() {
       detail = `🎉查询结果: ${rData.message}`
     } 
     // 签到天数
-    signinpage();
+    // signinpage();
+    back.msg(title, subTitle, detail)
+    back.done()
   })
 }
 
