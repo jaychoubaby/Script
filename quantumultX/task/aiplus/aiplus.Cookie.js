@@ -6,6 +6,7 @@ const back = init()
 /**
  * [rewrite_local]
  * #aiplus获取Cookie
+ * -> https://chatgpt-web-plus.it007996.top/
  * ^https?:\/\/gpt-api-2.it007996\.top\/chatapi\/auth\/memberInfo url script-request-header aiplus.Cookie.js
  * [MITM]
  * gpt-api-2.it007996.top
