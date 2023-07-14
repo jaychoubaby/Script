@@ -51,6 +51,10 @@ const qaAnswerCreateUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/p
 const qaAnswerCreateData0 = `{"data":"OKcZYThO43tizDlwZ6Dn80IeD7APAeJHM3hB9uviFwbwqUy1A+OV8GjWt8uk1Xod2pnyMNheFfV4+8qAesRkRANUs+sj70Rl9C4wl5mt9M3cKNb+NYm+tQSSAIDNt5CGu5RpnzVP\/OrCQutspfA948EvQ03d6OxEbCtfhkJ8C+5M9DYGdg+3xM1enUreMU2WTZ8CzdB1eMtTLm1CoDXUCXGHXDMmiKl2QYDdNiUrkCxrFNjsSsbx0nS0eyIRgEQkW4WeZz+vlsMAKff9wxf2MKyyOKGwdLS7i\/2d7A\/iJivYLjbNqn1hAWQMoWYaR+6\/4L\/IWtZtyokhpPJCDPlZ6X4oTRNQe0htsq0VJB3Tl19JqHa8qcnlNuAvgSsKVVK4ZayfLl08hWEJw9g7dfkFsPXhpdamIwO02Bl4xPTIRcalsp+EV613aRc6JC\/YP0y0y+pmChUusBZPFATOtUtlgIlTxF\/Zyvb6oq2EgUPbPswcyrdvjzM5t\/5Arkl5z95IajS5g0Tekig2ERRF19Ijw+I5JPLg5NGGvkOAvEPmYmkvKLBGUDP4GBvdetCxMTJI4frkvWiyPwyu1cIEvUA2lST9nszsCUl2yLwPRj1CbWSUWhfjr\/34mFVCAxUCkYKFbSvkl12h3SPRssQ2GZ8vBpHkSfLoiJQgBjwKmEcyqJMTT8rMOovC9hYOB6MoucN7DPFEAjz2yW7vENUZowTzgmTtvIP1BE7X6T0tly2bQ0Rg5dquj3\/kadqtmrsr7tMwpduAwhWB+FRAhL01OqxGmM08RvrV\/bEVjuOofstFz3taCHtByAkpNYnF5eXwRQ2ddDTzjAz7ZdT6qLTjE3YsGCFkJjyZDlOCNs9WaLICwXjW10ZD3yd2TUCFbFK7LwlUmKMtC3yvTm86DjRi+LnuHpYPq2LIhk\/3+o7keZFXiLSnJvI3foYqMaL31yebc+QeentevdrcMh2KnGMQUshamNhpvDWWEDCXe+0tNFOu\/exq824QsQc+bvjeIQVm3lgCa4LnzmY2P+t0XISESctpCQieIOZhnrFYCaG94Q4yVxAHgI3wa5vsAZU0oN1T07jOkrGt57RNYDGxZI+ffn6MhMkfQ7+VLNfLjzLnQnDqKB7e9Ahu8nhB+yN9WCUSjCIC5hrTkGb\/P\/kvHjZcXDR827idNn4CMGYuHrjp1AVw5f0="}`;
 const qaAnswerCreateData1 = `{"data":"mtqzQ4J19Kdwy2LI6XinwuYWT7NT4TrGGYbvqJP69igDbNj\/VpXtI2cSQLxGAF02JdYWin3HE96j7UWUbO+w2EEE7dK7ctsnbb9OyBihTzC1Q2ygpmDKQX41x6xgTP++44tJNUUCUc+SmDM1Jkc7ppm+yV64Vdp31s\/LDj09VG9WBW47asabpF2UaKU\/T4\/sK1gqo3KppvcsX\/vPyPyC0+MpFtHVVR1QbwkT9MTGWZawIDg1V0FcuTXeAFyuCY0lVXglYnZ2uWgq4kI1yCOJSnMYImqX3vUf9RbwDw1QHJ+Zb05bB5u2vwP1CVPx9r7qftZqYa+\/E6oohTGLtheI0pTxUamFGqrrQQ+GcE4Ju+PkYGdUbBPCndGBSrihP4EcS498z3DhgATqEgxIrxCw28UwU7JyMcS\/90Vt4cBR+FFPy2HXxNKVASuFdsFHHrsy4Eqs4e\/6+Qk9MGficE5i\/HOgo09GYYg+mWj1iUj4XDT94s3Bb4eGxRUbOjeX4uNDIOdLAGz0rbTtM1he1VRfW02zO5fSVwV3jJQ1dm\/mP+NAzCW6uXtStQ1Kf\/b0\/TMbls15I27m9RWBZC+IEVkkwKL9nsGof6bWh5acqSztOcBeQA9\/hMZ2+tZN1lOiPOViWgSgLF+wMlAEYQTTyrLtfP2coBwNSBCrQGOsjO31xvuLzQ9Z9LywXbfj1LCgseXyZ7yjS9FhYz9fK3kRBl4ric9zw+Uhc3eY0\/YakwYuYNIGL+pmWCKXizUH+hNxE1TqSaQMOb\/US1t5Q7i3SreMQquLD0iEgDAP5HnNfbzrx947n85TI1bYKVkaHkb5G1pUesPBBlQcFufE6UBa20usYwnzQXFGiptEUObkdj8FeGp5hLTt+7erA0thR1TRg8aqV4HzVFWbq2nVYYHZOOWTuGllEMW+JO9PSxIhbjOiIuCP9PPJlZHjKQPagtz3546Bht8lye1119uzf8cjyYApMSgQNn5F\/iooZJepDFNjO0OMCpX3sf2GeS+Ws0scc4kndutdpxYxSqpgpcvUXUDfS1fLPZqPyHuatWkhxM6wrKTyDZljoauiaEKoAuFVe2dq5ewjxhGnEbbPd6Yx+FgjYQfagF3myugqxjBx1R0Bbsbw1b\/A\/0naw383BFFXRpn8JKtltQZicWeKiVIZE7s4wLBkKkuAQhTBZTnq2xo2ds8="}`;
 
+// 进行一次点赞
+const praiseContentUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/bbs/praiseContent';
+const praiseContentData = `{"data":"nRgIMQAaXNdUwKRB3YX0QMFdfrdh9Bb74KalnHH\/fbd+5AmgYtREAUCIYrHJkPvNMq5WHuZjgm1aX2U1ooRSyRBUgWjbAFlBPW2jjgi72CK0BOibhgAlQnVbe+9+lofE5N+54a\/13qmUw5ktLNtMpr8c1TG8YKHDbx5J2MAE5TQ="}`;
+
 // 在线看车
 const pdcSubmitUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/pdc/submit';
 const pdcSubmitData = `{"data":"QD02J7OzKf2LvteClx+q9sH9XXhdpzxZtW4sxsctG1dCVGDP\/UUvimrbn1kRTaoKUG\/Rw0\/5SEHiB+dFcLKc\/mtaHuImkevPlxjTHGc+O7bWWK6QgMS5bOZ4GniX7tE07D9Y5J8Nh1KMOXuW+NI4IhRf9heC2DcGmQSpcTT08Rw\/L9vKMaVkZ3QQGoddH9VrsTtaDZKuw8yUMshCzbKlpYR5Jb3BCwTJGtdFDZJDJieAN205goxjHTdKQMvfr24HLzScwMBR7MkaIk\/AuC2uPhdjRBYqkOceWamCy9qjBF4M38f+9CB+\/s2aS\/t\/Sn7H9GvH3vmGgfnav+AqD0gbJA=="}`;
@@ -63,7 +67,7 @@ const getCommentPageDataPl = `{"data":"QVxvAy8NqOlKcD8iaqfBjc4Iag4fE0GVE1\/q5jEM
 const getAgreementsV2Url = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/common/getAgreementsV2';
 const getAgreementsV2Data = `{"data":"FRkOtvqLUyvmwaU2jHPYLjrfFKz6ZhZqCH5IEdq33SjONGjHDcMCSndgJS9ED1CLnI4mpgiiSejV23aOpYo6e9TCZ++gByopPfYn577LnfGI0bvcoNtzfUjfpQpH52Dw29OJGZ8qYxwc64iN2aMPcvalOYGwVvsXDw0WKY5uiA8="}`;
 const addCommentUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/bbs/addComment';
-const addCommentData = `{"data":"Aok3vbzXJJFiwiX8CGhBWssB2Vt1482cm116NvE9w7C0n1lV45tABW5q1Nw9KNmoUaIoo4rvhyUGz2M6ETemn2BV6BRCn55bsrw8F7OlYjgWvTwsBTWuEykd4PjBnvWpBWTCHLod\/gKVic76U2QPz+3pt4xt07QGO4UIEZ8Z6ZdwNmHa1LNADqmFeZcEnhCKkD8adZFZPk3nBCLlTxg+LetwRJM\/xQ9MzYdkRhQl1rbhLBEbJ0kUPsQ6HA9nmVetD9HJcnwQ\/r9heD86fswxh+EkZDYDo50+tb+Mc6uWFNuZQ71DBT2fn5OYfg9AnSafd9przyLW+\/xeantz0YLd8w=="}`;
+const addCommentData = `{"data":"WFX9v\/vLl7GgTzC1EqP43HhUAcL+saFp9kRZEPnlWxfMhW+eoONDMRqtFcmWIjNEv8Et6So5A3IBHLTVApBSuFceDnwzbyPqBpKknPa4TVamaBluwZGf665PPziMdo90qh1LdBzvnvCLsNn2SYzrmz9QA1eNyGHp\/Xdsqv+YTbU="}`;
 
 // 浏览会员商城
 const llhyscUpdateTaskStatusV3Data = `{"data":"O9Hud+5xuvC4TeL3zIC4ZdY5RC4NuGhiFjmo7IzK\/zPaEe41hXzTelIkip1uH+2hSTw1wHW+14j2FxITg4WoytgkP3GcRfcWcZEUtIwHX+O0U45qcnRGMnEdzSKJThTV2t2RF1X99owPINJ2XJLv37cUbb\/LYhkdWCSSkYa4XH8="}`;
@@ -86,6 +90,13 @@ var msg = '';
 
     // 发布一次提问
     await qaQuestionCreate()
+
+    setTimeout(() => {
+        console.log('等待3秒');
+    }, 3000);
+
+    // 进行一次点赞
+    await praiseContent()
 
     setTimeout(() => {
         console.log('等待3秒');
@@ -377,6 +388,29 @@ function qaQuestionCreate() {
         })
     })
 }
+
+/**
+ * 进行一次点赞
+ * @returns 
+ */
+function praiseContent() {
+    return new Promise((resolve, reject) => {
+        const url = { url: praiseContentUrl, headers: JSON.parse(signheaderVal) }
+        url.body = praiseContentData;
+        back.post(url, (error, response, data) => {
+            try {
+                back.log(`进行一次点赞:` + JSON.parse(data).message)
+                msg = msg + `进行一次点赞:` + JSON.parse(data).message + `\n`;
+                resolve()
+            } catch (e) {
+                back.log(`❌ ${cookieName} 进行一次点赞 - 失败: ${e}`)
+                back.log(`❌ ${cookieName} 进行一次点赞 - response: ${JSON.stringify(response)}`)
+                resolve()
+            }
+        })
+    })
+}
+
 
 /**
  * 使用用车手账
