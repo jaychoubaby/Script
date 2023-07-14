@@ -77,6 +77,13 @@ const fxypgftUpdateTaskStatusV3Data = `{"data":"C9qHDAjAlVgXBf1KOk1qP3F02c\/x9XN
 
 // 浏览同城页面
 const lltcymUpdateTaskStatusV3Data = `{"data":"Rs\/a2v4SPBfnI0i\/ZyUw\/r34oORtMFkSgkGeeo5FVIOnJzdf3bH7KG3Dy\/94JEap4povkJ1naj3zg\/qeONOymyCdQagAWqFbwkEUcVhnq2t3Ncsfn2wUinCn\/+8bY4Ek0V7qeY95AJSqSF3cURKuluehgJV+xd6q7FJrDNzRbH0="}`;
+
+// 浏览圈子页面
+const llqzymUpdateTaskStatusV3Data = `{"data":"O2CxGv2Xj2ARINoF7XDoPT87cbTH5oabegRUPPtGw1qvleJpbt73vTY9Rsc1SD2Hb28p0L\/zqygP9BMFADyYQUlQbDo3ONovB1nysv+fbLBvW01wWNOLICKY47yge9lRRQbnBehWq5IdQp947RCSIFoncTMVq33Ox580f9hN8eQ="}`;
+
+// 浏览足迹页面
+const llzjymUpdateTaskStatusV3Data = `{"data":"Zm5RdMnZlWn1uTtZv4x0rpkrKtAFlsHDw6JFXefWJNJbBYvU2tvmLhfgFHJ9nQqNnlqE0lPYagqCo3PVrM7Ot19v1Epbem+rsjdoEjTrBSu1bdaDJqdixWAfMUX9RC6VpA+ESgJZHTkgELFmfXLYWgv7P2X42W3uSK1bZl13z\/U="}`;
+
 var msg = '';
 ; (sign = async () => {
     back.log(`🔔 ${cookieName}`)
@@ -85,49 +92,49 @@ var msg = '';
     await addContentV2()
 
     setTimeout(() => {
-        console.log('等待3秒');
+        back.log('等待3秒');
     }, 3000);
 
     // 发布一次提问
     await qaQuestionCreate()
 
     setTimeout(() => {
-        console.log('等待3秒');
+        back.log('等待3秒');
     }, 3000);
 
     // 进行一次点赞
     await praiseContent()
 
     setTimeout(() => {
-        console.log('等待3秒');
+        back.log('等待3秒');
     }, 3000);
 
     // 发布一次回答
     await qaAnswerCreate()
 
     setTimeout(() => {
-        console.log('等待3秒');
+        back.log('等待3秒');
     }, 3000);
 
     // 使用用车手账
     await billItemAdd()
 
     setTimeout(() => {
-        console.log('等待3秒');
+        back.log('等待3秒');
     }, 3000);
 
     // 添加评论
     await addComment()
 
     setTimeout(() => {
-        console.log('等待3秒');
+        back.log('等待3秒');
     }, 3000);
 
     // 获取用户任务列表V3
     await getUserTaskListV3()
 
     setTimeout(() => {
-        console.log('等待3秒');
+        back.log('等待3秒');
     }, 3000);
 
     // 浏览此刻页面
@@ -138,7 +145,7 @@ var msg = '';
     await readContentCK()
 
     setTimeout(() => {
-        console.log('等待3秒');
+        back.log('等待3秒');
     }, 3000);
 
     // 在线看车
@@ -146,7 +153,7 @@ var msg = '';
     await getTicket()
 
     setTimeout(() => {
-        console.log('等待3秒');
+        back.log('等待3秒');
     }, 3000);
 
     // 阅读一篇官方贴
@@ -156,29 +163,40 @@ var msg = '';
     await updateTaskStatusV3(readContentUpdateTaskStatusV3Data,'阅读一篇官方贴')
 
     setTimeout(() => {
-        console.log('等待3秒');
+        back.log('等待3秒');
     }, 3000);
 
     // 浏览会员商城
     await updateTaskStatusV3(llhyscUpdateTaskStatusV3Data,'浏览会员商城')
 
     setTimeout(() => {
-        console.log('等待3秒');
+        back.log('等待3秒');
     }, 3000);
 
     // 分享一篇官方贴
     await updateTaskStatusV3(fxypgftUpdateTaskStatusV3Data,'分享一篇官方贴')
 
     setTimeout(() => {
-        console.log('等待3秒');
+        back.log('等待3秒');
     }, 3000);
 
     // 浏览同城页面
     await updateTaskStatusV3(lltcymUpdateTaskStatusV3Data,'浏览同城页面')
 
     setTimeout(() => {
-        console.log('等待3秒');
+        back.log('等待3秒');
     }, 3000);
+
+    // 浏览圈子页面
+    await updateTaskStatusV3(llqzymUpdateTaskStatusV3Data,'浏览圈子页面')
+
+    setTimeout(() => {
+        back.log('等待3秒');
+    }, 3000);
+
+    // 浏览足迹页面
+    await updateTaskStatusV3(llzjymUpdateTaskStatusV3Data,'浏览足迹页面')
+
 
     back.msg(cookieName, "签到成功", msg)
 })()
