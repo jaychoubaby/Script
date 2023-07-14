@@ -69,8 +69,8 @@ function memberInfo() {
     if (rData.code == 200) {
       detail += `对话总量:${rData.result.wallets[0].totalValue}`+`\n`
       detail += `对话剩余:${rData.result.wallets[0].availableValue}`+`\n`
-      detail += `绘画总量:${rData.result.wallets[0].totalValue}`+`\n`
-      detail += `绘画剩余:${rData.result.wallets[0].availableValue}`+`\n`
+      detail += `绘画总量:${rData.result.wallets[1].totalValue}`+`\n`
+      detail += `绘画剩余:${rData.result.wallets[1].availableValue}`+`\n`
     } else {
       detail = `🎉查询结果: ${rData.message}`
     } 
