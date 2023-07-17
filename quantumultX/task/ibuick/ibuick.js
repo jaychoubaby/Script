@@ -456,7 +456,6 @@ function cancelPraiseContent() {
         })
     })
 }
-cancelPraiseContentUrl
 
 
 /**
