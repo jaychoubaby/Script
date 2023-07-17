@@ -50,7 +50,7 @@ const billItemAddData = `{"data":"Gufl28SNZs9XpC1kIQv+pNH59+uJb+EcQPOCWAJxdLDKiy
 const getLaunchV2Url = 'https://app.sgmlink.com:443/service/ibuick/rest/api/public/ad/getLaunchV2?data=w5nybyKUvs8/UNwOUiCiaA%3D%3D';
 const qaAnswerCreateUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/qa/answer/create';
 const qaAnswerCreateData = `{"data":"UAEgHCvvBNrqUBbfZodj9aBE2OrkBltZZz3bpnrEfrpBbWD772iWs6zvBF75gOAllWLcQALe9ga23fA2B\/jqEOOlhDJGb8LQTfx8onaIX70NDVw4UiiVpWzjbHfnnggfsZZJQVLeRUbQ9ulVWKOF+d7nHuRJkiVgdRvgjcl\/uDUVP9WlR1ljTkHU1af1jop\/knaFKZtrXUa4XdhMxokM7tQ16K\/bic5y10wauci6aegzq29f29W5dNzi24AG1T\/q3H9d\/BsgtBCMOSTulwI8Jnwpt3T\/GNHq4NcibyLeIaWJd1L6zBiBx7jLAxTZf5pOMwb\/IEFiFxBgtOBT4d7eOlxdQI3aqVdtoMNqlDJlYMJlT9PsnEPzM4fPQhVMPiAIralM6YVWKjWx9wCKeQxwadByZ4cS5Q5EMdeD5R\/foGCYWJeycBp3aL\/mpFfKV+5+sj5gU5YdcKUcEkOmGAYRPM4w+4Nw8bd1HpGMJb2YywyVHFtfuNQ2F5sZqbxevQBAiuzXapkJ7BORmpJK69+BqIP0lneIzon9hkTqyjmU3+2utkDi9M3SSYxK1BDXznGdvX90tr3Jh9KMEHFzPkm5xa05i36I3rns\/jb1ybPlMUIGjOIrF8dpyRTBtZYYsjD+wjgC6iT0zO3iChsNwxsDgk0oX3OjQM+zRnMi3Uw\/OtJ\/HKXz35F0i56Cm\/dqAgvdfXm5cqGflRYmzYz8\/Vmvn2Ut8vRg4UQGG7PCh1RZlPMTPSMQfMcG4ftZbDe8I74ADn+NtF1FpDyHXZZ8NNE4vbPgDnVpTq5v4JLz6INecoIcGEtJV1xIvHvBexdnb\/uPSKiB\/t\/kAzpYU4kaoWp1zRUoTuvH0OaQtn2Ad7pvIYAmRGnnFQt6MR3LPIIwCgBHkHw1vkJiyuLa8cJovayWU1rOufQMBxzRiiLxs0w8ou0nh3XOc43GRnsDUYBUHhY1GzhY7lZV8ZuuepiWvCksMjWFGcAojBEi29xzfSkkpAeSDifmITthkpUdPypCaiOM"}`;
-const getWorkstationLiveUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/vehicleMaintenance/getWorkstationLiveUrl';
+const getWorkstationLiveUrls = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/vehicleMaintenance/getWorkstationLiveUrl';
 const getWorkstationLiveUrlData = `{"data":"En2qHuWqzbqxKI2XAFIfyYYjO9cCXwISC58tqj9xZpWB7u8G2QXpCSUciXVjql\/6dtNkNyqCx3WpwTICBLu3EhzskhxGdlQwPdZpruyOSjbhuOzfCHyCpolhAI+khty5dxKcug8jefswOWIMt8B+Ee5PHdYaRnYWKuZ1hMF99F0="}`;
 
 // 进行一次点赞
@@ -532,7 +532,7 @@ function getLaunchV2() {
  */
 function getWorkstationLiveUrl() {
     return new Promise((resolve, reject) => {
-        const url = { url: getWorkstationLiveUrl, headers: JSON.parse(signheaderVal) }
+        const url = { url: getWorkstationLiveUrls, headers: JSON.parse(signheaderVal) }
         url.body = getWorkstationLiveUrlData; 
         back.get(url, (error, response, data) => {
             try {
