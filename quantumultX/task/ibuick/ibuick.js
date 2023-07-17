@@ -97,42 +97,30 @@ var msg = '';
 
     // 发布一条动态
     await addContentV2()
-    setTimeout(() => {
-        back.log('等待3秒');
-    }, 3000);
+    await delay(3000);
 
     // 发布一次提问
     await qaQuestionCreate()
-    setTimeout(() => {
-        back.log('等待3秒');
-    }, 3000);
+    await delay(3000);
 
     // 进行一次点赞
     await praiseContent()
-    setTimeout(() => {
-        back.log('等待3秒');
-    }, 3000);
+    await delay(3000);
 
     // 取消点赞
     await cancelPraiseContent()
-    setTimeout(() => {
-        back.log('等待3秒');
-    }, 3000);
+    await delay(3000);
 
     // 发布一次回答
     await getLaunchV2()
     await getAgreementsV2()
     await qaAnswerCreate()
     await getWorkstationLiveUrl()
-    setTimeout(() => {
-        back.log('等待3秒');
-    }, 3000);
+    await delay(3000);
 
     // 使用用车手账
     await billItemAdd()
-    setTimeout(() => {
-        back.log('等待3秒');
-    }, 3000);
+    await delay(3000);
 
     // 添加评论
     await getContentDetail(getContentDetailDataPl)
@@ -140,15 +128,11 @@ var msg = '';
     await getIconLayoutList()
     await readContent(readContentPl)
     await addComment()
-    setTimeout(() => {
-        back.log('等待3秒');
-    }, 3000);
+    await delay(3000);
 
     // 获取用户任务列表V3
     await getUserTaskListV3()
-    setTimeout(() => {
-        back.log('等待3秒');
-    }, 3000);
+    await delay(3000);
 
     // 浏览此刻页面
     await getContentPageV2()
@@ -156,49 +140,35 @@ var msg = '';
     await getContentDetail(getContentDetailData)
     await getCommentPage(getCommentPageData)
     await readContentCK(readContentDataCk)
-    setTimeout(() => {
-        back.log('等待3秒');
-    }, 3000);
+    await delay(3000);
 
     // 在线看车
     await updateTaskStatusV3(zxkcUpdateTaskStatusV3Data,'在线看车')
     await getTicket()
-    setTimeout(() => {
-        back.log('等待3秒');
-    }, 3000);
+    await delay(3000);
 
     // 阅读一篇官方贴
     await getContentDetail(getContentDetailDataPl)
     await getCommentPage(getCommentPageDataPl)
     await readContent(readContentData)
     await updateTaskStatusV3(readContentUpdateTaskStatusV3Data,'阅读一篇官方贴')
-    setTimeout(() => {
-        back.log('等待3秒');
-    }, 3000);
+    await delay(3000);
 
     // 浏览会员商城
     await updateTaskStatusV3(llhyscUpdateTaskStatusV3Data,'浏览会员商城')
-    setTimeout(() => {
-        back.log('等待3秒');
-    }, 3000);
+    await delay(3000);
 
     // 分享一篇官方贴
     await updateTaskStatusV3(fxypgftUpdateTaskStatusV3Data,'分享一篇官方贴')
-    setTimeout(() => {
-        back.log('等待3秒');
-    }, 3000);
+    await delay(3000);
 
     // 浏览同城页面
     await updateTaskStatusV3(lltcymUpdateTaskStatusV3Data,'浏览同城页面')
-    setTimeout(() => {
-        back.log('等待3秒');
-    }, 3000);
+    await delay(3000);
 
     // 浏览圈子页面
     await updateTaskStatusV3(llqzymUpdateTaskStatusV3Data,'浏览圈子页面')
-    setTimeout(() => {
-        back.log('等待3秒');
-    }, 3000);
+    await delay(3000);
 
     // 浏览足迹页面
     await updateTaskStatusV3(llzjymUpdateTaskStatusV3Data,'浏览足迹页面')
@@ -213,11 +183,16 @@ var msg = '';
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 /**
  * 发布一条动态
  * @returns 
  */
-function addContentV2() {
+async function addContentV2() {
     return new Promise((resolve, reject) => {
         const url = { url: addContentV2Url, headers: JSON.parse(signheaderVal) }
         url.body = addContentV2Data;
@@ -239,7 +214,7 @@ function addContentV2() {
  * 获取用户任务列表V3
  * @returns 
  */
-function getUserTaskListV3() {
+async function getUserTaskListV3() {
     return new Promise((resolve, reject) => {
         const url = { url: getUserTaskListV3Url, headers: JSON.parse(signheaderVal) }
         back.get(url, (error, response, data) => {
@@ -260,7 +235,7 @@ function getUserTaskListV3() {
  * 阅读一篇官方贴
  * @returns 
  */
-function readContent(data) {
+async function readContent(data) {
     return new Promise((resolve, reject) => {
         const url = { url: readContentUrl, headers: JSON.parse(signheaderVal) }
         url.body = data;
@@ -283,7 +258,7 @@ function readContent(data) {
   * 浏览此刻页面
   * @returns 
   */
- function getContentPageV2() {
+async function getContentPageV2() {
     return new Promise((resolve, reject) => {
         const url = { url: getContentPageV2Url, headers: JSON.parse(signheaderVal) }
         url.body = getContentPageV2Data;
@@ -306,7 +281,7 @@ function readContent(data) {
   * 浏览此刻页面
   * @returns 
   */
-function getContentDetail(data) {
+async function getContentDetail(data) {
     return new Promise((resolve, reject) => {
         const url = { url: getContentDetailUrl, headers: JSON.parse(signheaderVal) }
         url.body = data;
@@ -329,7 +304,7 @@ function getContentDetail(data) {
   * 浏览此刻页面
   * @returns 
   */
-function getCommentPage(data) {
+async function getCommentPage(data) {
     return new Promise((resolve, reject) => {
         const url = { url: getCommentPageUrl, headers: JSON.parse(signheaderVal) }
         url.body = data;
@@ -351,7 +326,7 @@ function getCommentPage(data) {
  * 浏览此刻页面
  * @returns 
  */
-function readContentCK() {
+async function readContentCK() {
     return new Promise((resolve, reject) => {
         const url = { url: readContentUrl, headers: JSON.parse(signheaderVal) }
         url.body = readContentDataCk;
@@ -373,7 +348,7 @@ function readContentCK() {
  * updateTaskStatusV3
  * @returns 
  */
-function updateTaskStatusV3(data,task) {
+async function updateTaskStatusV3(data,task) {
     return new Promise((resolve, reject) => {
         const url = { url: updateTaskStatusV3Url, headers: JSON.parse(signheaderVal) }
         url.body = data;
@@ -395,7 +370,7 @@ function updateTaskStatusV3(data,task) {
  * 发布一次提问
  * @returns 
  */
-function qaQuestionCreate() {
+async function qaQuestionCreate() {
     return new Promise((resolve, reject) => {
         const url = { url: qaQuestionCreateUrl, headers: JSON.parse(signheaderVal) }
         url.body = qaQuestionCreateData;
@@ -417,7 +392,7 @@ function qaQuestionCreate() {
  * 进行一次点赞
  * @returns 
  */
-function praiseContent() {
+async function praiseContent() {
     return new Promise((resolve, reject) => {
         const url = { url: praiseContentUrl, headers: JSON.parse(signheaderVal) }
         url.body = praiseContentData;
@@ -439,7 +414,7 @@ function praiseContent() {
  * 进行一次点赞 - 取消点赞
  * @returns 
  */
-function cancelPraiseContent() {
+async function cancelPraiseContent() {
     return new Promise((resolve, reject) => {
         const url = { url: cancelPraiseContentUrl, headers: JSON.parse(signheaderVal) }
         url.body = cancelPraiseContentData;
@@ -462,7 +437,7 @@ function cancelPraiseContent() {
  * 使用用车手账
  * @returns 
  */
-function billItemAdd() {
+async function billItemAdd() {
     return new Promise((resolve, reject) => {
         const url = { url: billItemAddUrl, headers: JSON.parse(signheaderVal) }
         url.body = billItemAddData;
@@ -485,7 +460,7 @@ function billItemAdd() {
  * 发布一次回答
  * @returns 
  */
-function qaAnswerCreate() {
+async function qaAnswerCreate() {
     return new Promise((resolve, reject) => {
         const url = { url: qaAnswerCreateUrl, headers: JSON.parse(signheaderVal) }
         url.body = qaAnswerCreateData;
@@ -508,7 +483,7 @@ function qaAnswerCreate() {
  * 发布一次回答
  * @returns 
  */
-function getLaunchV2() {
+async function getLaunchV2() {
     return new Promise((resolve, reject) => {
         const url = { url: getLaunchV2Url, headers: JSON.parse(signheaderVal) }
         back.get(url, (error, response, data) => {
@@ -530,7 +505,7 @@ function getLaunchV2() {
  * 发布一次回答
  * @returns 
  */
-function getWorkstationLiveUrl() {
+async function getWorkstationLiveUrl() {
     return new Promise((resolve, reject) => {
         const url = { url: getWorkstationLiveUrls, headers: JSON.parse(signheaderVal) }
         url.body = getWorkstationLiveUrlData; 
@@ -552,7 +527,7 @@ function getWorkstationLiveUrl() {
  * 在线看车
  * @returns 
  */
-function pdcSubmit() {
+async function pdcSubmit() {
     return new Promise((resolve, reject) => {
         const url = { url: pdcSubmitUrl, headers: JSON.parse(signheaderVal) }
         url.body = pdcSubmitData;
@@ -575,7 +550,7 @@ function pdcSubmit() {
  * getTicket
  * @returns 
  */
- function getTicket() {
+async function getTicket() {
     return new Promise((resolve, reject) => {
         const url = { url: getTicketUrl, headers: JSON.parse(signheaderVal) }
         back.get(url, (error, response, data) => {
@@ -598,7 +573,7 @@ function pdcSubmit() {
  * getAgreementsV2
  * @returns 
  */
-function getAgreementsV2() {
+async function getAgreementsV2() {
     return new Promise((resolve, reject) => {
         const url = { url: getAgreementsV2Url, headers: JSON.parse(signheaderVal) }
         url.body = getAgreementsV2Data;
@@ -622,7 +597,7 @@ function getAgreementsV2() {
  * 添加评论
  * @returns 
  */
-function addComment() {
+async function addComment() {
     return new Promise((resolve, reject) => {
         const url = { url: addCommentUrl, headers: JSON.parse(signheaderVal) }
         url.body = addCommentData;
@@ -645,7 +620,7 @@ getIconLayoutList
  * 添加评论
  * @returns 
  */
-function getIconLayoutList() {
+async function getIconLayoutList() {
     return new Promise((resolve, reject) => {
         const url = { url: getIconLayoutListUrl, headers: JSON.parse(signheaderVal) }
         url.body = getIconLayoutListData;
