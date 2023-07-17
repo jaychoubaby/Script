@@ -131,8 +131,8 @@ var msg = '';
     await delay(3000);
 
     // 获取用户任务列表V3
-    await getUserTaskListV3()
-    await delay(3000);
+    // await getUserTaskListV3()
+    // await delay(3000);
 
     // 浏览此刻页面
     // await getContentPageV2()
