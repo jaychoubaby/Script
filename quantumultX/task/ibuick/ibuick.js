@@ -155,7 +155,7 @@ var msg = '';
     }, 3000);
 
     // 阅读一篇官方贴
-    await getContentDetai(getContentDetailDataPl)
+    await getContentDetail(getContentDetailDataPl)
     await getCommentPage(getCommentPageDataPl)
     await readContent(readContentData)
     await updateTaskStatusV3(readContentUpdateTaskStatusV3Data,'阅读一篇官方贴')
@@ -299,12 +299,12 @@ function getContentDetail(data) {
         url.body = data;
         back.post(url, (error, response, data) => {
             try {
-                back.log(`浏览此刻页面-getContentDetai:` + JSON.parse(data).message)
-                msg = msg + `浏览此刻页面-getContentDetai:` + JSON.parse(data).message + `\n`;
+                back.log(`浏览此刻页面-getContentDetail:` + JSON.parse(data).message)
+                msg = msg + `浏览此刻页面-getContentDetail:` + JSON.parse(data).message + `\n`;
                 resolve()
             } catch (e) {
-                back.log(`❌ ${cookieName} 浏览此刻页面-getContentDetai - 失败: ${e}`)
-                back.log(`❌ ${cookieName} 浏览此刻页面-getContentDetai - response: ${JSON.stringify(response)}`)
+                back.log(`❌ ${cookieName} 浏览此刻页面-getContentDetail - 失败: ${e}`)
+                back.log(`❌ ${cookieName} 浏览此刻页面-getContentDetail - response: ${JSON.stringify(response)}`)
                 resolve()
             }
         })
