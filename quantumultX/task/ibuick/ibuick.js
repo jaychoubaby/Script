@@ -112,10 +112,10 @@ var msg = '';
     await delay(3000);
 
     // 发布一次回答
-    await getLaunchV2()
-    await getAgreementsV2()
+    // await getLaunchV2()
+    // await getAgreementsV2()
     await qaAnswerCreate()
-    await getWorkstationLiveUrl()
+    // await getWorkstationLiveUrl()
     await delay(3000);
 
     // 使用用车手账
@@ -123,10 +123,10 @@ var msg = '';
     await delay(3000);
 
     // 添加评论
-    await getContentDetail(getContentDetailDataPl)
-    await getCommentPage(getCommentPageDataPl)
-    await getIconLayoutList()
-    await readContent(readContentPl)
+    // await getContentDetail(getContentDetailDataPl)
+    // await getCommentPage(getCommentPageDataPl)
+    // await getIconLayoutList()
+    // await readContent(readContentPl)
     await addComment()
     await delay(3000);
 
@@ -135,22 +135,22 @@ var msg = '';
     await delay(3000);
 
     // 浏览此刻页面
-    await getContentPageV2()
+    // await getContentPageV2()
     await updateTaskStatusV3(getContentPageV2UpdateTaskStatusV3Data,'浏览此刻页面')
-    await getContentDetail(getContentDetailData)
-    await getCommentPage(getCommentPageData)
-    await readContentCK(readContentDataCk)
+    // await getContentDetail(getContentDetailData)
+    // await getCommentPage(getCommentPageData)
+    // await readContentCK(readContentDataCk)
     await delay(3000);
 
     // 在线看车
     await updateTaskStatusV3(zxkcUpdateTaskStatusV3Data,'在线看车')
-    await getTicket()
+    // await getTicket()
     await delay(3000);
 
     // 阅读一篇官方贴
-    await getContentDetail(getContentDetailDataPl)
-    await getCommentPage(getCommentPageDataPl)
-    await readContent(readContentData)
+    // await getContentDetail(getContentDetailDataPl)
+    // await getCommentPage(getCommentPageDataPl)
+    // await readContent(readContentData)
     await updateTaskStatusV3(readContentUpdateTaskStatusV3Data,'阅读一篇官方贴')
     await delay(3000);
 
