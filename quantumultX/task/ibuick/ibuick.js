@@ -534,7 +534,7 @@ function getWorkstationLiveUrl() {
     return new Promise((resolve, reject) => {
         const url = { url: getWorkstationLiveUrls, headers: JSON.parse(signheaderVal) }
         url.body = getWorkstationLiveUrlData; 
-        back.get(url, (error, response, data) => {
+        back.post(url, (error, response, data) => {
             try {
                 back.log(`发布一次回答 - getWorkstationLiveUrl:` + JSON.parse(data).message)
                 msg = msg + `发布一次回答 - getWorkstationLiveUrl:` + JSON.parse(data).message + `\n`;
