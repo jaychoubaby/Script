@@ -354,12 +354,12 @@ async function updateTaskStatusV3(data,task) {
         url.body = data;
         back.post(url, (error, response, data) => {
             try {
-                back.log(task + `updateTaskStatusV3:` + JSON.parse(data).message)
-                msg = msg + task + `updateTaskStatusV3:` + JSON.parse(data).message + `\n`;
+                back.log(task + `:` + JSON.parse(data).message)
+                msg = msg + task + `:` + JSON.parse(data).message + `\n`;
                 resolve()
             } catch (e) {
-                back.log(`❌ ${cookieName} ${task} - updateTaskStatusV3 - 失败: ${e}`)
-                back.log(`❌ ${cookieName} ${task} - updateTaskStatusV3 - response: ${JSON.stringify(response)}`)
+                back.log(`❌ ${cookieName} ${task} - 失败: ${e}`)
+                back.log(`❌ ${cookieName} ${task} - response: ${JSON.stringify(response)}`)
                 resolve()
             }
         })
