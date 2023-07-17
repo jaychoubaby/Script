@@ -62,12 +62,15 @@ const getTicketUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/privat
 const zxkcUpdateTaskStatusV3Data = `{"data":"nB2mtIZI4viubupyhomoK\/F8onK7y3dWD911FwORzJWvXNS1kIMOnX+R\/g6aikXTuuEkjo4gBiZabIutA\/3pmhY2Pp\/WBmBCMzif4It67rKBQZEYCnNzB5JAYnTRo68R+LtKkobJJpdX2sk9eQnN7FlIAGZxKUv9dlnDku7P2JI="}`;
 
 // 添加评论
-const getContentDetailDataPl = `{"data":"ib00J4kZBfP\/WJGSXMCl1eE65nBi78pmty2EqvJIc\/RSTdXlN+YJO8pzUZp3E4VSn+Wk5tqjwW3\/JDx2WnQpSgADMhzwlpsM4k8zdRNVBNgp9qIzLCKzpCAMGBE3QJPkY7YT+3vcQKChCiNN6I8np2fx0hTefxtlIcLt8g29gIQ="}`;
-const getCommentPageDataPl = `{"data":"QVxvAy8NqOlKcD8iaqfBjc4Iag4fE0GVE1\/q5jEM8jbzL0PWOuIGKxEQqPaRC\/1rM+NPXb2NACgnEHz67egejYnIe1mR7w8R3G7QHyxPAlFJbI6NOVm3iOB7o6\/qhVI117S2\/+XuNUwX7StwJeQVRpaGCklCczEC+Zn2eR3s6Co="}`;
+const getContentDetailDataPl = `{"data":"GDfIEAY06xRDFhgUJQSkka2pcFIGVe6dEf7KwLx8GGsQYhbFJE\/GseO0L1pHTN2pj64pQx8I41mGlJLFFFBGJkBFXxqLOTn\/Gw3f76vvsZnkQBnHAdpIZJNxiU4AuRvAsYUAHokTzP1xcsOyN0+JyFch+VCdKuxG7vFZ6pr70cE="}`;
+const getCommentPageDataPl = `{"data":"nhbdzZBdmLKunDMN7ULYebLCgMIhZ+9jbuBet+eLCZUN47QBrG3Xr9ZZwM6kk3qXOslpZxzRpsSfRrY\/5mgy\/LtWNJZ\/P74WFoQPj9IZkS6jUR9msQZ5000QGfSaQoNBk5rT+nrWhQaqXbVlv8GRRWCyAJ7FOrSMLNsk7CvdFJo="}`;
+const getIconLayoutListUrl = 'https://app.sgmlink.com/service/ibuick/rest/api/public/appConfig/h5/getIconLayoutList';
+const getIconLayoutListData = `{"version":"10.9.2"}`;
+const readContentPl = `{"data":"GDfIEAY06xRDFhgUJQSkka2pcFIGVe6dEf7KwLx8GGsQYhbFJE\/GseO0L1pHTN2pj64pQx8I41mGlJLFFFBGJkBFXxqLOTn\/Gw3f76vvsZnkQBnHAdpIZJNxiU4AuRvAsYUAHokTzP1xcsOyN0+JyFch+VCdKuxG7vFZ6pr70cE="}`;
 const getAgreementsV2Url = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/common/getAgreementsV2';
 const getAgreementsV2Data = `{"data":"FRkOtvqLUyvmwaU2jHPYLjrfFKz6ZhZqCH5IEdq33SjONGjHDcMCSndgJS9ED1CLnI4mpgiiSejV23aOpYo6e9TCZ++gByopPfYn577LnfGI0bvcoNtzfUjfpQpH52Dw29OJGZ8qYxwc64iN2aMPcvalOYGwVvsXDw0WKY5uiA8="}`;
 const addCommentUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/bbs/addComment';
-const addCommentData = `{"data":"WFX9v\/vLl7GgTzC1EqP43HhUAcL+saFp9kRZEPnlWxfMhW+eoONDMRqtFcmWIjNEv8Et6So5A3IBHLTVApBSuFceDnwzbyPqBpKknPa4TVamaBluwZGf665PPziMdo90qh1LdBzvnvCLsNn2SYzrmz9QA1eNyGHp\/Xdsqv+YTbU="}`;
+const addCommentData = `{"data":"eGt8QOdAy6LqdWzWsgkyYT8vTQTuUavo4\/5hDXVh85699Wiyo5Mwi9LpBqPP5YPjnxQXLZcOoHaVarwORd1KrKU2tiIc4dfSAfK8V\/fxTBfZ7XtAADhjw603pLeZ8NH9GNW0Pj4UIq8t2fmqwd7Yb70lGbCQmF4689NhaOXfdquO7ZV5pgxTWc1L7\/RujJX+PJGH4DEpzgGYNDNidTsHMMd8Bs7olIwPZWRh18IcxUXMqSjpScsejYZpCQp4ytd+7e1XFLfM9ZPYqznP6ripSD4a4neMeGd9YO7voZhRDhOfTh0j4uLvdMQBc0+WYx\/qacrtC3YOtYUUvk4FXwoy8A=="}`;
 
 // 浏览会员商城
 const llhyscUpdateTaskStatusV3Data = `{"data":"O9Hud+5xuvC4TeL3zIC4ZdY5RC4NuGhiFjmo7IzK\/zPaEe41hXzTelIkip1uH+2hSTw1wHW+14j2FxITg4WoytgkP3GcRfcWcZEUtIwHX+O0U45qcnRGMnEdzSKJThTV2t2RF1X99owPINJ2XJLv37cUbb\/LYhkdWCSSkYa4XH8="}`;
@@ -90,49 +93,46 @@ var msg = '';
 
     // 发布一条动态
     await addContentV2()
-
     setTimeout(() => {
         back.log('等待3秒');
     }, 3000);
 
     // 发布一次提问
     await qaQuestionCreate()
-
     setTimeout(() => {
         back.log('等待3秒');
     }, 3000);
 
     // 进行一次点赞
     await praiseContent()
-
     setTimeout(() => {
         back.log('等待3秒');
     }, 3000);
 
     // 发布一次回答
     await qaAnswerCreate()
-
     setTimeout(() => {
         back.log('等待3秒');
     }, 3000);
 
     // 使用用车手账
     await billItemAdd()
-
     setTimeout(() => {
         back.log('等待3秒');
     }, 3000);
 
     // 添加评论
+    await getContentDetail(getContentDetailDataPl)
+    await getCommentPage(getCommentPageDataPl)
+    await getIconLayoutList()
+    await readContent(readContentPl)
     await addComment()
-
     setTimeout(() => {
         back.log('等待3秒');
     }, 3000);
 
     // 获取用户任务列表V3
     await getUserTaskListV3()
-
     setTimeout(() => {
         back.log('等待3秒');
     }, 3000);
@@ -140,10 +140,9 @@ var msg = '';
     // 浏览此刻页面
     await getContentPageV2()
     await updateTaskStatusV3(getContentPageV2UpdateTaskStatusV3Data,'浏览此刻页面')
-    await getContentDetai(getContentDetailData)
+    await getContentDetail(getContentDetailData)
     await getCommentPage(getCommentPageData)
-    await readContentCK()
-
+    await readContentCK(readContentDataCk)
     setTimeout(() => {
         back.log('等待3秒');
     }, 3000);
@@ -151,7 +150,6 @@ var msg = '';
     // 在线看车
     await updateTaskStatusV3(zxkcUpdateTaskStatusV3Data,'在线看车')
     await getTicket()
-
     setTimeout(() => {
         back.log('等待3秒');
     }, 3000);
@@ -159,37 +157,32 @@ var msg = '';
     // 阅读一篇官方贴
     await getContentDetai(getContentDetailDataPl)
     await getCommentPage(getCommentPageDataPl)
-    await readContent()
+    await readContent(readContentData)
     await updateTaskStatusV3(readContentUpdateTaskStatusV3Data,'阅读一篇官方贴')
-
     setTimeout(() => {
         back.log('等待3秒');
     }, 3000);
 
     // 浏览会员商城
     await updateTaskStatusV3(llhyscUpdateTaskStatusV3Data,'浏览会员商城')
-
     setTimeout(() => {
         back.log('等待3秒');
     }, 3000);
 
     // 分享一篇官方贴
     await updateTaskStatusV3(fxypgftUpdateTaskStatusV3Data,'分享一篇官方贴')
-
     setTimeout(() => {
         back.log('等待3秒');
     }, 3000);
 
     // 浏览同城页面
     await updateTaskStatusV3(lltcymUpdateTaskStatusV3Data,'浏览同城页面')
-
     setTimeout(() => {
         back.log('等待3秒');
     }, 3000);
 
     // 浏览圈子页面
     await updateTaskStatusV3(llqzymUpdateTaskStatusV3Data,'浏览圈子页面')
-
     setTimeout(() => {
         back.log('等待3秒');
     }, 3000);
@@ -254,10 +247,10 @@ function getUserTaskListV3() {
  * 阅读一篇官方贴
  * @returns 
  */
-function readContent() {
+function readContent(data) {
     return new Promise((resolve, reject) => {
         const url = { url: readContentUrl, headers: JSON.parse(signheaderVal) }
-        url.body = readContentData;
+        url.body = data;
         back.post(url, (error, response, data) => {
             try {
                 back.log(`阅读一篇官方贴:` + JSON.parse(data).message)
@@ -300,7 +293,7 @@ function readContent() {
   * 浏览此刻页面
   * @returns 
   */
-function getContentDetai(data) {
+function getContentDetail(data) {
     return new Promise((resolve, reject) => {
         const url = { url: getContentDetailUrl, headers: JSON.parse(signheaderVal) }
         url.body = data;
@@ -573,8 +566,28 @@ function addComment() {
     })
 }
 
-
-
+getIconLayoutList
+/**
+ * 添加评论
+ * @returns 
+ */
+function getIconLayoutList() {
+    return new Promise((resolve, reject) => {
+        const url = { url: getIconLayoutListUrl, headers: JSON.parse(signheaderVal) }
+        url.body = getIconLayoutListData;
+        back.post(url, (error, response, data) => {
+            try {
+                back.log(`添加评论 - getIconLayoutList:` + JSON.parse(data).message)
+                msg = msg + `添加评论 - getIconLayoutList:` + JSON.parse(data).message + `\n`;
+                resolve()
+            } catch (e) {
+                back.log(`❌ ${cookieName} 添加评论 - getIconLayoutList - 失败: ${e}`)
+                back.log(`❌ ${cookieName} 添加评论 - getIconLayoutList - response: ${JSON.stringify(response)}`)
+                resolve()
+            }
+        })
+    })
+}
 
 
 
