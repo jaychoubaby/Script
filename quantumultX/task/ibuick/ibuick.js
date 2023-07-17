@@ -47,13 +47,17 @@ const billItemAddUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/priv
 const billItemAddData = `{"data":"Gufl28SNZs9XpC1kIQv+pNH59+uJb+EcQPOCWAJxdLDKiyjP\/ioKy+q3K1eavxH\/HOr\/+xoyCKOL4p3yCn5Hm7f9czzLlCWtAIYY8AZhOXu9TUrvmUjriiYIY1pYlS+SjJmNkbw9OVEygUNeyA1pe39ldPdLk2vHurf1d\/DYfFSekgV48E62inEaXt3\/atLn9cu5s+IU6sUyJEWggKhodTjp3NfXQF2+8NefadsrVLobrZ1EFsgQCDbCO+pYpfL6fEDZyfkQH7k5pSXjKL1\/qnVOQ4qyNb8gK3Ph0LGoth0sh30szQOxiW8UiNZMYlc5edcbEcQbBaTRbw4ga5nAUg=="}`;
 
 //发布一次回答
+const getLaunchV2Url = 'https://app.sgmlink.com:443/service/ibuick/rest/api/public/ad/getLaunchV2?data=w5nybyKUvs8/UNwOUiCiaA%3D%3D';
 const qaAnswerCreateUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/qa/answer/create';
-const qaAnswerCreateData0 = `{"data":"OKcZYThO43tizDlwZ6Dn80IeD7APAeJHM3hB9uviFwbwqUy1A+OV8GjWt8uk1Xod2pnyMNheFfV4+8qAesRkRANUs+sj70Rl9C4wl5mt9M3cKNb+NYm+tQSSAIDNt5CGu5RpnzVP\/OrCQutspfA948EvQ03d6OxEbCtfhkJ8C+5M9DYGdg+3xM1enUreMU2WTZ8CzdB1eMtTLm1CoDXUCXGHXDMmiKl2QYDdNiUrkCxrFNjsSsbx0nS0eyIRgEQkW4WeZz+vlsMAKff9wxf2MKyyOKGwdLS7i\/2d7A\/iJivYLjbNqn1hAWQMoWYaR+6\/4L\/IWtZtyokhpPJCDPlZ6X4oTRNQe0htsq0VJB3Tl19JqHa8qcnlNuAvgSsKVVK4ZayfLl08hWEJw9g7dfkFsPXhpdamIwO02Bl4xPTIRcalsp+EV613aRc6JC\/YP0y0y+pmChUusBZPFATOtUtlgIlTxF\/Zyvb6oq2EgUPbPswcyrdvjzM5t\/5Arkl5z95IajS5g0Tekig2ERRF19Ijw+I5JPLg5NGGvkOAvEPmYmkvKLBGUDP4GBvdetCxMTJI4frkvWiyPwyu1cIEvUA2lST9nszsCUl2yLwPRj1CbWSUWhfjr\/34mFVCAxUCkYKFbSvkl12h3SPRssQ2GZ8vBpHkSfLoiJQgBjwKmEcyqJMTT8rMOovC9hYOB6MoucN7DPFEAjz2yW7vENUZowTzgmTtvIP1BE7X6T0tly2bQ0Rg5dquj3\/kadqtmrsr7tMwpduAwhWB+FRAhL01OqxGmM08RvrV\/bEVjuOofstFz3taCHtByAkpNYnF5eXwRQ2ddDTzjAz7ZdT6qLTjE3YsGCFkJjyZDlOCNs9WaLICwXjW10ZD3yd2TUCFbFK7LwlUmKMtC3yvTm86DjRi+LnuHpYPq2LIhk\/3+o7keZFXiLSnJvI3foYqMaL31yebc+QeentevdrcMh2KnGMQUshamNhpvDWWEDCXe+0tNFOu\/exq824QsQc+bvjeIQVm3lgCa4LnzmY2P+t0XISESctpCQieIOZhnrFYCaG94Q4yVxAHgI3wa5vsAZU0oN1T07jOkrGt57RNYDGxZI+ffn6MhMkfQ7+VLNfLjzLnQnDqKB7e9Ahu8nhB+yN9WCUSjCIC5hrTkGb\/P\/kvHjZcXDR827idNn4CMGYuHrjp1AVw5f0="}`;
-const qaAnswerCreateData1 = `{"data":"mtqzQ4J19Kdwy2LI6XinwuYWT7NT4TrGGYbvqJP69igDbNj\/VpXtI2cSQLxGAF02JdYWin3HE96j7UWUbO+w2EEE7dK7ctsnbb9OyBihTzC1Q2ygpmDKQX41x6xgTP++44tJNUUCUc+SmDM1Jkc7ppm+yV64Vdp31s\/LDj09VG9WBW47asabpF2UaKU\/T4\/sK1gqo3KppvcsX\/vPyPyC0+MpFtHVVR1QbwkT9MTGWZawIDg1V0FcuTXeAFyuCY0lVXglYnZ2uWgq4kI1yCOJSnMYImqX3vUf9RbwDw1QHJ+Zb05bB5u2vwP1CVPx9r7qftZqYa+\/E6oohTGLtheI0pTxUamFGqrrQQ+GcE4Ju+PkYGdUbBPCndGBSrihP4EcS498z3DhgATqEgxIrxCw28UwU7JyMcS\/90Vt4cBR+FFPy2HXxNKVASuFdsFHHrsy4Eqs4e\/6+Qk9MGficE5i\/HOgo09GYYg+mWj1iUj4XDT94s3Bb4eGxRUbOjeX4uNDIOdLAGz0rbTtM1he1VRfW02zO5fSVwV3jJQ1dm\/mP+NAzCW6uXtStQ1Kf\/b0\/TMbls15I27m9RWBZC+IEVkkwKL9nsGof6bWh5acqSztOcBeQA9\/hMZ2+tZN1lOiPOViWgSgLF+wMlAEYQTTyrLtfP2coBwNSBCrQGOsjO31xvuLzQ9Z9LywXbfj1LCgseXyZ7yjS9FhYz9fK3kRBl4ric9zw+Uhc3eY0\/YakwYuYNIGL+pmWCKXizUH+hNxE1TqSaQMOb\/US1t5Q7i3SreMQquLD0iEgDAP5HnNfbzrx947n85TI1bYKVkaHkb5G1pUesPBBlQcFufE6UBa20usYwnzQXFGiptEUObkdj8FeGp5hLTt+7erA0thR1TRg8aqV4HzVFWbq2nVYYHZOOWTuGllEMW+JO9PSxIhbjOiIuCP9PPJlZHjKQPagtz3546Bht8lye1119uzf8cjyYApMSgQNn5F\/iooZJepDFNjO0OMCpX3sf2GeS+Ws0scc4kndutdpxYxSqpgpcvUXUDfS1fLPZqPyHuatWkhxM6wrKTyDZljoauiaEKoAuFVe2dq5ewjxhGnEbbPd6Yx+FgjYQfagF3myugqxjBx1R0Bbsbw1b\/A\/0naw383BFFXRpn8JKtltQZicWeKiVIZE7s4wLBkKkuAQhTBZTnq2xo2ds8="}`;
+const qaAnswerCreateData = `{"data":"UAEgHCvvBNrqUBbfZodj9aBE2OrkBltZZz3bpnrEfrpBbWD772iWs6zvBF75gOAllWLcQALe9ga23fA2B\/jqEOOlhDJGb8LQTfx8onaIX70NDVw4UiiVpWzjbHfnnggfsZZJQVLeRUbQ9ulVWKOF+d7nHuRJkiVgdRvgjcl\/uDUVP9WlR1ljTkHU1af1jop\/knaFKZtrXUa4XdhMxokM7tQ16K\/bic5y10wauci6aegzq29f29W5dNzi24AG1T\/q3H9d\/BsgtBCMOSTulwI8Jnwpt3T\/GNHq4NcibyLeIaWJd1L6zBiBx7jLAxTZf5pOMwb\/IEFiFxBgtOBT4d7eOlxdQI3aqVdtoMNqlDJlYMJlT9PsnEPzM4fPQhVMPiAIralM6YVWKjWx9wCKeQxwadByZ4cS5Q5EMdeD5R\/foGCYWJeycBp3aL\/mpFfKV+5+sj5gU5YdcKUcEkOmGAYRPM4w+4Nw8bd1HpGMJb2YywyVHFtfuNQ2F5sZqbxevQBAiuzXapkJ7BORmpJK69+BqIP0lneIzon9hkTqyjmU3+2utkDi9M3SSYxK1BDXznGdvX90tr3Jh9KMEHFzPkm5xa05i36I3rns\/jb1ybPlMUIGjOIrF8dpyRTBtZYYsjD+wjgC6iT0zO3iChsNwxsDgk0oX3OjQM+zRnMi3Uw\/OtJ\/HKXz35F0i56Cm\/dqAgvdfXm5cqGflRYmzYz8\/Vmvn2Ut8vRg4UQGG7PCh1RZlPMTPSMQfMcG4ftZbDe8I74ADn+NtF1FpDyHXZZ8NNE4vbPgDnVpTq5v4JLz6INecoIcGEtJV1xIvHvBexdnb\/uPSKiB\/t\/kAzpYU4kaoWp1zRUoTuvH0OaQtn2Ad7pvIYAmRGnnFQt6MR3LPIIwCgBHkHw1vkJiyuLa8cJovayWU1rOufQMBxzRiiLxs0w8ou0nh3XOc43GRnsDUYBUHhY1GzhY7lZV8ZuuepiWvCksMjWFGcAojBEi29xzfSkkpAeSDifmITthkpUdPypCaiOM"}`;
+const getWorkstationLiveUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/vehicleMaintenance/getWorkstationLiveUrl';
+const getWorkstationLiveUrlData = `{"data":"En2qHuWqzbqxKI2XAFIfyYYjO9cCXwISC58tqj9xZpWB7u8G2QXpCSUciXVjql\/6dtNkNyqCx3WpwTICBLu3EhzskhxGdlQwPdZpruyOSjbhuOzfCHyCpolhAI+khty5dxKcug8jefswOWIMt8B+Ee5PHdYaRnYWKuZ1hMF99F0="}`;
 
 // 进行一次点赞
 const praiseContentUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/bbs/praiseContent';
-const praiseContentData = `{"data":"nRgIMQAaXNdUwKRB3YX0QMFdfrdh9Bb74KalnHH\/fbd+5AmgYtREAUCIYrHJkPvNMq5WHuZjgm1aX2U1ooRSyRBUgWjbAFlBPW2jjgi72CK0BOibhgAlQnVbe+9+lofE5N+54a\/13qmUw5ktLNtMpr8c1TG8YKHDbx5J2MAE5TQ="}`;
+const praiseContentData = `{"data":"E9hvq7XdfMYp+x5HECvGhkkkMyYjGiVmC7TzZ2bz6DQEmbb8ve4STXnLpNdPaCdUumtzqtU2hO65qMOSnfn5YrUG7Y0hrY\/6\/6OGK1vYkfQVt9xgdKwQOYhGs6FHYEcbFob5R3sf1aO0Y8J6XL\/w+EP3f2kTyrqRYif4JTuuVqQ="}`;
+const cancelPraiseContentUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/bbs/cancelPraiseContent';
+const cancelPraiseContentData = `{"data":"E9hvq7XdfMYp+x5HECvGhkkkMyYjGiVmC7TzZ2bz6DQEmbb8ve4STXnLpNdPaCdUumtzqtU2hO65qMOSnfn5YrUG7Y0hrY\/6\/6OGK1vYkfQVt9xgdKwQOYhGs6FHYEcbFob5R3sf1aO0Y8J6XL\/w+EP3f2kTyrqRYif4JTuuVqQ="}`;
 
 // 在线看车
 const pdcSubmitUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/pdc/submit';
@@ -109,8 +113,17 @@ var msg = '';
         back.log('等待3秒');
     }, 3000);
 
+    // 取消点赞
+    await cancelPraiseContent()
+    setTimeout(() => {
+        back.log('等待3秒');
+    }, 3000);
+
     // 发布一次回答
+    await getLaunchV2()
+    await getAgreementsV2()
     await qaAnswerCreate()
+    await getWorkstationLiveUrl()
     setTimeout(() => {
         back.log('等待3秒');
     }, 3000);
@@ -422,6 +435,29 @@ function praiseContent() {
     })
 }
 
+/**
+ * 进行一次点赞 - 取消点赞
+ * @returns 
+ */
+function cancelPraiseContent() {
+    return new Promise((resolve, reject) => {
+        const url = { url: cancelPraiseContentUrl, headers: JSON.parse(signheaderVal) }
+        url.body = cancelPraiseContentData;
+        back.post(url, (error, response, data) => {
+            try {
+                back.log(`取消点赞:` + JSON.parse(data).message)
+                msg = msg + `取消点赞:` + JSON.parse(data).message + `\n`;
+                resolve()
+            } catch (e) {
+                back.log(`❌ ${cookieName} 取消点赞 - 失败: ${e}`)
+                back.log(`❌ ${cookieName} 取消点赞 - response: ${JSON.stringify(response)}`)
+                resolve()
+            }
+        })
+    })
+}
+cancelPraiseContentUrl
+
 
 /**
  * 使用用车手账
@@ -453,13 +489,7 @@ function billItemAdd() {
 function qaAnswerCreate() {
     return new Promise((resolve, reject) => {
         const url = { url: qaAnswerCreateUrl, headers: JSON.parse(signheaderVal) }
-        let today = new Date();
-        let dd = String(today.getDate()).padStart(2, '0');
-        if(dd % 2 == 0){
-            url.body = qaAnswerCreateData0;
-        }else{
-            url.body = qaAnswerCreateData1;
-        }
+        url.body = qaAnswerCreateData;
         back.post(url, (error, response, data) => {
             try {
                 back.log(`发布一次回答:` + JSON.parse(data).message)
@@ -468,6 +498,51 @@ function qaAnswerCreate() {
             } catch (e) {
                 back.log(`❌ ${cookieName} 发布一次回答 - 失败: ${e}`)
                 back.log(`❌ ${cookieName} 发布一次回答 - response: ${JSON.stringify(response)}`)
+                resolve()
+            }
+        })
+    })
+}
+
+
+/**
+ * 发布一次回答
+ * @returns 
+ */
+function getLaunchV2() {
+    return new Promise((resolve, reject) => {
+        const url = { url: getLaunchV2Url, headers: JSON.parse(signheaderVal) }
+        back.get(url, (error, response, data) => {
+            try {
+                back.log(`发布一次回答 - getLaunchV2:` + JSON.parse(data).message)
+                msg = msg + `发布一次回答 - getLaunchV2:` + JSON.parse(data).message + `\n`;
+                resolve()
+            } catch (e) {
+                back.log(`❌ ${cookieName} 发布一次回答 - getLaunchV2 - 失败: ${e}`)
+                back.log(`❌ ${cookieName} 发布一次回答 - getLaunchV2 - response: ${JSON.stringify(response)}`)
+                resolve()
+            }
+        })
+    })
+}
+
+
+/**
+ * 发布一次回答
+ * @returns 
+ */
+function getWorkstationLiveUrl() {
+    return new Promise((resolve, reject) => {
+        const url = { url: getWorkstationLiveUrl, headers: JSON.parse(signheaderVal) }
+        url.body = getWorkstationLiveUrlData; 
+        back.get(url, (error, response, data) => {
+            try {
+                back.log(`发布一次回答 - getWorkstationLiveUrl:` + JSON.parse(data).message)
+                msg = msg + `发布一次回答 - getWorkstationLiveUrl:` + JSON.parse(data).message + `\n`;
+                resolve()
+            } catch (e) {
+                back.log(`❌ ${cookieName} 发布一次回答 - getWorkstationLiveUrl - 失败: ${e}`)
+                back.log(`❌ ${cookieName} 发布一次回答 - getWorkstationLiveUrl - response: ${JSON.stringify(response)}`)
                 resolve()
             }
         })
@@ -521,7 +596,7 @@ function pdcSubmit() {
 
 
 /**
- * 添加评论
+ * getAgreementsV2
  * @returns 
  */
 function getAgreementsV2() {
@@ -530,12 +605,12 @@ function getAgreementsV2() {
         url.body = getAgreementsV2Data;
         back.post(url, (error, response, data) => {
             try {
-                back.log(`添加评论-getAgreementsV2:` + JSON.parse(data).message)
-                msg = msg + `添加评论-getAgreementsV2:` + JSON.parse(data).message + `\n`;
+                back.log(`getAgreementsV2:` + JSON.parse(data).message)
+                msg = msg + `getAgreementsV2:` + JSON.parse(data).message + `\n`;
                 resolve()
             } catch (e) {
-                back.log(`❌ ${cookieName} 添加评论-getAgreementsV2 - 失败: ${e}`)
-                back.log(`❌ ${cookieName} 添加评论-getAgreementsV2 - response: ${JSON.stringify(response)}`)
+                back.log(`❌ ${cookieName} getAgreementsV2 - 失败: ${e}`)
+                back.log(`❌ ${cookieName} getAgreementsV2 - response: ${JSON.stringify(response)}`)
                 resolve()
             }
         })
