@@ -1,11 +1,9 @@
 const cookieName = '世界城'
 const signurlKey = 'back_signurl_sjc'
 const signheaderKey = 'back_signheader_sjc'
-const signbodyKey = 'back_body_sjc'
 const back = init()
 const signurlVal = back.getdata(signurlKey)
 const signheaderVal = back.getdata(signheaderKey)
-const signbodyVal = back.getdata(signbodyKey)
 
 sign() //签到
 
