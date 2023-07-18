@@ -12,11 +12,14 @@ sign() //签到
 
 function sign() {
 
-    let bodys = JSON.parse(signbodyVal)
-    back.log(JSON.stringify(bodys))
+    let h = JSON.parse(signheaderVal)
+    var key = "Content-Type";
+    var value = "application/json"
+    h[key] = value;
+    back.log(JSON.stringify(h))
 
     const url = { url: `https://m.mallcoo.cn/api/user/User/CheckinV2`, headers: h }
-    url.body = bodys;
+    url.body = `{"MallID":10010,"Header":{"Token":"37pDLpIsDEKnOkt_dX9hSQfUMBQAhynk,15019","systemInfo":{"model":"iPhone 12 Pro<iPhone13,3>","SDKVersion":"3.0.0","system":"iOS 16.5.1","version":"8.0.39","miniVersion":"DZ.2.5.58.1.SJC.10"}}}`;
     back.post(url, (error, response, data) => {
         back.log(`${cookieName}, data: ${data}`)
         const title = `${cookieName}`
