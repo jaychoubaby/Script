@@ -1,7 +1,6 @@
 const cookieName = '建行生活签到'
 const signurlKey = 'photonmang_signurl_jhsh'
 const signheaderKey = 'photonmang_signheader_jhsh'
-const signBodyKey = `photonmang_signbody_jhsh`
 const photonmang = init()
 
 if ($request && $request.method != 'OPTIONS') {
@@ -10,7 +9,6 @@ if ($request && $request.method != 'OPTIONS') {
   const signbodyVal = JSON.stringify($request.body)
   if (signurlVal) photonmang.setdata(signurlVal, signurlKey)
   if (signheaderVal) photonmang.setdata(signheaderVal, signheaderKey)
-  if (signbodyVal) photonmang.setdata(signbodyVal, signBodyKey)
   photonmang.msg(cookieName, `获取Cookie: 成功`, ``)
 }
 
