@@ -19,18 +19,14 @@ hostname = yunbusiness.ccb.com
 const cookieName = '建行生活'
 const signurlKey = 'photonmang_signurl_jhsh'
 const signheaderKey = 'photonmang_signheader_jhsh'
-const signBodyKey = `photonmang_signbody_jhsh`
 
 const photonmang = init()
 const signurlVal = photonmang.getdata(signurlKey)
 const signheaderVal = photonmang.getdata(signheaderKey)
-const signbodyVal = photonmang.get(signBodyKey)
 sign()
 function sign() {
   const url = { url: `https://yunbusiness.ccb.com/clp_coupon/txCtrl?txcode=A3341A040`, headers: JSON.parse(signheaderVal) }
   //请求体内容用文本查看，然后复制到下方括号里面，不要把文本里面的括号也复制了over!
-  const body =  JSON.parse(signbodyVal);
-  photonmang.log('获取得body：' + body)
   url.body = `{"ACT_ID":"20230628070000000001","MEB_ID":"YSM202208106211275","USR_TEL":"13018059677","REGION_CODE":"421100","chnlType":"1","regionCode":"421100"}`
   photonmang.post(url, (error, response, data) => {
    const title = `${cookieName}`
