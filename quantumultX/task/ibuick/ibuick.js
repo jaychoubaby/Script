@@ -91,6 +91,9 @@ const llqzymUpdateTaskStatusV3Data = `{"data":"O2CxGv2Xj2ARINoF7XDoPT87cbTH5oabe
 // 浏览足迹页面
 const llzjymUpdateTaskStatusV3Data = `{"data":"Zm5RdMnZlWn1uTtZv4x0rpkrKtAFlsHDw6JFXefWJNJbBYvU2tvmLhfgFHJ9nQqNnlqE0lPYagqCo3PVrM7Ot19v1Epbem+rsjdoEjTrBSu1bdaDJqdixWAfMUX9RC6VpA+ESgJZHTkgELFmfXLYWgv7P2X42W3uSK1bZl13z\/U="}`;
 
+// 浏览爱车页面
+const llacymUpdateTaskStatusV3Data = `{"data":"mJIupAOWhTWo6rix7vKZ4nZ3GX0bLMtfoWBZUmb1VqJQVfZFNKyorUeiea+Dz6ciSCkM1\/2+9DVKxYVvu07XDaZMSBrpKJpBN85HXAzftmjRPRzF2xavI+68F011dKD5sKTkjyqJ0p4aNgzRejIlBWV34Dq8ACHC2Ozix4oxDQE="}`;
+
 var msg = '';
 ; (sign = async () => {
     back.log(`🔔 ${cookieName}`)
@@ -172,6 +175,10 @@ var msg = '';
 
     // 浏览足迹页面
     await updateTaskStatusV3(llzjymUpdateTaskStatusV3Data,'浏览足迹页面')
+    await delay(3000);
+
+    // 浏览爱车页面
+    await updateTaskStatusV3(llacymUpdateTaskStatusV3Data,'浏览爱车页面')
 
 
     back.msg(cookieName, "签到成功", msg)

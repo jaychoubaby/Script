@@ -1,24 +1,22 @@
 const cookieName = '世界城'
 const signurlKey = 'back_signurl_sjc'
 const signheaderKey = 'back_signheader_sjc'
+const signbodyKey = 'back_body_sjc'
 const back = init()
 const signurlVal = back.getdata(signurlKey)
 const signheaderVal = back.getdata(signheaderKey)
-
+const signbodyVal = back.getdata(signbodyKey)
 
 sign() //签到
 
 
 function sign() {
 
-    let h = JSON.parse(signheaderVal)
-    var key = "Content-Type";
-    var value = "application/json"
-    h[key] = value;
-    back.log(JSON.stringify(h))
+    let bodys = JSON.parse(signbodyVal)
+    back.log(JSON.stringify(bodys))
 
     const url = { url: `https://m.mallcoo.cn/api/user/User/CheckinV2`, headers: h }
-    url.body = `{"MallID":10010,"Header":{"Token":"yXSO4fvFEkO3jUYtZQ18zQ4hsYkIbaf0,15019","systemInfo":{"model":"iPhone 12 Pro<iPhone13,3>","SDKVersion":"2.32.0","system":"iOS 16.4","version":"8.0.37","miniVersion":"DZ.2.5.58.1.SJC.10"}}}`;
+    url.body = bodys;
     back.post(url, (error, response, data) => {
         back.log(`${cookieName}, data: ${data}`)
         const title = `${cookieName}`
