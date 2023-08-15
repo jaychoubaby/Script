@@ -94,6 +94,9 @@ const llzjymUpdateTaskStatusV3Data = `{"data":"Zm5RdMnZlWn1uTtZv4x0rpkrKtAFlsHDw
 // 浏览爱车页面
 const llacymUpdateTaskStatusV3Data = `{"data":"mJIupAOWhTWo6rix7vKZ4nZ3GX0bLMtfoWBZUmb1VqJQVfZFNKyorUeiea+Dz6ciSCkM1\/2+9DVKxYVvu07XDaZMSBrpKJpBN85HXAzftmjRPRzF2xavI+68F011dKD5sKTkjyqJ0p4aNgzRejIlBWV34Dq8ACHC2Ozix4oxDQE="}`;
 
+// 查看行车记录仪
+const ckxcjlyUpdateTaskStatusV3Data = `{"data":"PeYrGam\/\/DhLGjefR9sJFGGFMwj\/BD8o+0Uk4IGLK1HBaafEczB63jT\/giptGjNs8ISPG9rthv24a7VD9am\/sIr4OKKBeRSpgfIbkZe29hUVE1POvt9xk1VongpLQx20FPrk\/nRhf7fn3Pj8UysWgmFYssp95DRY9rCuJaGsZMg="}`;
+
 var msg = '';
 ; (sign = async () => {
     back.log(`🔔 ${cookieName}`)
@@ -179,7 +182,10 @@ var msg = '';
 
     // 浏览爱车页面
     await updateTaskStatusV3(llacymUpdateTaskStatusV3Data,'浏览爱车页面')
+    await delay(3000);
 
+    // 查看行车记录仪
+    await updateTaskStatusV3(ckxcjlyUpdateTaskStatusV3Data,'查看行车记录仪')
 
     back.msg(cookieName, "签到成功", msg)
 })()
