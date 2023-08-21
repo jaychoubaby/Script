@@ -13,6 +13,10 @@ const signheaderVal = back.getdata(signheaderKey)
 
 // task list
 
+// verifyToken
+const verifyTokenUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/userInfo/getUserNewInfoCount';
+const verifyTokenBody = `{"data":"BMu\/Mh+FqBQlJ1eDv+9dtqiDIb8bPwfeCwQ7EAg9nl2KJ2304Vdv2q6Jcg8geOqctmEPYtZHAWZq0E3Hs1vM6OK6jpXQgSVJnm6eOv4dWFT7XOKOwG+2QOhIs3jlNcW8Q3AiprVMfBgA+j3A8\/8d6aYZfsPjH+3P1G6595LzDiI="}`;
+
 // updateTaskStatusV3
 const updateTaskStatusV3Url = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/userTask/updateTaskStatusV3';
 
@@ -100,6 +104,12 @@ const ckxcjlyUpdateTaskStatusV3Data = `{"data":"PeYrGam\/\/DhLGjefR9sJFGGFMwj\/B
 var msg = '';
 ; (sign = async () => {
     back.log(`🔔 ${cookieName}`)
+
+    // 校验token
+    if(!await verifyToken()){
+        back.log(`❌ ${cookieName} token失效`)
+        back.done
+    }
 
     // 发布一条动态
     await addContentV2()
@@ -199,6 +209,23 @@ var msg = '';
 
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+/**
+ * 校验token
+ */
+async function verifyToken(){
+    return new Promise((resolve, reject) => {
+        const url = { url: verifyTokenUrl, headers: JSON.parse(signheaderVal) }
+        url.body = verifyTokenBody;
+        back.post(url, (error, response, data) => {
+            try {
+                return true;
+            } catch (e) {
+                return false;
+            }
+        })
+    })
 }
 
 /**
