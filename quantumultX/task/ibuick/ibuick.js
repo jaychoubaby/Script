@@ -15,7 +15,7 @@ const signheaderVal = back.getdata(signheaderKey)
 
 // verifyToken
 const verifyTokenUrl = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/userInfo/getUserNewInfoCount';
-const verifyTokenBody = `{"data":"BMu\/Mh+FqBQlJ1eDv+9dtqiDIb8bPwfeCwQ7EAg9nl2KJ2304Vdv2q6Jcg8geOqctmEPYtZHAWZq0E3Hs1vM6OK6jpXQgSVJnm6eOv4dWFT7XOKOwG+2QOhIs3jlNcW8Q3AiprVMfBgA+j3A8\/8d6aYZfsPjH+3P1G6595LzDiI="}`;
+const verifyTokenBody = `{"data":"kQF6n3BMZI\/hn6iRn8SxnF6fvJJKcJRvKCMN3t1JGzNBYadnS3ILbxxI84TtwplYl3gPsEc\/VpkTcXGTikCEmfmY+bnJ6RkeEFhQI8sawfReftDa6fttX8OlBk0RVft2M24yiTfKsL9bAhmwOHbEB\/E18QbMlM\/a\/LyUvU0LfCE="}`;
 
 // updateTaskStatusV3
 const updateTaskStatusV3Url = 'https://app.sgmlink.com:443/service/ibuick/rest/api/private/userTask/updateTaskStatusV3';
@@ -107,6 +107,7 @@ var msg = '';
 
     // 校验token
     const result = await verifyToken();
+    back.log('校验token:' + result)
     if(!result){
         back.msg(cookieName, "❌签到失败", "令牌过期")
         back.done()
@@ -221,6 +222,7 @@ async function verifyToken() {
         url.body = verifyTokenBody;
         back.post(url, (error, response, data) => {
             try {
+                back.log('data:' + data)
                 if (data.resultCode == '0000'){
                     resolve(true);
                 }else{
