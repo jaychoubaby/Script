@@ -106,6 +106,7 @@ var msg = '';
     back.log(`🔔 ${cookieName}`)
 
     // 校验token
+    back.log('校验token:')
     if(!await verifyToken()){
         back.log(`❌ ${cookieName} token失效`)
         back.done
@@ -215,6 +216,7 @@ function delay(ms) {
  * 校验token
  */
 async function verifyToken(){
+    back.log('校验token2')
     return new Promise((resolve, reject) => {
         const url = { url: verifyTokenUrl, headers: JSON.parse(signheaderVal) }
         url.body = verifyTokenBody;
