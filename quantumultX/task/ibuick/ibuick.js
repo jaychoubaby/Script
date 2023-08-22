@@ -225,8 +225,8 @@ async function verifyToken() {
                 back.log('data:' + data)
                 back.log('data.resultCode:' + data.resultCode)
                 back.log('data.message:' + data.message)
-                back.log('结果' + data.resultCode == '0000')
-                back.log('结果' + data.resultCode == "0000")
+                back.log('结果' + (data.resultCode == '0000'))
+                back.log('结果' + (data.resultCode == "0000"))
                 if (data.resultCode == '0000'){
                     resolve(true);
                 }else{
