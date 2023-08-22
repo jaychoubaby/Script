@@ -218,7 +218,7 @@ function delay(ms) {
 async function verifyToken(){
     back.log('校验token2')
     return new Promise((resolve, reject) => {
-        back.log('url:' + url)
+        back.log('url:' + verifyTokenUrl)
         back.log('signheaderVal:' + signheaderVal)
         back.log('headers:' + JSON.parse(signheaderVal))
         back.log('verifyTokenBody:' + verifyTokenBody)
