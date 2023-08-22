@@ -220,6 +220,7 @@ async function verifyToken(){
     return new Promise((resolve, reject) => {
         const url = { url: verifyTokenUrl, headers: JSON.parse(signheaderVal) }
         url.body = verifyTokenBody;
+        back.log('url:' + JSON.parse(url))
         back.post(url, (error, response, data) => {
             back.log('verifyToken:' + JSON.parse(response))
             try {
