@@ -223,7 +223,6 @@ async function verifyToken() {
         back.post(url, (error, response, data) => {
             try {
                 const jsonData = JSON.parse(data);
-                back.log('jsonData.message:' + jsonData.message)
                 msg = jsonData.message;
                 if (jsonData.resultCode == '0000'){
                     resolve(true);
