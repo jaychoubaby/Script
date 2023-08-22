@@ -231,12 +231,14 @@ async function verifyToken() {
                 back.log('verifyToken:333');
                 back.log('error:' + JSON.stringify(error));
                 back.log('response:' + JSON.stringify(response));
-                back.log('data:' + JSON.stringify(data));
-                const dataStr = JSON.stringify(data);
+                back.log('data:' + data);
+                const dataStr = JSON.stringify(data).replace("\\\"","\"");
+                back.log('dataStr:' + dataStr);
                 const dataJson = JSON.parse(dataStr);
+                back.log('dataJson:' + dataJson);
                 back.log('resultCode:' + dataJson.resultCode)
                 back.log('verifyToken:true');
-                if (resultCode == 200){
+                if (resultCode == '0000'){
                     resolve(true);
                 }else{
                     resolve(false);
