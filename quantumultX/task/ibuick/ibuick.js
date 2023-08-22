@@ -107,7 +107,9 @@ var msg = '';
 
     // 校验token
     back.log('校验token:')
-    if(!await verifyToken()){
+    const result = await verifyToken();
+    back.log('result:' + result)
+    if(!result){
         back.log(`❌ ${cookieName} token失效`)
         back.done
     }
@@ -226,10 +228,12 @@ async function verifyToken(){
         url.body = verifyTokenBody;
         back.post(url, (error, response, data) => {
             back.log('verifyToken:333')
-            back.log('data:' + JSON.parse(data))
+            back.log('data resultCode:' + data.resultCode)
             try {
+                back.log('verifyToken:true')
                 return true;
             } catch (e) {
+                back.log('verifyToken:false')
                 return false;
             }
         })
