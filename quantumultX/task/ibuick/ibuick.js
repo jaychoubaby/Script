@@ -106,11 +106,9 @@ var msg = '';
     back.log(`🔔 ${cookieName}`)
 
     // 校验token
-    back.log('校验token:')
     const result = await verifyToken();
-    back.log('result:' + result)
     if(!result){
-        back.log(`❌ ${cookieName} token失效`)
+        back.msg(cookieName, "签到失败", msg)
         back.done()
     }
 
@@ -218,28 +216,18 @@ function delay(ms) {
  * 校验token
  */
 async function verifyToken() {
-    back.log('校验token2');
     return new Promise((resolve, reject) => {
-        back.log('url:' + verifyTokenUrl);
-        back.log('signheaderVal:' + signheaderVal);
-        back.log('headers:' + JSON.parse(signheaderVal));
-        back.log('verifyTokenBody:' + verifyTokenBody);
         const url = { url: verifyTokenUrl, headers: JSON.parse(signheaderVal) };
         url.body = verifyTokenBody;
         back.post(url, (error, response, data) => {
             try {
-                back.log('verifyToken:333');
-                back.log('error:' + JSON.stringify(error));
-                back.log('response:' + JSON.stringify(response));
-                back.log('data:' + data);
-
                 if (data.resultCode == '0000'){
+                    msg = data.message;
                     resolve(true);
                 }else{
                     resolve(false);
                 }
             } catch (e) {
-                back.log('verifyToken:false');
                 resolve(false);
             }
         });
