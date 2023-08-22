@@ -227,11 +227,11 @@ async function verifyToken() {
         const url = { url: verifyTokenUrl, headers: JSON.parse(signheaderVal) };
         url.body = verifyTokenBody;
         back.post(url, (error, response, data) => {
-            back.log('verifyToken:333');
-            back.log('error:' + JSON.parse(error));
-            back.log('response:' + JSON.parse(response));
-            back.log('data:' + JSON.parse(data));
             try {
+                back.log('verifyToken:333');
+                back.log('error:' + JSON.stringify(error));
+                back.log('response:' + JSON.stringify(response));
+                back.log('data:' + JSON.stringify(data));
                 back.log('verifyToken:true');
                 resolve(true);
             } catch (e) {
