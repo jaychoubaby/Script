@@ -221,9 +221,8 @@ async function verifyToken() {
         url.body = verifyTokenBody;
         back.post(url, (error, response, data) => {
             try {
+                msg = msg + data.message;
                 if (data.resultCode == '0000'){
-                    back.log("data message:" + data.message)
-                    msg = msg + data.message;
                     resolve(true);
                 }else{
                     resolve(false);
