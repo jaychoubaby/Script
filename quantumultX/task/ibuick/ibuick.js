@@ -219,6 +219,7 @@ async function verifyToken(){
         const url = { url: verifyTokenUrl, headers: JSON.parse(signheaderVal) }
         url.body = verifyTokenBody;
         back.post(url, (error, response, data) => {
+            back.log('verifyToken:' + JSON.parse(response))
             try {
                 return true;
             } catch (e) {
