@@ -111,7 +111,7 @@ var msg = '';
     back.log('result:' + result)
     if(!result){
         back.log(`❌ ${cookieName} token失效`)
-        back.done
+        back.done()
     }
 
     // 发布一条动态
@@ -232,13 +232,8 @@ async function verifyToken() {
                 back.log('error:' + JSON.stringify(error));
                 back.log('response:' + JSON.stringify(response));
                 back.log('data:' + data);
-                const dataStr = JSON.stringify(data).replace("\\\"","\"");
-                back.log('dataStr:' + dataStr);
-                const dataJson = JSON.parse(dataStr);
-                back.log('dataJson:' + dataJson);
-                back.log('resultCode:' + dataJson.resultCode)
-                back.log('verifyToken:true');
-                if (resultCode == '0000'){
+
+                if (data.resultCode == '0000'){
                     resolve(true);
                 }else{
                     resolve(false);
