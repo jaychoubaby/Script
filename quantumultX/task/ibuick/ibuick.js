@@ -232,8 +232,15 @@ async function verifyToken() {
                 back.log('error:' + JSON.stringify(error));
                 back.log('response:' + JSON.stringify(response));
                 back.log('data:' + JSON.stringify(data));
+                const dataStr = JSON.stringify(data);
+                const dataJson = JSON.parse(dataStr);
+                back.log('resultCode:' + dataJson.resultCode)
                 back.log('verifyToken:true');
-                resolve(true);
+                if (resultCode == 200){
+                    resolve(true);
+                }else{
+                    resolve(false);
+                }
             } catch (e) {
                 back.log('verifyToken:false');
                 resolve(false);
