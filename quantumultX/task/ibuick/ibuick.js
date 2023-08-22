@@ -217,27 +217,29 @@ function delay(ms) {
 /**
  * 校验token
  */
-async function verifyToken(){
-    back.log('校验token2')
+async function verifyToken() {
+    back.log('校验token2');
     return new Promise((resolve, reject) => {
-        back.log('url:' + verifyTokenUrl)
-        back.log('signheaderVal:' + signheaderVal)
-        back.log('headers:' + JSON.parse(signheaderVal))
-        back.log('verifyTokenBody:' + verifyTokenBody)
-        const url = { url: verifyTokenUrl, headers: JSON.parse(signheaderVal) }
+        back.log('url:' + verifyTokenUrl);
+        back.log('signheaderVal:' + signheaderVal);
+        back.log('headers:' + JSON.parse(signheaderVal));
+        back.log('verifyTokenBody:' + verifyTokenBody);
+        const url = { url: verifyTokenUrl, headers: JSON.parse(signheaderVal) };
         url.body = verifyTokenBody;
         back.post(url, (error, response, data) => {
-            back.log('verifyToken:333')
-            back.log('data resultCode:' + data.resultCode)
+            back.log('verifyToken:333');
+            back.log('error:' + JSON.parse(error));
+            back.log('response:' + JSON.parse(response));
+            back.log('data:' + JSON.parse(data));
             try {
-                back.log('verifyToken:true')
-                return true;
+                back.log('verifyToken:true');
+                resolve(true);
             } catch (e) {
-                back.log('verifyToken:false')
-                return false;
+                back.log('verifyToken:false');
+                resolve(false);
             }
-        })
-    })
+        });
+    });
 }
 
 /**
