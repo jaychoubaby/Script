@@ -222,12 +222,13 @@ async function verifyToken() {
         url.body = verifyTokenBody;
         back.post(url, (error, response, data) => {
             try {
-                back.log('data:' + data)
-                back.log('data.resultCode:' + data.resultCode)
-                back.log('data.message:' + data.message)
-                back.log('结果' + (data.resultCode == '0000'))
-                back.log('结果' + (data.resultCode == "0000"))
-                if (data.resultCode == '0000'){
+                const jsonData = JSON.parse(data);
+                back.log('jsonData:' + jsonData)
+                back.log('jsonData.resultCode:' + jsonData.resultCode)
+                back.log('jsonData.message:' + jsonData.message)
+                back.log('结果' + (jsonData.resultCode == '0000'))
+                back.log('结果' + (jsonData.resultCode == "0000"))
+                if (jsonData.resultCode == '0000'){
                     resolve(true);
                 }else{
                     resolve(false);
