@@ -109,7 +109,7 @@ var msg = '';
     const result = await verifyToken();
     back.log('校验token:' + result)
     if(!result){
-        back.msg(cookieName, "❌签到失败", "令牌过期")
+        back.msg(cookieName, "❌签到失败", msg)
         back.done()
     }
 
@@ -223,11 +223,8 @@ async function verifyToken() {
         back.post(url, (error, response, data) => {
             try {
                 const jsonData = JSON.parse(data);
-                back.log('jsonData:' + jsonData)
-                back.log('jsonData.resultCode:' + jsonData.resultCode)
                 back.log('jsonData.message:' + jsonData.message)
-                back.log('结果' + (jsonData.resultCode == '0000'))
-                back.log('结果' + (jsonData.resultCode == "0000"))
+                msg = jsonData.message;
                 if (jsonData.resultCode == '0000'){
                     resolve(true);
                 }else{
