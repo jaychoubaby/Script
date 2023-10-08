@@ -14,8 +14,11 @@ HOST-SUFFIX,m1.ad.10010.com, reject
 HOST,mojie.best,toback
 # > 八戒
 HOST,bajie.info,toback
+# > 360
+HOST-WILDCARD,ad.jia.360.cn,reject
 
 
 # > oracle 服务器
 IP-CIDR,131.186.45.20/32,toback
 IP-CIDR,138.2.3.27/32,toback
+
