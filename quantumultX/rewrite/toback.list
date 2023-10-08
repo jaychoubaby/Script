@@ -3,19 +3,14 @@
 # REPO: https://github.com/jaychoubaby/Script
 # UPDATED: 2023-10-08 09:40:51
 
-# > icloud邮箱
-HOST-SUFFIX,mail.icloud.com.cn,direct
+
 # > claudeAI
 HOST-SUFFIX,claude.ai,toback
-# > 10010
-HOST-SUFFIX,m1.ad.10010.com, reject
 
 # > 魔戒
 HOST,mojie.best,toback
 # > 八戒
 HOST,bajie.info,toback
-# > 360
-HOST,ad.jia.360.cn,reject
 
 
 # > oracle 服务器

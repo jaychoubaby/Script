@@ -1,0 +1,10 @@
+# NAME: toback-reject
+# AUTHOR: back
+# REPO: https://github.com/jaychoubaby/Script
+# UPDATED: 2023-10-08 09:40:51
+
+
+# > 10010
+HOST-SUFFIX,m1.ad.10010.com, reject
+# > 360
+HOST,ad.jia.360.cn,reject
