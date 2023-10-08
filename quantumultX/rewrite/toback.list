@@ -11,6 +11,8 @@ HOST-SUFFIX,claude.ai,toback
 HOST,mojie.best,toback
 # > 八戒
 HOST,bajie.info,toback
+# > bard
+HOST,bard.google.com,toback
 
 
 # > oracle 服务器
