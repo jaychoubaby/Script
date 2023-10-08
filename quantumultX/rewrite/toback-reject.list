@@ -5,7 +5,8 @@
 
 
 # > 10010
-HOST-SUFFIX,m1.ad.10010.com, reject
+HOST-SUFFIX,m1.ad.10010.com,reject
 # > 360
 HOST,ad.jia.360.cn,reject
 HOST,ad.life.360.cn,reject
+HOST,www.pangolin-dsp-toutiao.com,reject
