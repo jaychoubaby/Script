@@ -192,11 +192,14 @@ function Maotai() {
             var {
                 mtshops_pc: { url: mapUrl }
             } = data
+            $.log(`mapUrl：` + mapUrl)
             var _json = (await service.get(mapUrl)).body
+            $.log(`_json：` + _json)
             var arr = []
             Object.values(JSON.parse(_json)).map((item) => {
                 if (item.provinceName === province && item.cityName === city) arr.push(item)
             })
+            $.log(`arr：` + arr)
             return arr
         }
         // TODO:后续是否加入当地投放量最大的店铺
