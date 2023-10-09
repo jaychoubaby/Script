@@ -33,7 +33,7 @@ var itemCode = $.getdata('imaotai2__config__itemcode') || '10213' // 预约项
 var location = $.getdata('imaotai2__config__location') || '' // 地址经纬度
 var address = $.getdata('imaotai2__config__address') || '' // 详细地址
 var shopid = $.getdata('imaotai2__config__shopid') || '' // 商铺id
-var imaotaiParams = JSON.parse($.getdata('imaotai2_params') || '{}') // 抓包参数
+var imaotaiParams = JSON.parse($.getdata('imaotai_params') || '{}') // 抓包参数
 var Message = '' // 消息内容
 // -----------------------------------------------------------------------------------------
 // TODO: 后续支持多品预约
