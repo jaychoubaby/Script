@@ -70,7 +70,7 @@ var itemMap = {
     if (shopid) maotai.shopId = shopid
     // 当前时间段如果不是9点 - 10点，不允许预约
     var _hour = new Date().getHours()
-    if (_hour < 9 || _hour > 10) throw '不在有效的预约时间内'
+    // if (_hour < 9 || _hour > 10) throw '不在有效的预约时间内'
     var { headers, userId } = imaotaiParams
     maotai.headers = Object.assign(maotai.headers, headers)
     maotai.userId = userId
