@@ -89,7 +89,7 @@ var itemMap = {
     isClearShopDir && $.setdata(JSON.stringify([]), `imaotai_${province}_${city}_dictionary`)
     var dictionary = JSON.parse($.getdata(`imaotai_${province}_${city}_dictionary`) || '[]')
     $.log(`dictionary:` + dictionary)
-    if (dictionary.length === 0) {
+    if (dictionary == null || dictionary.length === 0) {
         dictionary = await maotai.getStoreMap()
         $.log(`获取到商铺地图数据`)
         $.setdata(JSON.stringify(dictionary), `imaotai_${province}_${city}_dictionary`)
