@@ -84,16 +84,12 @@ var itemMap = {
         maotai.sessionId = sessionId
     }
     $.log(`获取到sessionId：${maotai.sessionId}`)
-    $.log(`isClearShopDir:` + isClearShopDir)
-    $.log(`key:` +  `imaotai_${province}_${city}_dictionary`)
     isClearShopDir && $.setdata(JSON.stringify([]), `imaotai_${province}_${city}_dictionary`)
     var dictionary = JSON.parse($.getdata(`imaotai_${province}_${city}_dictionary`) || '[]')
-    $.log(`dictionary:` + dictionary)
     if (!dictionary || dictionary.length === 0) {
         dictionary = await maotai.getStoreMap()
         $.log(`获取到商铺地图数据`)
         $.setdata(JSON.stringify(dictionary), `imaotai_${province}_${city}_dictionary`)
-        $.log(`getData:` + $.getdata(`imaotai_${province}_${city}_dictionary`))
     } else {
         $.log(`从缓存中获取到商铺地图数据`)
     }
@@ -203,14 +199,11 @@ function Maotai() {
         // TODO:后续是否加入当地投放量最大的店铺
         // 获取最近店铺
         async getNearbyStore() {
-            $.log(`获取最近店铺`)
             var _ts = new Date().setHours(0, 0, 0, 0)
             var url = `https://static.moutai519.com.cn/mt-backend/xhr/front/mall/shop/list/slim/v3/${
                 this.sessionId
             }/${encodeURIComponent(province)}/${itemCode}/${_ts}`
-            $.log(`url:` + url)
             var { body: response } = await service.get({ url })
-            $.log(`response:` + response)
             var { code, data, message } = JSON.parse(response)
             if (code !== 2000) throw `获取店铺列表失败, ${message}`
             var { shops } = data

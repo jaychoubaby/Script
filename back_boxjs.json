@@ -436,6 +436,148 @@
             ]
         },
         {
+            "id": "yuheng.imaotai",
+            "name": "i茅台预约",
+            "descs_html": [
+                "留空"
+            ],
+            "keys": [
+                "imaotai__config__clearshopdir",
+                "imaotai__config__province",
+                "imaotai__config__city",
+                "imaotai__config__itemcode",
+                "imaotai__config__address",
+                "imaotai__config__shopid"
+            ],
+            "settings": [
+                {
+                    "id": "imaotai__config__clearshopdir",
+                    "name": "是否清空店铺字段",
+                    "val": false,
+                    "type": "boolean",
+                    "desc": "不懂默认即可"
+                },
+                {
+                    "id": "imaotai__config__province",
+                    "name": "省份名称",
+                    "val": null,
+                    "type": "text",
+                    "rows": 1,
+                    "desc": "必填, 例如: 山东省"
+                },
+                {
+                    "id": "imaotai__config__city",
+                    "name": "城市名称",
+                    "val": null,
+                    "type": "text",
+                    "rows": 1,
+                    "desc": "必填, 例如: 济南市"
+                },
+                {
+                    "id": "imaotai__config__itemcode",
+                    "name": "预约项",
+                    "val": "10213",
+                    "type": "text",
+                    "rows": 1,
+                    "desc": "需要预约的项目{'10213': '贵州茅台酒（癸卯兔年）', '2478': '贵州茅台酒（珍品）','10214': '贵州茅台酒（癸卯兔年）x2','10056': '53%vol 500ml 茅台1935'}"
+                },
+                {
+                    "id": "imaotai__config__address",
+                    "name": "当前位置",
+                    "val": null,
+                    "type": "text",
+                    "rows": 1,
+                    "desc": "尽量具体, 比如: 山东省济南市齐鲁软件园, 精确到标志性建筑物"
+                },
+                {
+                    "id": "imaotai__config__shopid",
+                    "name": "需要预约的店铺id",
+                    "val": null,
+                    "type": "text",
+                    "rows": 1,
+                    "desc": "置空默认选择最近店铺"
+                }
+            ],
+            "author": "@yuheng",
+            "repo": "https://github.com/Yuheng0101/X",
+            "icons": [
+                "https://raw.githubusercontent.com/Yuheng0101/X/main/Tasks/imaotai/mini.png",
+                "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/ae/f4/18/aef41811-955e-e6b0-5d23-6763c2eef1ab/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/144x144.png"
+            ],
+            "script": "https://raw.githubusercontent.com/Yuheng0101/X/main/Tasks/imaotai/imaotai.js"
+        },
+        {
+            "id": "yuheng.imaotai",
+            "name": "i茅台预约2",
+            "descs_html": [
+                "留空"
+            ],
+            "keys": [
+                "imaotai2__config__clearshopdir",
+                "imaotai2__config__province",
+                "imaotai2__config__city",
+                "imaotai2__config__itemcode",
+                "imaotai2__config__address",
+                "imaotai2__config__shopid"
+            ],
+            "settings": [
+                {
+                    "id": "imaotai2__config__clearshopdir",
+                    "name": "是否清空店铺字段",
+                    "val": false,
+                    "type": "boolean",
+                    "desc": "不懂默认即可"
+                },
+                {
+                    "id": "imaotai2__config__province",
+                    "name": "省份名称",
+                    "val": null,
+                    "type": "text",
+                    "rows": 1,
+                    "desc": "必填, 例如: 山东省"
+                },
+                {
+                    "id": "imaotai2__config__city",
+                    "name": "城市名称",
+                    "val": null,
+                    "type": "text",
+                    "rows": 1,
+                    "desc": "必填, 例如: 济南市"
+                },
+                {
+                    "id": "imaotai2__config__itemcode",
+                    "name": "预约项",
+                    "val": "10213",
+                    "type": "text",
+                    "rows": 1,
+                    "desc": "需要预约的项目{'10213': '贵州茅台酒（癸卯兔年）', '2478': '贵州茅台酒（珍品）','10214': '贵州茅台酒（癸卯兔年）x2','10056': '53%vol 500ml 茅台1935'}"
+                },
+                {
+                    "id": "imaotai2__config__address",
+                    "name": "当前位置",
+                    "val": null,
+                    "type": "text",
+                    "rows": 1,
+                    "desc": "尽量具体, 比如: 山东省济南市齐鲁软件园, 精确到标志性建筑物"
+                },
+                {
+                    "id": "imaotai2__config__shopid",
+                    "name": "需要预约的店铺id",
+                    "val": null,
+                    "type": "text",
+                    "rows": 1,
+                    "desc": "置空默认选择最近店铺"
+                }
+            ],
+            "author": "@yuheng",
+            "repo": "https://github.com/Yuheng0101/X",
+            "icons": [
+                "https://raw.githubusercontent.com/Yuheng0101/X/main/Tasks/imaotai/mini.png",
+                "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/ae/f4/18/aef41811-955e-e6b0-5d23-6763c2eef1ab/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/144x144.png"
+            ],
+            "script": "https://raw.githubusercontent.com/Yuheng0101/X/main/Tasks/imaotai/imaotai.js"
+        },
+        {
             "id": "gist",
             "name": "Gist 备份",
             "keys": [
