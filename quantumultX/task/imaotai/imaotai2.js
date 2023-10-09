@@ -26,14 +26,14 @@ var CryptoJS = loadCryptoJS()
 var maotai = new Maotai()
 // -----------------------------------------------------------------------------------------
 // 配置项
-var isClearShopDir = $.getdata('imaotai__config__clearshopdir') || false // 是否清理店铺字典
-var province = $.getdata('imaotai__config__province') || '' // 省份
-var city = $.getdata('imaotai__config__city') || '' // 城市
-var itemCode = $.getdata('imaotai__config__itemcode') || '10213' // 预约项
-var location = $.getdata('imaotai__config__location') || '' // 地址经纬度
-var address = $.getdata('imaotai__config__address') || '' // 详细地址
-var shopid = $.getdata('imaotai__config__shopid') || '' // 商铺id
-var imaotaiParams = JSON.parse($.getdata('imaotai_params') || '{}') // 抓包参数
+var isClearShopDir = $.getdata('imaotai2__config__clearshopdir') || false // 是否清理店铺字典
+var province = $.getdata('imaotai2__config__province') || '' // 省份
+var city = $.getdata('imaotai2__config__city') || '' // 城市
+var itemCode = $.getdata('imaotai2__config__itemcode') || '10213' // 预约项
+var location = $.getdata('imaotai2__config__location') || '' // 地址经纬度
+var address = $.getdata('imaotai2__config__address') || '' // 详细地址
+var shopid = $.getdata('imaotai2__config__shopid') || '' // 商铺id
+var imaotaiParams = JSON.parse($.getdata('imaotai2_params') || '{}') // 抓包参数
 var Message = '' // 消息内容
 // -----------------------------------------------------------------------------------------
 // TODO: 后续支持多品预约
@@ -54,7 +54,7 @@ var itemMap = {
                 headers: $request.headers,
                 userId
             }),
-            'imaotai_params'
+            'imaotai2_params'
         )
         Message = `抓取数据成功🎉\nuserId:${userId}`
         return false
@@ -84,12 +84,12 @@ var itemMap = {
         maotai.sessionId = sessionId
     }
     $.log(`获取到sessionId：${maotai.sessionId}`)
-    isClearShopDir && $.setdata(JSON.stringify([]), `imaotai_${province}_${city}_dictionary`)
-    var dictionary = JSON.parse($.getdata(`imaotai_${province}_${city}_dictionary`) || '[]')
+    isClearShopDir && $.setdata(JSON.stringify([]), `imaotai2_${province}_${city}_dictionary`)
+    var dictionary = JSON.parse($.getdata(`imaotai2_${province}_${city}_dictionary`) || '[]')
     if (!dictionary || dictionary.length === 0) {
         dictionary = await maotai.getStoreMap()
         $.log(`获取到商铺地图数据`)
-        $.setdata(JSON.stringify(dictionary), `imaotai_${province}_${city}_dictionary`)
+        $.setdata(JSON.stringify(dictionary), `imaotai2_${province}_${city}_dictionary`)
     } else {
         $.log(`从缓存中获取到商铺地图数据`)
     }
@@ -124,7 +124,7 @@ async function queryAddress() {
     var { status, info, geocodes } = JSON.parse(resp)
     if (status !== '1') throw `获取经纬度失败, ${info}`
     var { location: _location } = geocodes[0]
-    $.setdata(_location, 'imaotai__config__location')
+    $.setdata(_location, 'imaotai2__config__location')
     location = _location
 }
 /**
