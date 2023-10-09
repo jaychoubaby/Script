@@ -498,7 +498,7 @@
                     "desc": "置空默认选择最近店铺"
                 }
             ],
-            "author": "@yuheng",
+            "author": "@back",
             "repo": "https://github.com/Yuheng0101/X",
             "icons": [
                 "https://raw.githubusercontent.com/Yuheng0101/X/main/Tasks/imaotai/mini.png",
@@ -507,7 +507,7 @@
             "script": "https://raw.githubusercontent.com/Yuheng0101/X/main/Tasks/imaotai/imaotai.js"
         },
         {
-            "id": "yuheng.imaotai",
+            "id": "yuheng.imaotai2",
             "name": "i茅台预约2",
             "descs_html": [
                 "留空"
@@ -569,7 +569,7 @@
                     "desc": "置空默认选择最近店铺"
                 }
             ],
-            "author": "@yuheng",
+            "author": "@back",
             "repo": "https://github.com/Yuheng0101/X",
             "icons": [
                 "https://raw.githubusercontent.com/Yuheng0101/X/main/Tasks/imaotai/mini.png",
