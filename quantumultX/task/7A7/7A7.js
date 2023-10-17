@@ -95,7 +95,7 @@ if ($request && $request.method != 'OPTIONS') {
     }
 
     const back7A7Body = JSON.stringify($response.body)
-    back.msg(cookieName, `获取7A7数据: 成功`, `${back7A7Body}`)
+    back.msg(cookieName, `获取7A7数据: 成功`, ``)
 }
 
 function saveValueByName(item) {
