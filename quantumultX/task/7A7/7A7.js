@@ -66,7 +66,7 @@ if ($request && $request.method != 'OPTIONS') {
     if (completionTimeData == null || completionTimeData == '') {
         back.done();
     }
-    back.setdata(data.completionTimeData, completionTime)
+    back.setdata(completionTimeData, completionTime)
 
     // 维护建议
     var maintenanceSuggestions = data.maintenanceSuggestions
@@ -76,7 +76,7 @@ if ($request && $request.method != 'OPTIONS') {
             SUGGEST_DATA += maintenanceSuggestions[i].title + " "
         }
         if (maintenanceSuggestions[i].suggestType == 'MAINTENANCE') {
-            back.setdata(maintenanceSuggestions[i].hint + maintenanceSuggestions[i].viceHint + maintenanceSuggestions[i].warning, completionTime)
+            back.setdata(maintenanceSuggestions[i].hint + maintenanceSuggestions[i].viceHint + maintenanceSuggestions[i].warning, MAINTENANCE)
         }
     }
     if (SUGGEST_DATA) back.setdata(SUGGEST_DATA, SUGGEST)
@@ -87,87 +87,92 @@ if ($request && $request.method != 'OPTIONS') {
 
     var diagnosticResponse = data.body.diagnosticResponse
     for (let i = 0; i < diagnosticResponse.length; i++) {
-        var diagnosticElement = diagnosticResponse[0].diagnosticElement
+        var diagnosticElement = diagnosticResponse[i].diagnosticElement
         for (let j = 0; j < diagnosticElement.length; j++) {
             var itme = diagnosticElement[j]
-            if (itme.name == 'CO DRIVER DOOR AJAR STATUS') {
-                back.setdata(itme.value, CO_DRIVER_DOOR_AJAR_STATUS)
-            }
-            if (itme.name == 'DRIVER DOOR AJAR STATUS') {
-                back.setdata(itme.value, DRIVER_DOOR_AJAR_STATUS)
-            }
-            if (itme.name == 'LEFT REAR DOOR AJAR STATUS') {
-                back.setdata(itme.value, LEFT_REAR_DOOR_AJAR_STATUS)
-            }
-            if (itme.name == 'RIGHT REAR DOOR AJAR STATUS') {
-                back.setdata(itme.value, RIGHT_REAR_DOOR_AJAR_STATUS)
-            }
-            if (itme.name == 'CONTENT THEFT DETERRENT STATE') {
-                back.setdata(itme.value, CONTENT_THEFT_DETERRENT_STATE)
-            }
-            if (itme.name == 'DOOR LAST REMOTE LOCK STATUS') {
-                back.setdata(itme.value, DOOR_LAST_REMOTE_LOCK_STATUS)
-            }
-            if (itme.name == 'FUEL AMOUNT') {
-                back.setdata(itme.value + itme.unit, LEFT_REAR_DOOR_AJAR_STATUS)
-            }
-            if (itme.name == 'FUEL CAPACITY') {
-                back.setdata(itme.value + itme.unit, FUEL_CAPACITY)
-            }
-            if (itme.name == 'FUEL LEVEL') {
-                back.setdata(itme.value + itme.unit, FUEL_LEVEL)
-            }
-            if (itme.name == 'FUEL LEVEL IN GAL') {
-                back.setdata(itme.value + itme.unit, FUEL_LEVEL_IN_GAL)
-            }
-            if (itme.name == 'HAZARD REQUEST ACTIVE') {
-                back.setdata(itme.value, HAZARD_REQUEST_ACTIVE)
-            }
-            if (itme.name == 'HEADLIGHTS STATUS') {
-                back.setdata(itme.value, HEADLIGHTS_STATUS)
-            }
-            if (itme.name == 'LAST TRIP TOTAL DISTANCE') {
-                back.setdata(itme.value + itme.unit, LAST_TRIP_TOTAL_DISTANCE)
-            }
-            if (itme.name == 'LAST TRIP FUEL ECON') {
-                back.setdata(itme.value + itme.unit, LAST_TRIP_FUEL_ECON)
-            }
-            if (itme.name == 'LIFETIME FUEL ECON') {
-                back.setdata(itme.value + itme.unit, LIFETIME_FUEL_ECON)
-            }
-            if (itme.name == 'ODOMETER') {
-                back.setdata(itme.value + itme.unit, ODOMETER)
-            }
-
-            if (itme.name == 'OIL LIFE') {
-                back.setdata(itme.value + itme.unit, OIL_LIFE)
-            }
-
-            if (itme.name == 'REAR CLOSURE LOCK STATUS') {
-                back.setdata(itme.value, REAR_CLOSURE_LOCK_STATUS)
-            }
-
-            if (itme.name == 'REMOTE START STATUS AUTHENTICATED') {
-                back.setdata(itme.value, REMOTE_START_STATUS_AUTHENTICATED)
-            }
-
-            if (itme.name == 'TIRE PRESSURE LF') {
-                back.setdata(itme.value + itme.unit, TIRE_PRESSURE_LF)
-            }
-            if (itme.name == 'TIRE PRESSURE LF') {
-                back.setdata(itme.value + itme.unit, TIRE_PRESSURE_LF)
-            }
-            if (itme.name == 'TIRE PRESSURE RF') {
-                back.setdata(itme.value + itme.unit, TIRE_PRESSURE_RF)
-            }
-            if (itme.name == 'TIRE PRESSURE RR') {
-                back.setdata(itme.value + itme.unit, TIRE_PRESSURE_RR)
-            }
+            saveValueByName(itme.name, itme.value)
         }
     }
 
     const back7A7Body = JSON.stringify($response.body)
     back.msg(cookieName, `获取7A7数据: 成功`, `${back7A7Body}`)
+}
+
+function saveValueByName(name, value) {
+    back.log(`saveValueByName: ${name} , ${value}`)
+    if (name == 'CO DRIVER DOOR AJAR STATUS') {
+        back.setdata(value, CO_DRIVER_DOOR_AJAR_STATUS)
+    }
+    if (name == 'DRIVER DOOR AJAR STATUS') {
+        back.setdata(value, DRIVER_DOOR_AJAR_STATUS)
+    }
+    if (name == 'LEFT REAR DOOR AJAR STATUS') {
+        back.setdata(value, LEFT_REAR_DOOR_AJAR_STATUS)
+    }
+    if (name == 'RIGHT REAR DOOR AJAR STATUS') {
+        back.setdata(value, RIGHT_REAR_DOOR_AJAR_STATUS)
+    }
+    if (name == 'CONTENT THEFT DETERRENT STATE') {
+        back.setdata(value, CONTENT_THEFT_DETERRENT_STATE)
+    }
+    if (name == 'DOOR LAST REMOTE LOCK STATUS') {
+        back.setdata(value, DOOR_LAST_REMOTE_LOCK_STATUS)
+    }
+    if (name == 'FUEL AMOUNT') {
+        back.setdata(value + itme.unit, LEFT_REAR_DOOR_AJAR_STATUS)
+    }
+    if (name == 'FUEL CAPACITY') {
+        back.setdata(value + itme.unit, FUEL_CAPACITY)
+    }
+    if (name == 'FUEL LEVEL') {
+        back.setdata(value + itme.unit, FUEL_LEVEL)
+    }
+    if (name == 'FUEL LEVEL IN GAL') {
+        back.setdata(value + itme.unit, FUEL_LEVEL_IN_GAL)
+    }
+    if (name == 'HAZARD REQUEST ACTIVE') {
+        back.setdata(value, HAZARD_REQUEST_ACTIVE)
+    }
+    if (name == 'HEADLIGHTS STATUS') {
+        back.setdata(value, HEADLIGHTS_STATUS)
+    }
+    if (name == 'LAST TRIP TOTAL DISTANCE') {
+        back.setdata(value + itme.unit, LAST_TRIP_TOTAL_DISTANCE)
+    }
+    if (name == 'LAST TRIP FUEL ECON') {
+        back.setdata(value + itme.unit, LAST_TRIP_FUEL_ECON)
+    }
+    if (name == 'LIFETIME FUEL ECON') {
+        back.setdata(value + itme.unit, LIFETIME_FUEL_ECON)
+    }
+    if (name == 'ODOMETER') {
+        back.setdata(value + itme.unit, ODOMETER)
+    }
+
+    if (name == 'OIL LIFE') {
+        back.setdata(value + itme.unit, OIL_LIFE)
+    }
+
+    if (name == 'REAR CLOSURE LOCK STATUS') {
+        back.setdata(value, REAR_CLOSURE_LOCK_STATUS)
+    }
+
+    if (name == 'REMOTE START STATUS AUTHENTICATED') {
+        back.setdata(value, REMOTE_START_STATUS_AUTHENTICATED)
+    }
+
+    if (name == 'TIRE PRESSURE LF') {
+        back.setdata(value + itme.unit, TIRE_PRESSURE_LF)
+    }
+    if (name == 'TIRE PRESSURE LF') {
+        back.setdata(value + itme.unit, TIRE_PRESSURE_LF)
+    }
+    if (name == 'TIRE PRESSURE RF') {
+        back.setdata(value + itme.unit, TIRE_PRESSURE_RF)
+    }
+    if (name == 'TIRE PRESSURE RR') {
+        back.setdata(value + itme.unit, TIRE_PRESSURE_RR)
+    }
 }
 
 function init() {
