@@ -84,7 +84,7 @@
                     "id": "CO_DRIVER_DOOR_AJAR_STATUS",
                     "name": "副驾驶门未关状态",
                     "val": "",
-                    "type": "text",
+                    "type": "boolean",
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
@@ -94,31 +94,31 @@
                     "id": "DRIVER_DOOR_AJAR_STATUS",
                     "name": "驾驶员门未关状态",
                     "val": "",
-                    "type": "text",
+                    "type": "boolean",
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "驾驶员门未关状态"
                 },
                 {
                     "id": "LEFT_REAR_DOOR_AJAR_STATUS",
                     "name": "左后门未关状态",
                     "val": "",
-                    "type": "text",
+                    "type": "boolean",
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "左后门未关状态"
                 },
                 {
                     "id": "RIGHT_REAR_DOOR_AJAR_STATUS",
                     "name": "右后门未关状态",
                     "val": "",
-                    "type": "text",
+                    "type": "boolean",
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "右后门未关状态"
                 },
                 {
                     "id": "CONTENT_THEFT_DETERRENT_STATE",
@@ -128,7 +128,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "内容盗窃防护状态"
                 },
                 {
                     "id": "DOOR_LAST_REMOTE_LOCK_STATUS",
@@ -138,7 +138,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "门上次遥控锁状态"
                 },
                 {
                     "id": "FUEL_AMOUNT",
@@ -148,7 +148,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "燃料数量"
                 },
                 {
                     "id": "FUEL_CAPACITY",
@@ -158,7 +158,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "燃油容量"
                 },
                 {
                     "id": "FUEL_LEVEL",
@@ -168,7 +168,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "燃油水平"
                 },
                 {
                     "id": "FUEL_LEVEL_IN_GAL",
@@ -178,7 +178,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "加仑中的燃油水平"
                 },
                 {
                     "id": "HAZARD_REQUEST_ACTIVE",
@@ -188,7 +188,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "危险请求已激活"
                 },
                 {
                     "id": "HEADLIGHTS_STATUS",
@@ -198,7 +198,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "前灯状态"
                 },
                 {
                     "id": "LAST_TRIP_TOTAL_DISTANCE",
@@ -208,7 +208,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "上次旅行距离"
                 },
                 {
                     "id": "LAST_TRIP_FUEL_ECON",
@@ -218,7 +218,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "上次旅行的燃油经济性"
                 },
                 {
                     "id": "LIFETIME_FUEL_ECON",
@@ -228,7 +228,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "终身燃油经济性"
                 },
                 {
                     "id": "ODOMETER",
@@ -238,7 +238,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "里程表"
                 },
                 {
                     "id": "OIL_LIFE",
@@ -248,7 +248,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "机油寿命"
                 },
                 {
                     "id": "REAR_CLOSURE_LOCK_STATUS",
@@ -258,7 +258,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "后部关闭锁定状态"
                 },
                 {
                     "id": "REMOTE_START_STATUS_AUTHENTICATED",
@@ -268,7 +268,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "远程启动状态已验证"
                 },
                 {
                     "id": "TIRE_PRESSURE_LF",
@@ -278,7 +278,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "轮胎压力 左前"
                 },
                 {
                     "id": "TIRE_PRESSURE_LR",
@@ -288,7 +288,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "轮胎压力 左后"
                 },
                 {
                     "id": "TIRE_PRESSURE_RF",
@@ -298,7 +298,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "轮胎压力 右前"
                 },
                 {
                     "id": "TIRE_PRESSURE_RR",
@@ -308,7 +308,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "轮胎压力 右后"
                 }
             ],
             "author": "@back",
