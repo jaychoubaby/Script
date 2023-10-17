@@ -5,8 +5,7 @@
     "author": "@back",
     "icon": "https://avatars.githubusercontent.com/u/26641387?v=4",
     "repo": "https://github.com/jaychoubaby/Script",
-    "apps": [
-        {
+    "apps": [{
             "id": "7A7",
             "name": "7A7",
             "keys": [
@@ -41,8 +40,7 @@
             "descs_html": [
                 "<h4 align=\"center\">脚本说明以及配置请查看<a href=\"https://github.com/jaychoubaby/Script/blob/main/quantumultX/task/7A7/7A7.js\">脚本注释</a></h4>"
             ],
-            "settings": [
-                {
+            "settings": [{
                     "id": "completionTime",
                     "name": "更新时间",
                     "val": "",
@@ -315,12 +313,10 @@
             ],
             "author": "@back",
             "repo": "https://github.com/jaychoubaby/Script/blob/main/quantumultX/task/7A7/7A7.js",
-            "scripts": [
-                {
-                    "name": "7A7",
-                    "script": "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/7A7/7A7.js"
-                }
-            ],
+            "scripts": [{
+                "name": "7A7",
+                "script": "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/7A7/7A7.js"
+            }],
             "icons": [
                 "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/7A7/icon.png",
                 "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/7A7/icon.png"
@@ -336,8 +332,7 @@
             "descs_html": [
                 "<h4 align=\"center\">脚本说明以及配置请查看<a href=\"https://github.com/jaychoubaby/Script/blob/main/quantumultX/task/hdl/hdl.Cookie.js\">脚本注释</a></h4>"
             ],
-            "settings": [
-                {
+            "settings": [{
                     "id": "back_signurl_hdl",
                     "name": "签到url",
                     "val": "",
@@ -360,12 +355,10 @@
             ],
             "author": "@back",
             "repo": "https://github.com/jaychoubaby/Script/blob/main/quantumultX/task/hdl/hdl.Cookie.js",
-            "scripts": [
-                {
-                    "name": "海底捞签到",
-                    "script": "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/hdl/hdl.js"
-                }
-            ],
+            "scripts": [{
+                "name": "海底捞签到",
+                "script": "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/hdl/hdl.js"
+            }],
             "icons": [
                 "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/hdl/icon.png",
                 "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/hdl/icon.png"
@@ -380,26 +373,22 @@
             "descs_html": [
                 "<h4 align=\"center\">脚本说明以及配置请查看<a href=\"https://github.com/jaychoubaby/Script/blob/main/quantumultX/task/wanbianios/wanbianios.js\">脚本注释</a></h4>"
             ],
-            "settings": [
-                {
-                    "id": "back_wanbianios_cookie",
-                    "name": "cookie",
-                    "val": "",
-                    "type": "text",
-                    "placeholder": "",
-                    "autoGrow": true,
-                    "rows": 1,
-                    "desc": ""
-                }
-            ],
+            "settings": [{
+                "id": "back_wanbianios_cookie",
+                "name": "cookie",
+                "val": "",
+                "type": "text",
+                "placeholder": "",
+                "autoGrow": true,
+                "rows": 1,
+                "desc": ""
+            }],
             "author": "@back",
             "repo": "https://github.com/jaychoubaby/Script/blob/main/quantumultX/task/wanbianios/wanbianios.js",
-            "scripts": [
-                {
-                    "name": "玩遍ios签到",
-                    "script": "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/wanbianios/wanbianios.js"
-                }
-            ],
+            "scripts": [{
+                "name": "玩遍ios签到",
+                "script": "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/wanbianios/wanbianios.js"
+            }],
             "icons": [
                 "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/wanbianios/icon.png",
                 "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/wanbianios/icon.png"
@@ -415,8 +404,7 @@
             "descs_html": [
                 "<h4 align=\"center\">脚本说明以及配置请查看<a href=\"https://github.com/jaychoubaby/Script/blob/main/quantumultX/task/tuhu/tuhu.js\">脚本注释</a></h4>"
             ],
-            "settings": [
-                {
+            "settings": [{
                     "id": "photonmang_signurl_tuhu",
                     "name": "url",
                     "val": "",
@@ -439,12 +427,10 @@
             ],
             "author": "@back",
             "repo": "https://github.com/jaychoubaby/Script/blob/main/quantumultX/task/tuhu/tuhu.js",
-            "scripts": [
-                {
-                    "name": "途虎签到",
-                    "script": "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/tuhu/tuhu.js"
-                }
-            ],
+            "scripts": [{
+                "name": "途虎签到",
+                "script": "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/tuhu/tuhu.js"
+            }],
             "icons": [
                 "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/tuhu/icon.png",
                 "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/tuhu/icon.png"
@@ -460,8 +446,7 @@
             "descs_html": [
                 "<h4 align=\"center\">脚本说明以及配置请查看<a href=\"https://github.com/jaychoubaby/Script/blob/main/quantumultX/task/ctf/ctf.js\">脚本注释</a></h4>"
             ],
-            "settings": [
-                {
+            "settings": [{
                     "id": "back_signurl_ctf",
                     "name": "url",
                     "val": "",
@@ -484,12 +469,10 @@
             ],
             "author": "@back",
             "repo": "https://github.com/jaychoubaby/Script/blob/main/quantumultX/task/ctf/ctf.js",
-            "scripts": [
-                {
-                    "name": "周大福签到",
-                    "script": "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/ctf/ctf.js"
-                }
-            ],
+            "scripts": [{
+                "name": "周大福签到",
+                "script": "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/ctf/ctf.js"
+            }],
             "icons": [
                 "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/ctf/icon.png",
                 "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/ctf/icon.png"
@@ -505,8 +488,7 @@
             "descs_html": [
                 "<h4 align=\"center\">脚本说明以及配置请查看<a href=\"https://github.com/jaychoubaby/Script/blob/main/quantumultX/task/ggtd/ggtd.js\">脚本注释</a></h4>"
             ],
-            "settings": [
-                {
+            "settings": [{
                     "id": "back_signurl_ggtd",
                     "name": "url",
                     "val": "",
@@ -529,12 +511,10 @@
             ],
             "author": "@back",
             "repo": "https://github.com/jaychoubaby/Script/blob/main/quantumultX/task/ggtd/ggtd.js",
-            "scripts": [
-                {
-                    "name": "光谷天地签到",
-                    "script": "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/ggtd/ggtd.js"
-                }
-            ],
+            "scripts": [{
+                "name": "光谷天地签到",
+                "script": "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/ggtd/ggtd.js"
+            }],
             "icons": [
                 "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/ggtd/icon.png",
                 "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/ggtd/icon.png"
@@ -550,8 +530,7 @@
             "descs_html": [
                 "<h4 align=\"center\">脚本说明以及配置请查看<a href=\"https://github.com/jaychoubaby/Script/blob/main/quantumultX/task/blsd/blsd.js\">脚本注释</a></h4>"
             ],
-            "settings": [
-                {
+            "settings": [{
                     "id": "back_signurl_blsd",
                     "name": "url",
                     "val": "",
@@ -574,12 +553,10 @@
             ],
             "author": "@back",
             "repo": "https://github.com/jaychoubaby/Script/blob/main/quantumultX/task/blsd/blsd.js",
-            "scripts": [
-                {
-                    "name": "保利时代签到",
-                    "script": "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/blsd/blsd.js"
-                }
-            ],
+            "scripts": [{
+                "name": "保利时代签到",
+                "script": "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/blsd/blsd.js"
+            }],
             "icons": [
                 "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/blsd/icon.png",
                 "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/blsd/icon.png"
@@ -595,8 +572,7 @@
             "descs_html": [
                 "<h4 align=\"center\">脚本说明以及配置请查看<a href=\"https://github.com/jaychoubaby/Script/blob/main/quantumultX/task/sjc/sjc.js\">脚本注释</a></h4>"
             ],
-            "settings": [
-                {
+            "settings": [{
                     "id": "back_signurl_sjc",
                     "name": "url",
                     "val": "",
@@ -619,12 +595,10 @@
             ],
             "author": "@back",
             "repo": "https://github.com/jaychoubaby/Script/blob/main/quantumultX/task/sjc/sjc.js",
-            "scripts": [
-                {
-                    "name": "保利时代签到",
-                    "script": "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/sjc/sjc.js"
-                }
-            ],
+            "scripts": [{
+                "name": "保利时代签到",
+                "script": "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/sjc/sjc.js"
+            }],
             "icons": [
                 "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/sjc/icon.png",
                 "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/sjc/icon.png"
@@ -646,8 +620,7 @@
             "descs_html": [
                 "<h4 align=\"center\">脚本说明以及配置请查看<a href=\"https://github.com/jaychoubaby/Script/blob/main/quantumultX/task/10010/10010.js\">脚本注释</a></h4>"
             ],
-            "settings": [
-                {
+            "settings": [{
                     "id": "chavy_golottery_10010",
                     "name": "天天抽奖",
                     "val": true,
@@ -744,12 +717,10 @@
             ],
             "author": "@back",
             "repo": "https://github.com/jaychoubaby/Script/blob/main/quantumultX/task/10010/10010.js",
-            "scripts": [
-                {
-                    "name": "10010",
-                    "script": "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/10010/10010.js"
-                }
-            ],
+            "scripts": [{
+                "name": "10010",
+                "script": "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/10010/10010.js"
+            }],
             "icons": [
                 "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/10010/icon.png",
                 "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/10010/icon.png"
@@ -769,8 +740,7 @@
                 "imaotai__config__address",
                 "imaotai__config__shopid"
             ],
-            "settings": [
-                {
+            "settings": [{
                     "id": "imaotai__config__clearshopdir",
                     "name": "是否清空店铺字段",
                     "val": false,
@@ -840,8 +810,7 @@
                 "imaotai2__config__address",
                 "imaotai2__config__shopid"
             ],
-            "settings": [
-                {
+            "settings": [{
                     "id": "imaotai2__config__clearshopdir",
                     "name": "是否清空店铺字段",
                     "val": false,
@@ -921,8 +890,7 @@
                 "<a href=\"https://github.com/settings/tokens\">GitHub Personal access tokens 页面</a>",
                 "<a onClick=\"window.location.reload(true);\">刷新</a>"
             ],
-            "settings": [
-                {
+            "settings": [{
                     "id": "@jaychoubaby.gist.username",
                     "name": "用户名",
                     "val": "",
@@ -956,8 +924,7 @@
             ],
             "author": "@back",
             "repo": "https://github.com/jaychoubaby/Script/tree/main/gist",
-            "scripts": [
-                {
+            "scripts": [{
                     "name": "备份",
                     "script": "https://raw.githubusercontent.com/jaychoubaby/Script/main/gist/backup.js"
                 },
