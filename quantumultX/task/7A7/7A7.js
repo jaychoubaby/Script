@@ -130,7 +130,7 @@ function saveValueByName(item) {
         back.setdata(itme.value + itme.unit, FUEL_LEVEL_IN_GAL)
     }
     if (itme.name == 'HAZARD REQUEST ACTIVE') {
-        back.setdata(itme.value, HAZARD_REQUEST_ACTIVE)
+        back.setdata(itme.status, HAZARD_REQUEST_ACTIVE)
     }
     if (itme.name == 'HEADLIGHTS STATUS') {
         back.setdata(itme.value, HEADLIGHTS_STATUS)
