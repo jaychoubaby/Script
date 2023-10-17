@@ -60,7 +60,6 @@ const back = init()
 
 if ($request && $request.method != 'OPTIONS') {
     var data = JSON.parse($response.body).data
-    back.log(`==>>> 行车数据：${JSON.stringify(data)}`)
 
     // 更新时间
     var completionTimeData = data.completionTime
@@ -73,7 +72,7 @@ if ($request && $request.method != 'OPTIONS') {
     var maintenanceSuggestions = data.maintenanceSuggestions
     let SUGGEST_DATA = ''
     for (let i = 0; i < maintenanceSuggestions.length; i++) {
-        if (maintenanceSuggestions[i].suggestType = 'SUGGEST') {
+        if (maintenanceSuggestions[i].suggestType == 'SUGGEST') {
             SUGGEST_DATA += maintenanceSuggestions[i].title + " "
         }
         if (maintenanceSuggestions[i].suggestType == 'MAINTENANCE') {
@@ -85,9 +84,10 @@ if ($request && $request.method != 'OPTIONS') {
     // 整体状态
     if (data.greeting.greetings) back.setdata(data.greeting.greetings, greetings)
 
+
     var diagnosticResponse = data.body.diagnosticResponse
     for (let i = 0; i < diagnosticResponse.length; i++) {
-        var diagnosticElement = diagnosticResponse[0].diagnosticResponse
+        var diagnosticElement = diagnosticResponse[0].diagnosticElement
         for (let j = 0; j < diagnosticElement.length; j++) {
             var itme = diagnosticElement[j]
             if (itme.name == 'CO DRIVER DOOR AJAR STATUS') {
