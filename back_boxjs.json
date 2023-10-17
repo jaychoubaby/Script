@@ -7,6 +7,40 @@
     "repo": "https://github.com/jaychoubaby/Script",
     "apps": [
         {
+            "id": "7A7",
+            "name": "7A7",
+            "keys": [
+                "back_7A7_body"
+            ],
+            "descs_html": [
+                "<h4 align=\"center\">脚本说明以及配置请查看<a href=\"https://github.com/jaychoubaby/Script/blob/main/quantumultX/task/7A7/7A7.js\">脚本注释</a></h4>"
+            ],
+            "settings": [
+                {
+                    "id": "back_7A7_body",
+                    "name": "行车数据",
+                    "val": "",
+                    "type": "text",
+                    "placeholder": "",
+                    "autoGrow": true,
+                    "rows": 1,
+                    "desc": ""
+                }
+            ],
+            "author": "@back",
+            "repo": "https://github.com/jaychoubaby/Script/blob/main/quantumultX/task/7A7/7A7.js",
+            "scripts": [
+                {
+                    "name": "7A7",
+                    "script": "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/7A7/7A7.js"
+                }
+            ],
+            "icons": [
+                "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/7A7/icon.png",
+                "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/7A7/icon.png"
+            ]
+        },
+        {
             "id": "hdl",
             "name": "海底捞签到",
             "keys": [
