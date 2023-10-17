@@ -48,7 +48,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "更新时间"
                 },
                 {
                     "id": "SUGGEST",
@@ -58,7 +58,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "建议"
                 },
                 {
                     "id": "MAINTENANCE",
@@ -68,7 +68,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "保养"
                 },
                 {
                     "id": "greetings",
@@ -78,7 +78,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "整体状态"
                 },
                 {
                     "id": "CO_DRIVER_DOOR_AJAR_STATUS",
@@ -88,7 +88,7 @@
                     "placeholder": "",
                     "autoGrow": true,
                     "rows": 1,
-                    "desc": ""
+                    "desc": "副驾驶门未关状态"
                 },
                 {
                     "id": "DRIVER_DOOR_AJAR_STATUS",

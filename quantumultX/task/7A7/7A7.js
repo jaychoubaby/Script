@@ -167,9 +167,7 @@ if ($request && $request.method != 'OPTIONS') {
     }
 
     const back7A7Body = JSON.stringify($response.body)
-    if (back7A7Body) back.setdata(back7A7Body, back7A7BodyKey)
-
-    back.msg(cookieName, `获取7A7数据: 成功`, ``)
+    back.msg(cookieName, `获取7A7数据: 成功`, `${back7A7Body}`)
 }
 
 function init() {
