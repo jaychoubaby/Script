@@ -59,7 +59,7 @@ const back = init()
 
 
 if ($request && $request.method != 'OPTIONS') {
-    var data = JSON.parse($response.body.data)
+    var data = JSON.parse($response.body).data
     back.log(`==>>> 行车数据：${JSON.stringify(data)}`)
 
     // 更新时间
