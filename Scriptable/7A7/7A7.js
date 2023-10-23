@@ -357,7 +357,7 @@ function createWidget(data) {
     lastLoginLine.font = new Font(FONT_NAME, FONT_SIZE);
   
     // Line 1 - greetings
-    const inputLine = stack.addText(`7A7:~ ${greetings}$ . . .`);
+    const inputLine = stack.addText(`7A7:~ ${greetings}$ ...`);
     inputLine.textColor = Color.white();
     inputLine.font = new Font(FONT_NAME, FONT_SIZE);
   
@@ -387,7 +387,7 @@ function createWidget(data) {
     periodLine.font = new Font(FONT_NAME, FONT_SIZE);
   
     // Line 7 - BACK_LOCATION  BACK_LL
-    const deviceStatsLine = stack.addText(`📍 |  ${BACK_LOCATION}`);
+    const deviceStatsLine = stack.addText(`📍 | ${BACK_LOCATION}`);
     deviceStatsLine.textColor = new Color(COLORS.deviceStats);
     deviceStatsLine.font = new Font(FONT_NAME, FONT_SIZE);
 
