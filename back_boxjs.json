@@ -42,6 +42,15 @@
                 "<h4 align=\"center\">脚本说明以及配置请查看<a href=\"https://github.com/jaychoubaby/Script/blob/main/quantumultX/task/7A7/7A7.js\">脚本注释</a></h4>"
             ],
             "settings": [{
+                    "id": "BACK_LOCATION",
+                    "name": "LOCATION",
+                    "val": "",
+                    "type": "text",
+                    "placeholder": "",
+                    "autoGrow": true,
+                    "rows": 1,
+                    "desc": "LOCATION"
+                },{
                     "id": "BACK_LL",
                     "name": "LL",
                     "val": "",
