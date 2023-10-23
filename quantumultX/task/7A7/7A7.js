@@ -1,57 +1,57 @@
 const cookieName = '7A7'
-    // 更新时间
+// 更新时间
 const completionTime = 'completionTime'
-    // 建议
+// 建议
 const SUGGEST = 'SUGGEST'
-    // 保养
+// 保养
 const MAINTENANCE = "MAINTENANCE"
-    // 整体状态
+// 整体状态
 const greetings = "greetings"
-    // 副驾驶门未关状态
+// 副驾驶门未关状态
 const CO_DRIVER_DOOR_AJAR_STATUS = "CO_DRIVER_DOOR_AJAR_STATUS"
-    // 驾驶员门未关状态
+// 驾驶员门未关状态
 const DRIVER_DOOR_AJAR_STATUS = "DRIVER_DOOR_AJAR_STATUS"
-    // 左后门未关状态 
+// 左后门未关状态 
 const LEFT_REAR_DOOR_AJAR_STATUS = "LEFT_REAR_DOOR_AJAR_STATUS"
-    // 右后门未关状态
+// 右后门未关状态
 const RIGHT_REAR_DOOR_AJAR_STATUS = "RIGHT_REAR_DOOR_AJAR_STATUS"
-    // 内容盗窃防护状态 
+// 内容盗窃防护状态 
 const CONTENT_THEFT_DETERRENT_STATE = "CONTENT_THEFT_DETERRENT_STATE"
-    // 门上次遥控锁状态
+// 门上次遥控锁状态
 const DOOR_LAST_REMOTE_LOCK_STATUS = "DOOR_LAST_REMOTE_LOCK_STATUS"
-    // 燃料数量 
+// 燃料数量 
 const FUEL_AMOUNT = 'FUEL_AMOUNT'
-    // 燃油容量
+// 燃油容量
 const FUEL_CAPACITY = 'FUEL_CAPACITY'
-    // 燃油水平
+// 燃油水平
 const FUEL_LEVEL = 'FUEL_LEVEL'
-    // 加仑中的燃油水平
+// 加仑中的燃油水平
 const FUEL_LEVEL_IN_GAL = 'FUEL_LEVEL_IN_GAL'
-    // 危险请求已激活
+// 危险请求已激活
 const HAZARD_REQUEST_ACTIVE = 'HAZARD_REQUEST_ACTIVE'
-    // 前灯状态
+// 前灯状态
 const HEADLIGHTS_STATUS = 'HEADLIGHTS_STATUS'
-    // 上次旅行距离
+// 上次旅行距离
 const LAST_TRIP_TOTAL_DISTANCE = 'LAST_TRIP_TOTAL_DISTANCE'
-    // 上次旅行的燃油经济性
+// 上次旅行的燃油经济性
 const LAST_TRIP_FUEL_ECON = 'LAST_TRIP_FUEL_ECON'
-    // 终身燃油经济性
+// 终身燃油经济性
 const LIFETIME_FUEL_ECON = 'LIFETIME_FUEL_ECON'
-    // 里程表
+// 里程表
 const ODOMETER = 'ODOMETER'
-    // 机油寿命 
+// 机油寿命 
 const OIL_LIFE = 'OIL_LIFE'
-    // 后部关闭锁定状态
+// 后部关闭锁定状态
 const REAR_CLOSURE_LOCK_STATUS = 'REAR_CLOSURE_LOCK_STATUS'
-    // 远程启动状态已验证 
+// 远程启动状态已验证 
 const REMOTE_START_STATUS_AUTHENTICATED = 'REMOTE_START_STATUS_AUTHENTICATED'
-    // 轮胎压力 左前
+// 轮胎压力 左前
 const TIRE_PRESSURE_LF = 'TIRE_PRESSURE_LF'
-    // 轮胎压力 左后
+// 轮胎压力 左后
 const TIRE_PRESSURE_LR = 'TIRE_PRESSURE_LR'
-    // 轮胎压力 右前
+// 轮胎压力 右前
 const TIRE_PRESSURE_RF = 'TIRE_PRESSURE_RF'
-    // 轮胎压力 右后
+// 轮胎压力 右后
 const TIRE_PRESSURE_RR = 'TIRE_PRESSURE_RR'
 
 
