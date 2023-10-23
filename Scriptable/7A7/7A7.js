@@ -184,6 +184,7 @@ const cache = useCache();
 
 // Fetch data and create widget
 const data = await fetchCarInfo();
+await setVal(data);
 const widget = createWidget(data);
 
 // Set background image of widget, if flag is true
@@ -219,6 +220,98 @@ widget.presentMedium();
 Script.setWidget(widget);
 Script.complete();
 
+async function setVal(carInfo){
+  // BACK_LOCATION
+  BACK_LOCATION = carInfo.BACK_LOCATION;
+  // LL
+  BACK_LL = carInfo.BACK_LL;
+  // 更新时间
+  completionTime = carInfo.completionTime;
+  // 建议
+  SUGGEST = carInfo.SUGGEST;
+  // 保养
+  MAINTENANCE = carInfo.MAINTENANCE;
+  // 整体状态
+  greetings = carInfo.greetings;
+  // 副驾驶门未关状态
+  CO_DRIVER_DOOR_AJAR_STATUS = carInfo.CO_DRIVER_DOOR_AJAR_STATUS;
+  // 驾驶员门未关状态
+  DRIVER_DOOR_AJAR_STATUS = carInfo.DRIVER_DOOR_AJAR_STATUS;
+  // 左后门未关状态 
+  LEFT_REAR_DOOR_AJAR_STATUS = carInfo.LEFT_REAR_DOOR_AJAR_STATUS;
+  // 右后门未关状态
+  RIGHT_REAR_DOOR_AJAR_STATUS = carInfo.RIGHT_REAR_DOOR_AJAR_STATUS;
+  // 内容盗窃防护状态 
+  CONTENT_THEFT_DETERRENT_STATE = carInfo.CONTENT_THEFT_DETERRENT_STATE;
+  // 门上次遥控锁状态
+  DOOR_LAST_REMOTE_LOCK_STATUS = carInfo.DOOR_LAST_REMOTE_LOCK_STATUS;
+  // 燃料数量 
+  FUEL_AMOUNT = carInfo.FUEL_AMOUNT;
+  // 燃油容量
+  FUEL_CAPACITY = carInfo.FUEL_CAPACITY;
+  // 燃油水平
+  FUEL_LEVEL = carInfo.FUEL_LEVEL;
+  // 加仑中的燃油水平
+  FUEL_LEVEL_IN_GAL = carInfo.FUEL_LEVEL_IN_GAL;
+  // 危险请求已激活
+  HAZARD_REQUEST_ACTIVE = carInfo.HAZARD_REQUEST_ACTIVE;
+  // 前灯状态
+  HEADLIGHTS_STATUS = carInfo.HEADLIGHTS_STATUS;
+  // 上次旅行距离
+  LAST_TRIP_TOTAL_DISTANCE = carInfo.LAST_TRIP_TOTAL_DISTANCE;
+  // 上次旅行的燃油经济性
+  LAST_TRIP_FUEL_ECON = carInfo.LAST_TRIP_FUEL_ECON;
+  // 终身燃油经济性
+  LIFETIME_FUEL_ECON = carInfo.LIFETIME_FUEL_ECON;
+  // 里程表
+  ODOMETER = carInfo.ODOMETER;
+  // 机油寿命 
+  OIL_LIFE = carInfo.OIL_LIFE;
+  // 后部关闭锁定状态
+  REAR_CLOSURE_LOCK_STATUS = carInfo.REAR_CLOSURE_LOCK_STATUS;
+  // 远程启动状态已验证 
+  REMOTE_START_STATUS_AUTHENTICATED = carInfo.REMOTE_START_STATUS_AUTHENTICATED;
+  // 轮胎压力 左前
+  TIRE_PRESSURE_LF = carInfo.TIRE_PRESSURE_LF;
+  // 轮胎压力 左后
+  TIRE_PRESSURE_LR = carInfo.TIRE_PRESSURE_LR;
+  // 轮胎压力 右前
+  TIRE_PRESSURE_RF = carInfo.TIRE_PRESSURE_RF;
+  // 轮胎压力 右后
+  TIRE_PRESSURE_RR = carInfo.TIRE_PRESSURE_RR;
+  const data = {
+    BACK_LOCATION,
+    BACK_LL,
+    completionTime,
+    SUGGEST,
+    MAINTENANCE,
+    greetings,
+    CO_DRIVER_DOOR_AJAR_STATUS,
+    DRIVER_DOOR_AJAR_STATUS,
+    LEFT_REAR_DOOR_AJAR_STATUS,
+    RIGHT_REAR_DOOR_AJAR_STATUS,
+    CONTENT_THEFT_DETERRENT_STATE,
+    DOOR_LAST_REMOTE_LOCK_STATUS,
+    FUEL_AMOUNT,
+    FUEL_CAPACITY,
+    FUEL_LEVEL,
+    FUEL_LEVEL_IN_GAL,
+    HAZARD_REQUEST_ACTIVE,
+    HEADLIGHTS_STATUS,
+    LAST_TRIP_TOTAL_DISTANCE,
+    LAST_TRIP_FUEL_ECON,
+    LIFETIME_FUEL_ECON,
+    ODOMETER,
+    OIL_LIFE,
+    REAR_CLOSURE_LOCK_STATUS,
+    REMOTE_START_STATUS_AUTHENTICATED,
+    TIRE_PRESSURE_LF,
+    TIRE_PRESSURE_LR,
+    TIRE_PRESSURE_RF,
+    TIRE_PRESSURE_RR
+  };
+  cache.writeJSON('data.json', data);
+}
 
 
 /**
@@ -228,100 +321,16 @@ async function fetchCarInfo() {
   const request = new Request('http://boxjs.net/api/save');
   request.body = '[]';
   request.method = 'POST';
-  const res = await request.loadJSON();
+  request.timeoutInterval = 5;
+  let res;
+  try {
+    res = await request.loadJSON();
+  } catch (error) {
+    console.log(`使用缓存数据`);
+    return cache.readJSON('data.json');
+  }
   if (res.datas) {
-    let carInfo = res.datas;
-    // BACK_LOCATION
-    BACK_LOCATION = carInfo.BACK_LOCATION;
-    // LL
-    BACK_LL = carInfo.BACK_LL;
-    // 更新时间
-    completionTime = carInfo.completionTime;
-    // 建议
-    SUGGEST = carInfo.SUGGEST;
-    // 保养
-    MAINTENANCE = carInfo.MAINTENANCE;
-    // 整体状态
-    greetings = carInfo.greetings;
-    // 副驾驶门未关状态
-    CO_DRIVER_DOOR_AJAR_STATUS = carInfo.CO_DRIVER_DOOR_AJAR_STATUS;
-    // 驾驶员门未关状态
-    DRIVER_DOOR_AJAR_STATUS = carInfo.DRIVER_DOOR_AJAR_STATUS;
-    // 左后门未关状态 
-    LEFT_REAR_DOOR_AJAR_STATUS = carInfo.LEFT_REAR_DOOR_AJAR_STATUS;
-    // 右后门未关状态
-    RIGHT_REAR_DOOR_AJAR_STATUS = carInfo.RIGHT_REAR_DOOR_AJAR_STATUS;
-    // 内容盗窃防护状态 
-    CONTENT_THEFT_DETERRENT_STATE = carInfo.CONTENT_THEFT_DETERRENT_STATE;
-    // 门上次遥控锁状态
-    DOOR_LAST_REMOTE_LOCK_STATUS = carInfo.DOOR_LAST_REMOTE_LOCK_STATUS;
-    // 燃料数量 
-    FUEL_AMOUNT = carInfo.FUEL_AMOUNT;
-    // 燃油容量
-    FUEL_CAPACITY = carInfo.FUEL_CAPACITY;
-    // 燃油水平
-    FUEL_LEVEL = carInfo.FUEL_LEVEL;
-    // 加仑中的燃油水平
-    FUEL_LEVEL_IN_GAL = carInfo.FUEL_LEVEL_IN_GAL;
-    // 危险请求已激活
-    HAZARD_REQUEST_ACTIVE = carInfo.HAZARD_REQUEST_ACTIVE;
-    // 前灯状态
-    HEADLIGHTS_STATUS = carInfo.HEADLIGHTS_STATUS;
-    // 上次旅行距离
-    LAST_TRIP_TOTAL_DISTANCE = carInfo.LAST_TRIP_TOTAL_DISTANCE;
-    // 上次旅行的燃油经济性
-    LAST_TRIP_FUEL_ECON = carInfo.LAST_TRIP_FUEL_ECON;
-    // 终身燃油经济性
-    LIFETIME_FUEL_ECON = carInfo.LIFETIME_FUEL_ECON;
-    // 里程表
-    ODOMETER = carInfo.ODOMETER;
-    // 机油寿命 
-    OIL_LIFE = carInfo.OIL_LIFE;
-    // 后部关闭锁定状态
-    REAR_CLOSURE_LOCK_STATUS = carInfo.REAR_CLOSURE_LOCK_STATUS;
-    // 远程启动状态已验证 
-    REMOTE_START_STATUS_AUTHENTICATED = carInfo.REMOTE_START_STATUS_AUTHENTICATED;
-    // 轮胎压力 左前
-    TIRE_PRESSURE_LF = carInfo.TIRE_PRESSURE_LF;
-    // 轮胎压力 左后
-    TIRE_PRESSURE_LR = carInfo.TIRE_PRESSURE_LR;
-    // 轮胎压力 右前
-    TIRE_PRESSURE_RF = carInfo.TIRE_PRESSURE_RF;
-    // 轮胎压力 右后
-    TIRE_PRESSURE_RR = carInfo.TIRE_PRESSURE_RR;
-    const data = {
-      BACK_LOCATION,
-      BACK_LL,
-      completionTime,
-      SUGGEST,
-      MAINTENANCE,
-      greetings,
-      CO_DRIVER_DOOR_AJAR_STATUS,
-      DRIVER_DOOR_AJAR_STATUS,
-      LEFT_REAR_DOOR_AJAR_STATUS,
-      RIGHT_REAR_DOOR_AJAR_STATUS,
-      CONTENT_THEFT_DETERRENT_STATE,
-      DOOR_LAST_REMOTE_LOCK_STATUS,
-      FUEL_AMOUNT,
-      FUEL_CAPACITY,
-      FUEL_LEVEL,
-      FUEL_LEVEL_IN_GAL,
-      HAZARD_REQUEST_ACTIVE,
-      HEADLIGHTS_STATUS,
-      LAST_TRIP_TOTAL_DISTANCE,
-      LAST_TRIP_FUEL_ECON,
-      LIFETIME_FUEL_ECON,
-      ODOMETER,
-      OIL_LIFE,
-      REAR_CLOSURE_LOCK_STATUS,
-      REMOTE_START_STATUS_AUTHENTICATED,
-      TIRE_PRESSURE_LF,
-      TIRE_PRESSURE_LR,
-      TIRE_PRESSURE_RF,
-      TIRE_PRESSURE_RR
-    };
-    cache.writeJSON('data.json', data);
-    return data;
+    return res.datas;
   }
   console.log(`使用缓存数据`);
   return cache.readJSON('data.json');
