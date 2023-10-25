@@ -71,6 +71,7 @@ $.mute = $.read(mute);
 
 function getSessions() {
   const sessionstr = $.read($.KEY_sessions);
+  console.log(`sessionstr:${sessionstr}`)
   const sessions = ![undefined, null, "null", ""].includes(sessionstr)
     ? JSON.parse(sessionstr)
     : [];
@@ -81,6 +82,7 @@ const allConfig = getSessions()
   .filter((item) => item && item.appId === "ql")
   .map((item) => {
     const temp = {};
+    console.log(`item:${JSON.stringify(item)}`)
     item.datas.forEach((data) => {
       const [, idKey] = data.key.replace("@").split(".");
       if (idKey !== "env") temp[idKey] = data.val;
@@ -194,6 +196,7 @@ async function GetCookie() {
         tipPrefix;
 
       const CookiesData = getCache();
+      console.log(`CookiesData:${CookiesData}`)
       const updateCookiesData = [...CookiesData];
 
       CookiesData.forEach((item, index) => {
@@ -203,6 +206,7 @@ async function GetCookie() {
       if ($.ql) {
         console.log('ql')
         for (const item of allConfig) {
+          console.log(`ql.item:${item}`)
           $.ql_config = item;
           $.ql.initial();
           await $.ql.asyncCookie(CookieValue, "JD_COOKIE");
