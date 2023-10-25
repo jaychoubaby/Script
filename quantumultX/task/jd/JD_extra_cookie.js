@@ -178,7 +178,7 @@ function updateJDHelp(username) {
 
 async function GetCookie() {
   const CV = `${$request.headers["Cookie"] || $request.headers["cookie"]};`;
-
+  console.log(`CV: ${CV}`)
   if (
     ($request.url.indexOf("GetJDUserInfoUnion") > -1 &&
       $request.url.indexOf("isLogin") === -1) ||
@@ -240,7 +240,7 @@ async function GetCookie() {
     } else {
       console.log("ck 写入失败，未找到相关 ck");
     }
-  } else if ($request.headers && $request.url.indexOf("newUserInfo") > -1) {
+  } else if ($request.headers && $request.url.indexOf("GetJDUserInfoUnionForJD") > -1) {
     if (CV.match(/wskey=([^=;]+?);/)[1]) {
       const wskey = CV.match(/wskey=([^=;]+?);/)[1];
       console.log($response);
