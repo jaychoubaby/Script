@@ -91,15 +91,13 @@ const allConfig = getSessions()
   });
 
 (async () => {
-  console.log(`===》脚本开始`)
   const ql_script = (await getScriptUrl()) || "";
   eval(ql_script);
-  console.log(`===ql_script${ql_script}`)
 
   if ($.ql) {
-    console.log(`===$.ql:true`)
-    $.ql.asyncCookie = async (cookieValue, name = "JD_WSCK") => {
-      console.log(`===ql.asyncCookie:true`)
+    console.log(`===》$.ql:true`)
+    $.ql.asyncCookie = async (cookieValue, name = "JD_COOKIE") => {
+      console.log(`===》ql.asyncCookie:true`)
       try {
         await $.ql.login();
         console.log(`青龙${name}登陆同步`);
