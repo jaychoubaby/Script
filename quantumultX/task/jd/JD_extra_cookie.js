@@ -91,11 +91,15 @@ const allConfig = getSessions()
   });
 
 (async () => {
+  console.log(`===》脚本开始`)
   const ql_script = (await getScriptUrl()) || "";
   eval(ql_script);
+  console.log(`===ql_script${ql_script}`)
 
   if ($.ql) {
+    console.log(`===$.ql:true`)
     $.ql.asyncCookie = async (cookieValue, name = "JD_WSCK") => {
+      console.log(`===ql.asyncCookie:true`)
       try {
         await $.ql.login();
         console.log(`青龙${name}登陆同步`);
@@ -182,21 +186,18 @@ function updateJDHelp(username) {
 }
 
 async function GetCookie() {
+  console.log(`===GetCookie`)
   const CV = `${$request.headers["Cookie"] || $request.headers["cookie"]};`;
   if ($request.url.indexOf("GetJDUserInfoUnionForJD") > -1) {
-    console.log('111')
     if (CV.match(/(pt_key=.+?pt_pin=|pt_pin=.+?pt_key=)/)) {
       const CookieValue = CV.match(/pt_key=.+?;/) + CV.match(/pt_pin=.+?;/);
-      console.log(`CookieValue:${CookieValue}`)
       if (CookieValue.indexOf("fake_") > -1) return console.log("异常账号");
       const DecodeName = getUsername(CookieValue);
-      console.log(`DecodeName:${DecodeName}`)
       let updateIndex = null,
         CookieName,
         tipPrefix;
 
       const CookiesData = getCache();
-      console.log(`CookiesData:${CookiesData}`)
       const updateCookiesData = [...CookiesData];
 
       CookiesData.forEach((item, index) => {
@@ -247,7 +248,6 @@ async function GetCookie() {
       console.log("ck 写入失败，未找到相关 ck");
     }
   } else if ($request.headers && $request.url.indexOf("GetJDUserInfoUnionForJD") > -1) {
-    console.log('222')
     if (CV.match(/wskey=([^=;]+?);/)[1]) {
       const wskey = CV.match(/wskey=([^=;]+?);/)[1];
       console.log($response);
