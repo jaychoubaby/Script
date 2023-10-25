@@ -54,7 +54,7 @@ try {
 function getUsername(ck) {
   if (!ck) return "";
   const regex = /pt_pin=([^;]+)/;
-  const match = regex.exec(input);
+  const match = regex.exec(ck);
   return match[1];
   // return decodeURIComponent(ck.match(/pin=(.+?);/)[1]);
 }
@@ -185,6 +185,7 @@ async function GetCookie() {
     console.log('111')
     if (CV.match(/(pt_key=.+?pt_pin=|pt_pin=.+?pt_key=)/)) {
       const CookieValue = CV.match(/pt_key=.+?;/) + CV.match(/pt_pin=.+?;/);
+      console.log(`CookieValue:${CookieValue}`)
       if (CookieValue.indexOf("fake_") > -1) return console.log("异常账号");
       const DecodeName = getUsername(CookieValue);
       console.log(`DecodeName:${DecodeName}`)
