@@ -95,9 +95,7 @@ const allConfig = getSessions()
   eval(ql_script);
 
   if ($.ql) {
-    console.log(`===》$.ql:true`)
-    $.ql.asyncCookie = async (cookieValue, name = "JD_COOKIE") => {
-      console.log(`===》ql.asyncCookie:true`)
+    $.ql.asyncCookie = async (cookieValue, name = "JD_WSCK") => {
       try {
         await $.ql.login();
         console.log(`青龙${name}登陆同步`);
@@ -184,7 +182,6 @@ function updateJDHelp(username) {
 }
 
 async function GetCookie() {
-  console.log(`===GetCookie`)
   const CV = `${$request.headers["Cookie"] || $request.headers["cookie"]};`;
   if ($request.url.indexOf("GetJDUserInfoUnionForJD") > -1) {
     if (CV.match(/(pt_key=.+?pt_pin=|pt_pin=.+?pt_key=)/)) {
@@ -204,6 +201,7 @@ async function GetCookie() {
 
       if ($.ql) {
         console.log('ql')
+        const cookiesRes = await $.ql.select();
         for (const item of allConfig) {
           console.log(`ql.item:${item}`)
           $.ql_config = item;
