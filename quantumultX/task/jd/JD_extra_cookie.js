@@ -39,7 +39,7 @@ http-request ^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=newUserInfo 
  */
 
 const APIKey = "CookiesJD";
-const $ = new API("ql", false);
+const $ = new API("ql", true);
 const CacheKey = `#${APIKey}`;
 $.KEY_sessions = "#chavy_boxjs_sessions";
 
