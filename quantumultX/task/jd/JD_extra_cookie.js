@@ -178,12 +178,8 @@ function updateJDHelp(username) {
 
 async function GetCookie() {
   const CV = `${$request.headers["Cookie"] || $request.headers["cookie"]};`;
-  console.log(`CV: ${CV}`)
-  if (
-    ($request.url.indexOf("GetJDUserInfoUnion") > -1 &&
-      $request.url.indexOf("isLogin") === -1) ||
-    $request.url.indexOf("openUpgrade") > -1
-  ) {
+  if ($request.url.indexOf("GetJDUserInfoUnionForJD") > -1) {
+    console.log('111')
     if (CV.match(/(pt_key=.+?pt_pin=|pt_pin=.+?pt_key=)/)) {
       const CookieValue = CV.match(/pt_key=.+?;/) + CV.match(/pt_pin=.+?;/);
       if (CookieValue.indexOf("fake_") > -1) return console.log("异常账号");
@@ -241,6 +237,7 @@ async function GetCookie() {
       console.log("ck 写入失败，未找到相关 ck");
     }
   } else if ($request.headers && $request.url.indexOf("GetJDUserInfoUnionForJD") > -1) {
+    console.log('222')
     if (CV.match(/wskey=([^=;]+?);/)[1]) {
       const wskey = CV.match(/wskey=([^=;]+?);/)[1];
       console.log($response);
