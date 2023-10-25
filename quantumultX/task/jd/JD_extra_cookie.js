@@ -53,7 +53,10 @@ try {
 
 function getUsername(ck) {
   if (!ck) return "";
-  return decodeURIComponent(ck.match(/pin=(.+?);/)[1]);
+  const regex = /pt_pin=([^;]+)/;
+  const match = regex.exec(input);
+  return match[1];
+  // return decodeURIComponent(ck.match(/pin=(.+?);/)[1]);
 }
 
 async function getScriptUrl() {
@@ -184,6 +187,7 @@ async function GetCookie() {
       const CookieValue = CV.match(/pt_key=.+?;/) + CV.match(/pt_pin=.+?;/);
       if (CookieValue.indexOf("fake_") > -1) return console.log("异常账号");
       const DecodeName = getUsername(CookieValue);
+      console.log(`DecodeName:${DecodeName}`)
       let updateIndex = null,
         CookieName,
         tipPrefix;
@@ -196,6 +200,7 @@ async function GetCookie() {
       });
 
       if ($.ql) {
+        console.log('ql')
         for (const item of allConfig) {
           $.ql_config = item;
           $.ql.initial();
