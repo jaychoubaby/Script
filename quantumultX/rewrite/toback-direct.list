@@ -10,3 +10,4 @@ HOST-SUFFIX,mail.icloud.com.cn,direct
 # > qq音乐歌词
 HOST-SUFFIX,monitor.music.qq.com,direct
 HOST-SUFFIX,stat.y.qq.com,direct
+HOST-SUFFIX,adstats.tencentmusic.com,direct
