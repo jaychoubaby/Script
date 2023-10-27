@@ -1065,11 +1065,8 @@ const hbHeaders = () => {
   let { authorization } = preference;
   if (!authorization) {
     try {
-      // boxjs get cookie
-      const url = 'http://boxjs.com/query/data/@back_10010.cookie';
-      const request = new Request(url);
-      const json = request.loadJSON();
-      authorization = json.val;
+      const conf = importModule/* ignore */('Config')['10010']();
+      authorization = conf.Authorization;
     } catch (e) {
       console.warn('Not set Authorization');
     }
