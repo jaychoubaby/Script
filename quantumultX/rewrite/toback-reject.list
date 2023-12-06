@@ -10,3 +10,11 @@ HOST-SUFFIX,m1.ad.10010.com,reject
 HOST,ad.jia.360.cn,reject
 HOST,ad.life.360.cn,reject
 HOST,www.pangolin-dsp-toutiao.com,reject
+# >missav.com  
+DOMAIN-SUFFIX,video.ktkjmp.com, reject
+DOMAIN-SUFFIX,go.myavlive.com, reject
+DOMAIN-SUFFIX,gsjln04hd.com, reject
+DOMAIN-SUFFIX,creative.myavlive.com, reject
+DOMAIN-SUFFIX,creative.live.missav.com, reject
+DOMAIN-SUFFIX,cashewsforlife208.com, reject
+DOMAIN-SUFFIX,ingest.sentry, reject
