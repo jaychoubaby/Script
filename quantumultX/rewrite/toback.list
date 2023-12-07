@@ -1,20 +1,39 @@
-# NAME: toback
+# NAME: toBack
 # AUTHOR: back
 # REPO: https://github.com/jaychoubaby/Script
-# UPDATED: 2023-10-08 09:40:51
+# UPDATED: 2023-12-07 09:40:51
+# emoji: https://emojipedia.org/travel-places
 
 
+# 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 # > claudeAI
-HOST-SUFFIX,claude.ai,toback
-
+HOST-SUFFIX,claude.ai,proxy
 # > 魔戒
-HOST,mojie.best,toback
+HOST,mojie.best,proxy
 # > 八戒
-HOST,bajie.info,toback
-
-
-
+HOST,bajie.info,proxy
 # > oracle 服务器
-IP-CIDR,131.186.45.20/32,toback
-IP-CIDR,138.2.3.27/32,toback
+IP-CIDR,131.186.45.20/32,proxy
+IP-CIDR,138.2.3.27/32,proxy
 
+
+# ✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️✔️
+# > icloud邮箱
+HOST-SUFFIX,mail.icloud.com.cn,direct
+
+
+# ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
+# > 10010
+HOST-SUFFIX,m1.ad.10010.com,reject
+# > 360
+HOST,ad.jia.360.cn,reject
+HOST,ad.life.360.cn,reject
+HOST,www.pangolin-dsp-toutiao.com,reject
+# > missav.com  
+DOMAIN-SUFFIX,video.ktkjmp.com, reject
+DOMAIN-SUFFIX,go.myavlive.com, reject
+DOMAIN-SUFFIX,gsjln04hd.com, reject
+DOMAIN-SUFFIX,creative.myavlive.com, reject
+DOMAIN-SUFFIX,creative.live.missav.com, reject
+DOMAIN-SUFFIX,cashewsforlife208.com, reject
+DOMAIN-SUFFIX,ingest.sentry, reject
