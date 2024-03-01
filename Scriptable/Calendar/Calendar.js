@@ -954,7 +954,7 @@ const present = async (options, isFirstPage, others = {}) => {
     if (!widget.backgroundColor || backgroundColorLight || backgroundColorDark) {
       widget.backgroundColor = Color.dynamic(
         new Color(backgroundColorLight || '#ffffff'),
-        new Color(backgroundColorDark || '#242426')
+        new Color(backgroundColorDark || '#1c1c1e')
       );
     }
     return widget
@@ -1434,7 +1434,7 @@ const withSettings = async (options) => {
                     name: 'backgroundColorDark',
                     type: 'color',
                     label: i18n(['Background color (dark)', '背景色（夜间）']),
-                    default: '#242426'
+                    default: '#1c1c1e'
                   },
                   {
                     label: i18n(['Background image', '背景图']),
