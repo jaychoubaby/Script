@@ -1,9 +1,9 @@
 // Variables used by Scriptable.
 // These must be at the very top of the file. Do not edit.
-// icon-glyph: calendar-alt; icon-color: orange;
+// icon-color: orange; icon-glyph: calendar-alt;
 /**
- * @version 1.4.5
- * @author Honye
+ * @version 2.0.1
+ * @author back
  */
 
 /**
@@ -1501,11 +1501,11 @@ const withSettings = async (options) => {
 };
 
 const preference = {
-  themeColor: '#ff0000',
+  themeColor: '#eb5545',
   textColor: '#222222',
   textColorDark: '#ffffff',
-  weekendColor: '#8e8e93',
-  weekendColorDark: '#8e8e93',
+  weekendColor: '#98989e',
+  weekendColorDark: '#98989e',
   symbolName: 'flag.fill',
   eventMax: 3,
   eventMaxDays: 7,
@@ -1677,7 +1677,7 @@ const addTitle = (widget) => {
       month: family !== 'small' ? 'long' : 'short'
     }).toUpperCase()
   );
-  title.font = Font.semiboldSystemFont(11);
+  title.font = Font.mediumSystemFont(14);
   title.textColor = new Color(themeColor);
   head.addSpacer();
   const lunarDate = sloarToLunar(
@@ -1690,7 +1690,7 @@ const addTitle = (widget) => {
     lunarString = `${lunarDate.lunarYear}${$12Animals[lunarDate.lunarYear[1]]}年${lunarString}`;
   }
   const lunar = head.addText(lunarString);
-  lunar.font = Font.semiboldSystemFont(11);
+  lunar.font = Font.mediumSystemFont(12);
   lunar.textColor = new Color(themeColor);
 };
 
@@ -1764,7 +1764,7 @@ const addDay = async (
  * @param {CalendarEvent | Reminder} event
  */
 const addEvent = (stack, event) => {
-  const { eventFontSize } = preference;
+  const { eventFontSize, showWeek, showExpire } = preference;
   const { color } = event.calendar;
   const row = stack.addStack();
   row.layoutHorizontally();
@@ -1772,8 +1772,8 @@ const addEvent = (stack, event) => {
   row.size = new Size(-1, 28);
   const line = row.addStack();
   line.layoutVertically();
-  line.size = new Size(2.4, -1);
-  line.cornerRadius = 1.2;
+  line.size = new Size(5.4, -1);
+  line.cornerRadius = 5.2;
   line.backgroundColor = color;
   line.addSpacer();
 
@@ -1784,6 +1784,15 @@ const addEvent = (stack, event) => {
   title.font = Font.boldSystemFont(eventFontSize);
   const darkerColor = getDarkerColor(`#${color.hex}`);
   title.textColor = Color.dynamic(new Color(darkerColor), color);
+  const monthFormat = new Intl.DateTimeFormat([], {
+        month: 'numeric'
+  }).format;
+  const dayFormat = new Intl.DateTimeFormat([], {
+      day: 'numeric'
+  }).format;
+  const weekdayFormat = new Intl.DateTimeFormat('zh-CN', {
+        weekday: 'long' 
+  }).format;
   const dateFormat = new Intl.DateTimeFormat([], {
     month: '2-digit',
     day: '2-digit'
@@ -1798,7 +1807,10 @@ const addEvent = (stack, event) => {
   if (isToday(eventDate)) {
     items.push(i18n(['Today', '今天']));
   } else {
-    items.push(dateFormat(eventDate));
+    items.push(`${monthFormat(eventDate)}${dayFormat(eventDate)} `);
+    if (showWeek) {
+      items.push(`${weekdayFormat(eventDate)}`);
+    }
   }
   // Don't use `!isAllDay`, Reminder does not have `isAllDay` attribute
   if (event.isAllDay === false || event.dueDateIncludesTime) items.push(timeFormat(eventDate));
@@ -1807,9 +1819,11 @@ const addEvent = (stack, event) => {
   const startDayDate = new Date(eventDate);
   startDayDate.setHours(0, 0, 0, 0);
   const diff = (startDayDate - today) / (24 * 3600000);
-  if (diff > 0) items.push(`T+${Math.round(diff)}`);
+  if (showExpire) {
+    if (diff > 0) items.push(`T+${Math.round(diff)}`);
+  }
   const date = content.addText(items.join(' '));
-  date.font = Font.systemFont(eventFontSize * 12 / 13);
+  date.font = Font.mediumSystemFont(eventFontSize * 12 / 13);
   date.textColor = Color.gray();
   row.addSpacer();
 };
@@ -1849,7 +1863,7 @@ const addEvents = async (stack) => {
     (a, b) => (a.startDate || a.dueDate) - (b.startDate || b.dueDate)
   );
   const list = stack.addStack();
-  const holder = stack.addStack();
+  const holder = list.addStack();
   holder.layoutHorizontally();
   holder.addSpacer();
   list.layoutVertically();
@@ -1875,7 +1889,7 @@ const createWidget = async () => {
   const widget = new ListWidget();
   widget.url = 'calshow://';
   const lightColor = new Color('#fff');
-  const darkColor = new Color('#242426');
+  const darkColor = new Color('#1c1c1e');
   widget.backgroundColor = theme === 'light'
     ? lightColor
     : theme === 'dark'
@@ -1944,6 +1958,18 @@ const eventSettings = {
       type: 'switch',
       label: i18n(['Show reminders', '显示提醒事项']),
       default: preference.includesReminder
+    },
+    {
+      name: 'showWeek',
+      type: 'switch',
+      label: i18n(['Show week', '显示星期几']),
+      default: preference.showWeek
+    },
+    {
+      name: 'showExpire',
+      type: 'switch',
+      label: i18n(['Show expire', '显示到期天数']),
+      default: preference.showExpire
     },
     {
       name: 'layout',
