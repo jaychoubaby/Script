@@ -14,8 +14,8 @@ HOST,mojie.link,proxy
 # > 八戒
 HOST,bajie.info,proxy
 # > oracle 服务器
-IP-CIDR,131.186.45.20/32,proxy
-IP-CIDR,138.2.3.27/32,proxy
+# IP-CIDR,131.186.45.20/32,proxy
+# IP-CIDR,138.2.3.27/32,proxy
 # > 9527757
 HOST,9527757.xyz, proxy
 
