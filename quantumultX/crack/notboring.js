@@ -18,7 +18,7 @@
   
 # ～ Not Boring 四件套[天气、习惯、日历、时间] 解锁会员权限（2022-11-23）@ddgksf2013
 ^https?:\/\/api-weather\.andy\.works\/v\d\/\w{13,18}$ url reject-dict
-^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/*) url script-echo-response https://ocd0522.tk/ddgksf2013/Cuttlefish/raw/branch/master/Crack/notboring.js
+^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/*) url script-echo-response https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/crack/notboring.js
 
 [mitm] 
 
