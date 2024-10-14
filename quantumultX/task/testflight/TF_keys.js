@@ -2,9 +2,9 @@
 QuantumultX 添加脚本：
 *********************************
 QuantumultX重写引用地址：
-https://raw.githubusercontent.com/chouchoui/QuanX/master/Scripts/testflight/TF_keys.js
+https://raw.githubusercontent.com/jaychoubaby/Script/refs/heads/main/quantumultX/task/testflight/TF_keys.js
 [rewrite_local]
-^https:\/\/testflight\.apple\.com\/v3\/accounts/.*\/apps$ url script-request-header https://raw.githubusercontent.com/chouchoui/QuanX/master/Scripts/testflight/TF_keys.js
+^https:\/\/testflight\.apple\.com\/v3\/accounts/.*\/apps$ url script-request-header https://raw.githubusercontent.com/jaychoubaby/Script/refs/heads/main/quantumultX/task/testflight/TF_keys.js
 [mitm]
 hostname = testflight.apple.com
 *********************************/
