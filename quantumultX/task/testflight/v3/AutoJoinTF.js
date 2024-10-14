@@ -14,10 +14,10 @@
 hostname = testflight.apple.com
 
 [rewrite_local]
-^https:\/\/testflight\.apple\.com\/(v3\/accounts\/.*[^\/accept]|join\/[A-Za-z0-9]+)$ url script-request-header https://raw.githubusercontent.com/Yuheng0101/X/main/Tasks/AutoJoinTF.js
+^https:\/\/testflight\.apple\.com\/(v3\/accounts\/.*[^\/accept]|join\/[A-Za-z0-9]+)$ url script-request-header https://github.com/jaychoubaby/Script/raw/refs/heads/main/quantumultX/task/testflight/v3/AutoJoinTF.js
 
 [task_local]
-0/5 * * * * * https://raw.githubusercontent.com/Yuheng0101/X/main/Tasks/AutoJoinTF.js, tag=TF监控自动加入, img-url=https://raw.githubusercontent.com/githubdulong/Script/master/Images/testflight.png, enabled=true
+0/5 * * * * * https://github.com/jaychoubaby/Script/raw/refs/heads/main/quantumultX/task/testflight/v3/AutoJoinTF.js, tag=TF监控自动加入, img-url=https://raw.githubusercontent.com/githubdulong/Script/master/Images/testflight.png, enabled=true
 ******************************************
 Loon配置:
 [MITM]
