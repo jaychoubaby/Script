@@ -19,7 +19,7 @@ wps.Cookie = type=http-request, pattern=^https:\/\/(vip|account)(userinfo|\.wps\
 JD_extra_cookie = type=http-request, pattern=^https:\/\/api\.m\.jd\.com\/api\?functionId=GetJDUserInfoUnionForJD, script-path=https://raw.githubusercontent.com/jaychoubaby/Script/refs/heads/main/Surge/js/JD_extra_cookie.js,script-update-interval=-1, timeout=60
 
 [MITM]
-hostname = %APPEND% api.m.jd.com, logs.china-smartech.cn, m.mallcoo.cn, ccsp-egmas.sf-express.com, *.wps.cn
+hostname = %APPEND% api.m.jd.com, a.china-smartech.cn, m.mallcoo.cn, ccsp-egmas.sf-express.com, *.wps.cn
 
 
 
