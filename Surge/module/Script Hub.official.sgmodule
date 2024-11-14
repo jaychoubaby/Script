@@ -1,0 +1,19 @@
+#!name=Script Hub: 重写 & 规则集转换
+#!desc=https://script.hub
+#!author=@back
+#!category=Back™自用
+
+[General]
+force-http-engine-hosts = %APPEND% script.hub, *.script.hub
+
+[Script]
+Script Hub: 前端 = type=http-request, pattern=^https?:\/\/script\.hub\/($|edit\/|reload), script-path=https://raw.githubusercontent.com/jaychoubaby/Script/refs/heads/main/Surge/js/script-hub.js, timeout=300
+
+Script Hub: 重写转换 = type=http-request, pattern=^https?:\/\/script\.hub\/file\/_start_\/.+type=(?:qx-rewrite|surge-module|loon-plugin|all-module), script-path=https://raw.githubusercontent.com/jaychoubaby/Script/refs/heads/main/Surge/js/Rewrite-Parser.js, timeout=300, argument=Notify={{{Notify}}}
+
+Script Hub: 规则集转换 = type=http-request, pattern=^https?:\/\/script\.hub\/file\/_start_\/.+type=rule-set, script-path=https://raw.githubusercontent.com/jaychoubaby/Script/refs/heads/main/Surge/js/rule-parser.js, timeout=300, argument=Notify={{{Notify}}}
+
+Script Hub: 脚本转换 = type=http-request, pattern=^https?:\/\/script\.hub\/convert\/, script-path=https://raw.githubusercontent.com/jaychoubaby/Script/refs/heads/main/Surge/js/script-converter.js, timeout=300
+
+[MITM]
+hostname = %APPEND% script.hub, *.script.hub
