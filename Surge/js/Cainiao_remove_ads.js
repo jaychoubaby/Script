@@ -1,8 +1,3 @@
-/*
-脚本引用 https://raw.githubusercontent.com/RuCu6/Loon/refs/heads/main/Scripts/cainiao.js
-*/
-// 2024-10-31 14:55
-
 const url = $request.url;
 if (!$response.body) $done({});
 let obj = JSON.parse($response.body);
