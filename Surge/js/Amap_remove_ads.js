@@ -1,8 +1,3 @@
-/*
-引用地址 https://raw.githubusercontent.com/RuCu6/Loon/refs/heads/main/Scripts/amap.js
-*/
-// 2024-11-07 11:15
-
 const url = $request.url;
 if (!$response.body) $done({});
 let obj = JSON.parse($response.body);

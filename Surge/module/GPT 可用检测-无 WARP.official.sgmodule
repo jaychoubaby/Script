@@ -1,0 +1,12 @@
+#!name=ChatGPT Panel
+#!desc=Chatgpt可用区域检测随可用性更换ICON，no warp检测
+#!author=@back
+#!category=Back™自用
+
+
+[Panel]
+
+# GPT
+CFGPT = script-name=CFGPT,update-interval=-1
+[Script]
+CFGPT = type=generic,timeout=6,script-path=https://raw.githubusercontent.com/jaychoubaby/Script/refs/heads/main/Surge/js/CFGPT_2_nowarp.js,argument=icon=lasso.and.sparkles&iconerr=xmark.seal.fill&icon-color=#336FA9&iconerr-color=#D65C51
