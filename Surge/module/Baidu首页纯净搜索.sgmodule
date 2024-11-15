@@ -1,0 +1,12 @@
+#!name=Baidu百度
+#!desc=首页纯净搜索
+#!author=@back
+#!category=Back™自用
+
+[Map Local]
+# Baidu 首页纯净搜索
+^https?:\/\/(?:www|m)\.baidu\.com(?:\/|\/\?(tn=&)?from=\w+)?$ data-type=file data="https://raw.githubusercontent.com/jaychoubaby/Script/refs/heads/main/Surge/js/index.html" header="Content-Type: text/html; charset=utf-8"
+
+
+[MITM]
+hostname = m.baidu.com, www.baidu.com
