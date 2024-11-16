@@ -7,4 +7,4 @@
 美图秀秀 = type=http-response,requires-body=1,max-size=0,pattern=^https?://(api|h5).xiuxiu.meitu.com/(?!(v\d/feed/|v\d/search/|v\d/channel/)),script-path=https://raw.githubusercontent.com/jaychoubaby/Script/refs/heads/main/Surge/js/Mtxx.js
 
 [MITM]
-hostname = h5.xiuxiu.meitu.com, api.xiuxiu.meitu.com
+hostname = %APPEND% h5.xiuxiu.meitu.com, api.xiuxiu.meitu.com
