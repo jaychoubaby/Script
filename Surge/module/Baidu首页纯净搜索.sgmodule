@@ -9,4 +9,4 @@
 
 
 [MITM]
-hostname = m.baidu.com, www.baidu.com
+hostname = %APPEND% m.baidu.com, www.baidu.com
