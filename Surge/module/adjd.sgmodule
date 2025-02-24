@@ -4,8 +4,6 @@
 #!category=Back™自用
 
 [Script]
-亚朵酒店app = type=cron, cronexp="0 30 7 * * *", script-path=https://github.com/jaychoubaby/Script/raw/refs/heads/main/Surge/js/adjd.js, timeout=300
-
 亚朵酒店app获取token = type=http-request, pattern=^https:\/\/miniapp\.yaduo\.com\/atourlife\/signIn\/signIn.+, script-path=https://github.com/jaychoubaby/Script/raw/refs/heads/main/Surge/js/adjd.js, timeout=60
 
 [MITM]
