@@ -1,0 +1,14 @@
+#!name=小宇宙去开屏
+#!desc=小宇宙去开屏
+#!author=@back
+#!category=Back™自用
+
+[Rule]
+DOMAIN,ad.jia.360.cn,REJECT,extended-matching,pre-matching
+DOMAIN,ad.iot.360.cn,REJECT,extended-matching,pre-matching
+
+[Map Local]
+^https:\/\/api\.xiaoyuzhoufm\.com\/v1\/flash-screen\/list data-type=text data="{}" status-code=200
+
+[MITM]
+hostname = %APPEND% api.xiaoyuzhoufm.com
