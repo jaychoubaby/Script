@@ -136,6 +136,9 @@ function bookVenue() {
   }
   
   back.log(`${cookieName}, 开始预订场地...`)
+  back.log(`url:${url}`)
+  back.log(`Authorization:${authVal}`)
+  back.log(`requestBody:${JSON.stringify(requestBody)}`)
   back.post(url, (error, response, data) => {
     try {
       back.log(`${cookieName}, 预订结果: ${data}`)
