@@ -4,7 +4,7 @@
 #!category=Back™自用
 
 [Script]
-wxgym.Cookie = type=http-request, pattern=^https?:\/\/wxgym\.whsu.edu.cn\/prod-api\/system\/sCardUser\/detailed, script-path=https://raw.githubusercontent.com/jaychoubaby/Script/refs/heads/main/Surge/js/wxgym.cookie.js, timeout=60
+wxgym.Cookie = type=http-request, pattern=^https?:\/\/wxgym\.whsu.edu.cn\/prod-api\/system\/order\/create, script-path=https://raw.githubusercontent.com/jaychoubaby/Script/refs/heads/main/Surge/js/wxgym.cookie.js, timeout=60
 
 [MITM]
 hostname = %APPEND% wxgym.whsu.edu.cn
