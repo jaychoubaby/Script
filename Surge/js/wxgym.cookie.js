@@ -1,19 +1,22 @@
-const cookieName = '武汉体育学院健身房'
+const cookieName = 'wxgym_cookie'
 const authKey = 'wxgym_auth_key'
 const headerKey = 'wxgym_header_key'
+const bodyKey = 'wxgym_body_key'
 const urlKey = 'wxgym_url_key'
-const wxgym = init()
+const back = init()
 
 if ($request && $request.method != 'OPTIONS') {
   const urlVal = $request.url
   const headerVal = JSON.stringify($request.headers)
+  const bodyVal = JSON.stringify($request.body)
   const authVal = $request.headers['Authorization'] || $request.headers['authorization']
   
-  if (urlVal) wxgym.setdata(urlVal, urlKey)
-  if (headerVal) wxgym.setdata(headerVal, headerKey)
-  if (authVal) wxgym.setdata(authVal, authKey)
+  if (urlVal) back.setdata(urlVal, urlKey)
+  if (headerVal) back.setdata(headerVal, headerKey)
+  if (authVal) back.setdata(authVal, authKey)
+  if (bodyVal) back.setdata(bodyVal, bodyKey)
   
-  wxgym.msg(cookieName, `获取Cookie: 成功`, `已保存授权信息`)
+  back.msg(cookieName, `获取Cookie: 成功`, `已保存授权信息`)
 }
 
 function init() {
@@ -59,4 +62,4 @@ function init() {
   }
   return { isSurge, isQuanX, msg, log, getdata, setdata, get, post, done }
 }
-wxgym.done()
+back.done()
