@@ -1,0 +1,440 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 5px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+header h1 {
+    color: #0066cc;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.user-info {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.date-selector, .court-selector, .token-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.date-selector label, .court-selector label, .token-selector label {
+    font-weight: bold;
+    min-width: 80px;
+    font-size: 14px;
+}
+
+#date-picker, #auth-token {
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    flex: 1;
+}
+
+#auth-token {
+    font-size: 12px;
+    font-family: monospace;
+}
+
+.court-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    flex: 1;
+}
+
+.court-btn {
+    padding: 8px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    flex: 1;
+    min-width: 80px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.court-btn.active {
+    background-color: #0066cc;
+    color: white;
+    border-color: #0066cc;
+}
+
+.court-info {
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.court-info h2 {
+    color: #0066cc;
+    margin-bottom: 2px;
+    font-size: 1.2rem;
+}
+
+.weekday {
+    color: #666;
+    font-size: 14px;
+}
+
+.status-legend {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.action-btn {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.action-btn:hover {
+    background-color: #0055aa;
+}
+
+.selected-count {
+    font-size: 13px;
+    color: #1db954;
+    font-weight: bold;
+}
+
+.loading {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.loading.show {
+    display: flex;
+}
+
+.spinner {
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #0066cc;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 8px;
+}
+
+.error {
+    display: none;
+    color: #cc0000;
+    background-color: #ffe6e6;
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 13px;
+}
+
+/* 卡片视图 */
+.courts-container.card-view {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 8px;
+}
+
+/* 表格视图 */
+.courts-container.table-view {
+    display: block;
+    overflow-x: auto;
+}
+
+.court-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 15px;
+}
+
+.court-table th, 
+.court-table td {
+    border: 1px solid #ddd;
+    padding: 6px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.court-table th {
+    background-color: #f5f5f5;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.court-table .time-cell {
+    font-weight: bold;
+    background-color: #f5f5f5;
+    position: sticky;
+    left: 0;
+    z-index: 5;
+}
+
+.court-table .cell-available {
+    background-color: #e6f7ff;
+    cursor: pointer;
+}
+
+.court-table .cell-occupied {
+    background-color: #ffe6e6;
+}
+
+.court-table .cell-unavailable {
+    background-color: #f5f5f5;
+    color: #999;
+}
+
+.court-table .cell-selected {
+    background-color: #ccffcc;
+    cursor: pointer;
+}
+
+/* 卡片样式 */
+.court-card {
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    overflow: hidden;
+}
+
+.court-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #0066cc;
+    margin-bottom: 6px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.court-slots {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* 可选的时间段样式 */
+.time-slot.available, 
+.time-slot.selected {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.time-slot.available:hover, 
+.time-slot.selected:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.time-slot {
+    padding: 6px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.slot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+.slot-time {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.slot-price {
+    color: #e67e22;
+    font-size: 12px;
+}
+
+.slot-status {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 2px 0;
+}
+
+.slot-remark {
+    font-size: 11px;
+    color: #666;
+    margin: 2px 0;
+    font-style: italic;
+}
+
+.available {
+    background-color: #e6f7ff;
+    border: 1px solid #b3e0ff;
+}
+
+.occupied {
+    background-color: #ffe6e6;
+    border: 1px solid #ffcccc;
+}
+
+.unavailable {
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+}
+
+.selected {
+    background-color: #ccffcc;
+    border: 1px solid #99ee99;
+}
+
+.available .slot-status {
+    color: #0066cc;
+}
+
+.occupied .slot-status {
+    color: #cc0000;
+}
+
+.unavailable .slot-status {
+    color: #999;
+}
+
+.selected .slot-status {
+    color: #1db954;
+}
+
+/* 操作提示 */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* 手机端适配 */
+@media (max-width: 768px) {
+    body {
+        padding: 3px;
+    }
+
+    header h1 {
+        font-size: 1.1rem;
+    }
+    
+    .user-info {
+        font-size: 0.7rem;
+    }
+
+    .controls {
+        padding: 8px;
+    }
+
+    .date-selector, .court-selector, .token-selector {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .court-buttons {
+        width: 100%;
+    }
+
+    .court-btn {
+        padding: 6px 5px;
+        font-size: 12px;
+        min-width: 0;
+    }
+
+    #date-picker, #auth-token {
+        width: 100%;
+    }
+
+    .courts-container.card-view {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+}

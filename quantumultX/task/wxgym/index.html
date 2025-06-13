@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网球场预订查询系统</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>网球场预订查询系统</h1>
+            <div class="user-info">
+                <span id="current-datetime">2025-06-13 06:13:39</span> | 
+                <span id="username">jaychoubaby</span>
+            </div>
+        </header>
+
+        <div class="controls">
+            <div class="date-selector">
+                <label for="date-picker">选择日期：</label>
+                <input type="date" id="date-picker">
+            </div>
+            <div class="token-selector">
+                <label for="auth-token">授权Token：</label>
+                <input type="text" id="auth-token" placeholder="输入授权Token...">
+            </div>
+            <div class="court-selector">
+                <label>选择场地：</label>
+                <div class="court-buttons">
+                    <button id="lakeside" class="court-btn active">湖边网球场</button>
+                    <button id="new-court" class="court-btn">新网球场</button>
+                    <button id="old-three" class="court-btn">老三片</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>加载中...</p>
+        </div>
+
+        <div class="error" id="error-message"></div>
+
+        <div class="court-info">
+            <h2 id="court-title">湖边网球场</h2>
+            <div id="weekday" class="weekday"></div>
+        </div>
+
+        <div class="status-legend">
+            <div class="legend-item">
+                <div class="legend-color available"></div>
+                <span>可预订</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color occupied"></div>
+                <span>已预订</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color unavailable"></div>
+                <span>不可用</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color selected"></div>
+                <span>已选择</span>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button id="toggle-view" class="action-btn">切换为表格视图</button>
+            <span id="selected-count" class="selected-count">已选择：0个</span>
+        </div>
+
+        <div class="courts-container" id="courts-container">
+            <!-- 场地卡片将由JavaScript动态生成 -->
+        </div>
+
+        <!-- 操作提示 -->
+        <div class="toast" id="action-toast">操作成功</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
