@@ -778,6 +778,68 @@
             ]
         },
         {
+            "id": "wxgym",
+            "name": "wxgym定场",
+            "keys": [
+                "wxgym_header_key",
+                "wxgym_body_key",
+                "wxgym_url_key",
+                "wxgym_auth_key"
+            ],
+            "descs_html": [
+                ""
+            ],
+            "settings": [{
+                    "id": "wxgym_header_key",
+                    "name": "header",
+                    "val": "",
+                    "type": "text",
+                    "placeholder": "",
+                    "autoGrow": true,
+                    "rows": 1,
+                    "desc": ""
+                },
+                {
+                    "id": "wxgym_body_key",
+                    "name": "body",
+                    "val": "",
+                    "type": "text",
+                    "placeholder": "",
+                    "autoGrow": true,
+                    "rows": 1,
+                    "desc": ""
+                },{
+                    "id": "wxgym_url_key",
+                    "name": "url",
+                    "val": "",
+                    "type": "text",
+                    "placeholder": "",
+                    "autoGrow": true,
+                    "rows": 1,
+                    "desc": ""
+                },{
+                    "id": "wxgym_auth_key",
+                    "name": "auth",
+                    "val": "",
+                    "type": "text",
+                    "placeholder": "",
+                    "autoGrow": true,
+                    "rows": 1,
+                    "desc": ""
+                }
+            ],
+            "author": "@back",
+            "repo": "",
+            "scripts": [{
+                "name": "wxgym定场",
+                "script": ""
+            }],
+            "icons": [
+                "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/wxgym/icon.png",
+                "https://raw.githubusercontent.com/jaychoubaby/Script/main/quantumultX/task/wxgym/icon.png"
+            ]
+        },
+        {
             "id": "gist",
             "name": "Gist 备份",
             "keys": [
