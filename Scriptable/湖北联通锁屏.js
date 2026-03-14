@@ -104,12 +104,12 @@ const fetchData = async () => {
         data._fresh = true;
         return data;
     } catch (e) {
-        const data = cache.read('data.json');
-        if (data) { data._fresh = false; return data; }
+        //const data = cache.read('data.json');
+        //if (data) { data._fresh = false; return data; }
         return {
-            balanceData: { amount: '--' },
-            flowData: { left: 0, total: 1 },
-            voiceData: { left: 0, total: 1 },
+            balanceData: { amount: '0' },
+            flowData: { left: 0, total: 0 },
+            voiceData: { left: 0, total: 0 },
             _fresh: false
         };
     }
