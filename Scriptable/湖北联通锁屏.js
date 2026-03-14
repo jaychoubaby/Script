@@ -104,8 +104,8 @@ const fetchData = async () => {
         data._fresh = true;
         return data;
     } catch (e) {
-        const data = cache.read('data.json');
-        if (data) { data._fresh = false; return data; }
+        //const data = cache.read('data.json');
+        //if (data) { data._fresh = false; return data; }
         return {
             balanceData: { amount: '0' },
             flowData: { left: 0, total: 0 },
