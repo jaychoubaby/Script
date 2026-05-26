@@ -1,0 +1,14 @@
+#!name=TheDayBefore
+#!desc=TheDayBefore ad block rewrite
+
+[URL Rewrite]
+^https?:\/\/lh3\.googleadsserving\.cn\/ - reject
+^https?:\/\/cdn\.chinaliftoff-creatives\.io\/customers\/ - reject
+# ^https?:\/\/www\.gstatic\.com\/ - reject
+^https?:\/\/graph\.facebook\.com\/ - reject
+^https?:\/\/thecouple\.page\.link\/promotionTab - reject
+^https?:\/\/pagead2\.googlesyndication-cn\.com\/pcs\/activeview - reject
+^https?:\/\/googleads\.g\.doubleclick-cn\.net\/mads\/gma - reject
+
+[MITM]
+hostname = %APPEND% lh3.googleadsserving.cn, cdn.chinaliftoff-creatives.io, www.gstatic.com, graph.facebook.com, thecouple.page.link, pagead2.googlesyndication-cn.com, googleads.g.doubleclick-cn.net
