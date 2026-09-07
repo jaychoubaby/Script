@@ -1,0 +1,10 @@
+#!name=一点万象
+#!desc=一点万象app 自动化签到
+
+[Script]
+mixc_signin = type=http-request, pattern=^https?:\/\/app\.mixcapp\.com\/mixc\/gateway, script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/refs/heads/main/mixc_signin.js, requires-body=true, max-size=-1, timeout=60
+
+一点万象签到 = type=cron, cronexp=1 0 * * *, script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/refs/heads/main/mixc_signin.js, timeout=120, wake-system=1
+
+[MITM]
+hostname = %APPEND% app.mixcapp.com
