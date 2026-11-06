@@ -1,0 +1,195 @@
+port: 7890                # HTTP 代理端口
+socks-port: 1080          # Socks 端口
+mixed-port: 7893          # 混合端口
+allow-lan: false          # 禁止局域网连接
+bind-address: "127.0.0.1" # 仅监听本机
+mode: rule                # 规则模式
+log-level: info           # 日志级别
+ipv6: false               # IPV6开关
+external-controller: 127.0.0.1:9090
+
+# 保存面板中的策略组选择及 fake-ip 缓存
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  listen: 127.0.0.1:1053  # 使用非特权端口，仅允许本机访问
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - localhost.ptlogin2.qq.com
+    - +.srv.nintendo.net
+    - +.stun.playstation.net
+    - +.msftconnecttest.com
+    - +.msftncsi.com
+    - +.xboxlive.com
+    - msftconnecttest.com
+    - xbox.*.microsoft.com
+    - "*.battlenet.com.cn"
+    - "*.battlenet.com"
+    - "*.blzstatic.cn"
+    - "*.battle.net"
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+
+#========= 建立锚点 =========#
+
+proxies:
+  - name: 🇯🇵lin-trojan
+    type: trojan
+    server: x.x.x.x
+    port: xxxx
+    password: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    skip-cert-verify: true
+
+  - name: 🇯🇵back-trojan
+    type: trojan
+    server: x.x.x.x
+    port: xxxx
+    password: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    skip-cert-verify: true
+
+  - name: 🇯🇵jay-trojan
+    type: trojan
+    server: x.x.x.x
+    port: xxxx
+    password: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    skip-cert-verify: true
+
+
+# 策略组引用
+pr:   &a3 {type: select,   proxies: [auto, 🇭🇰香港, 🇯🇵日本, 🇺🇸美国, 🇨🇳台湾, 🇸🇬新加坡, DIRECT] }
+p:    &a1 {type: http,     interval: 86400, health-check: {enable: true, url: http://www.gstatic.com/generate_204, interval: 1800} }
+auto: &a4 {type: url-test, lazy: true, url: http://www.gstatic.com/generate_204, interval: 900, use: [Sub] }
+use:  &a2 {type: select,   use: [Sub] }
+c:    &a6 {type: http,     behavior: classical, interval: 86400}
+d:    &a5 {type: http,     behavior: domain,    interval: 86400}
+i:    &a7 {type: http,     behavior: ipcidr,    interval: 86400}
+
+proxy-providers:
+  Sub:
+    <<: *a1
+    url: https://api.nexconvert.com/sub?target=clash&url=请手动填入你的订阅&emoji=true&list=true&new_name=true&udp=false
+    # URL后面填写格式1[单一订阅]: 直接填写你的机场Clash订阅[推荐此种方式，避免订阅泄露]
+    # URL后面填写格式2[多个订阅]：https://api.nexconvert.com/sub?target=clash&url=请手动填入你的订阅(多机场订阅用|分割即可)&emoji=true&list=true&new_name=true&udp=false
+    path: ./proxy_providers/tmp.yaml
+
+proxy-groups:
+# 分流分组
+  - {name: OpenAI, type: select, proxies: [🇺🇸美国]}
+  - {name: Gemini, type: select, proxies: [🇺🇸美国]}
+  - {name: Google, type: select, proxies: [🇺🇸美国]}
+  - {name: Claude, type: select, proxies: [🇺🇸美国]}
+  - {name: Final, <<: *a3}
+
+# 节点分组
+  - {name: auto, <<: *a4, proxies: [🇯🇵lin-trojan, 🇯🇵back-trojan, 🇯🇵jay-trojan]}
+  - {name: 🇭🇰香港, <<: *a4, filter: "港|🇭🇰|HK|(?i)Hong"} # a4更改为a2，即为手动选择
+  - {name: 🇯🇵日本, <<: *a4, proxies: [🇯🇵lin-trojan, 🇯🇵back-trojan, 🇯🇵jay-trojan], filter: "日|东京|🇯🇵|JP|(?i)Japan"      } # a4更改为a2，即为手动选择
+  - {name: 🇨🇳台湾, <<: *a4, filter: "台|湾|🇹🇼|TW|(?i)Taiwan"} # a4更改为a2，即为手动选择
+  - {name: 🇺🇸美国, <<: *a4, filter: "美|🇺🇸|US|(?i)States|American"} # a4更改为a2，即为手动选择
+  - {name: 🇸🇬新加坡, <<: *a4, filter: "新|坡|🇸🇬|SG|(?i)Singapore"} # a4更改为a2，即为手动选择
+
+# 分流规则
+rule-providers:
+  Advertising: {<<: *a6, url: https://github.linseas.com/https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/Advertising/Advertising.yaml, path: ./ruleset/Advertising.yaml}
+  WeChat:      {<<: *a6, url: https://github.linseas.com/https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/WeChat/WeChat.yaml, path: ./ruleset/WeChat.yaml}
+  Lan:         {<<: *a6, url: https://github.linseas.com/https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/Lan/Lan.yaml, path: ./ruleset/Lan.yaml}
+  Apple:       {<<: *a6, url: https://github.linseas.com/https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/Apple/Apple.yaml, path: ./ruleset/Apple.yaml}
+  OpenAI:      {<<: *a6, url: https://github.linseas.com/https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml, path: ./ruleset/OpenAI.yaml}
+  Gemini:      {<<: *a6, url: https://github.linseas.com/https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/Gemini/Gemini.yaml, path: ./ruleset/Gemini.yaml}
+  Google:      {<<: *a6, url: https://github.linseas.com/https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/Google/Google.yaml, path: ./ruleset/Google.yaml}
+  Claude:      {<<: *a6, url: https://github.linseas.com/https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/Claude/Claude.yaml, path: ./ruleset/Claude.yaml}
+  Instagram:   {<<: *a6, url: https://github.linseas.com/https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/Instagram/Instagram.yaml, path: ./ruleset/Instagram.yaml}
+  Spotify:     {<<: *a6, url: https://github.linseas.com/https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/Spotify/Spotify.yaml, path: ./ruleset/Spotify.yaml}
+  Reddit:      {<<: *a6, url: https://github.linseas.com/https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/Reddit/Reddit.yaml, path: ./ruleset/Reddit.yaml}
+  Oracle:      {<<: *a6, url: https://github.linseas.com/https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/Oracle/Oracle.yaml, path: ./ruleset/Oracle.yaml}
+  GitHub:      {<<: *a6, url: https://github.linseas.com/https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/GitHub/GitHub.yaml, path: ./ruleset/GitHub.yaml}
+  YouTube:     {<<: *a6, url: https://github.linseas.com/https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/YouTube/YouTube.yaml, path: ./ruleset/YouTube.yaml}
+  Twitter:     {<<: *a6, url: https://github.linseas.com/https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/Twitter/Twitter.yaml, path: ./ruleset/Twitter.yaml}
+  Steam:       {<<: *a6, url: https://github.linseas.com/https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/Steam/Steam.yaml, path: ./ruleset/Steam.yaml}
+  GlobalMedia: {<<: *a6, url: https://github.linseas.com/https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/GlobalMedia/GlobalMedia.yaml, path: ./ruleset/GlobalMedia.yaml}
+  Global:      {<<: *a6, url: https://github.linseas.com/https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/Global/Global.yaml, path: ./ruleset/Global.yaml}
+  Direct:      {<<: *a6, url: https://github.linseas.com/https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/Direct/Direct.yaml, path: ./ruleset/Direct.yaml}
+
+rules:
+  # 广告拦截
+  - RULE-SET,Advertising,REJECT
+
+  # back：自定义直连
+  - DOMAIN-SUFFIX,linseas.com,DIRECT
+  - DOMAIN-SUFFIX,qwen.ai,DIRECT
+  - DOMAIN-SUFFIX,hybgzs.com,DIRECT
+
+  # 自定义自动选择节点
+  - DOMAIN-SUFFIX,nssurge.com,auto
+  - DOMAIN-SUFFIX,bajie,auto
+  - DOMAIN-SUFFIX,bajie.pro,auto
+  - DOMAIN-SUFFIX,bajie.one,auto
+  - DOMAIN-SUFFIX,mojie.cyou,auto
+  - DOMAIN-SUFFIX,brew.sh,auto
+  - DOMAIN-SUFFIX,v2ex.com,auto
+  - DOMAIN-SUFFIX,nodeseek.com,auto
+  - DOMAIN-SUFFIX,reddit.com,auto
+  - DOMAIN-SUFFIX,dify.ai,auto
+  - DOMAIN-SUFFIX,greasyfork.org,auto
+  - DOMAIN,missav.ai,auto
+  - DOMAIN,missav.ws,auto
+  - DOMAIN-SUFFIX,warp.dev,auto
+  - DOMAIN-SUFFIX,proton.me,auto
+  - DOMAIN-SUFFIX,codex-pets.net,auto
+  - DOMAIN-SUFFIX,steamserver.net,auto
+  - DOMAIN-SUFFIX,steamcontent.com,auto
+  - DOMAIN-SUFFIX,steamcommunity.com,auto
+  - DOMAIN-SUFFIX,steampowered.com,auto
+
+  # linux.do 等
+  - DOMAIN-SUFFIX,linux.do,auto
+  - DOMAIN-SUFFIX,ldcstore.com,auto
+
+  # Manus 固定美国节点
+  - DOMAIN-SUFFIX,manus.im,🇺🇸美国
+  - DOMAIN-SUFFIX,manuscdn.com,🇺🇸美国
+
+  # jzt：工作相关域名直连
+  - DOMAIN,nexus.jzterp.net,DIRECT
+  - DOMAIN-SUFFIX,jzterp.net,DIRECT
+  - DOMAIN-SUFFIX,jk.com,DIRECT
+  - DOMAIN-SUFFIX,jztdjk.cn,DIRECT
+  - DOMAIN-SUFFIX,jztweb.com,DIRECT
+  - DOMAIN-SUFFIX,jzthis.com,DIRECT
+  - DOMAIN,git.yyjzt.com,DIRECT
+  - DOMAIN-SUFFIX,cyxrmyy.com,DIRECT
+
+  # 国内域名直连
+  - DOMAIN-SUFFIX,cn,DIRECT
+  - DOMAIN-KEYWORD,-cn,DIRECT
+
+  # 原有分类规则
+  - RULE-SET,WeChat,DIRECT
+  - RULE-SET,Lan,DIRECT
+  - RULE-SET,Apple,DIRECT
+  - RULE-SET,OpenAI,OpenAI
+  - RULE-SET,Gemini,Gemini
+  - RULE-SET,Google,Google
+  - RULE-SET,Claude,Claude
+  - RULE-SET,Instagram,auto
+  - RULE-SET,Spotify,🇯🇵日本
+  - RULE-SET,Reddit,auto
+  - RULE-SET,Oracle,🇯🇵日本
+  - RULE-SET,GitHub,auto
+  - RULE-SET,YouTube,auto
+  - RULE-SET,Twitter,auto
+  - RULE-SET,Steam,auto
+  - RULE-SET,GlobalMedia,auto
+  - RULE-SET,Global,auto
+  - RULE-SET,Direct,DIRECT
+
+  # 兜底规则
+  - GEOIP,CN,DIRECT
+  - MATCH,Final
